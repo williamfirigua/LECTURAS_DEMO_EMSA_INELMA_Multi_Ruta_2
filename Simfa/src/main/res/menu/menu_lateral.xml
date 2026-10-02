@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/nav_anomalia" android:title="Capturar Anomalía" android:icon="@drawable/ic_warning"/>
+    <item
+        android:id="@+id/nav_cuenta"
+        android:icon="@drawable/ic_person_add"
+        android:title="Repor. Cambio Medidor" />
+    <item android:id="@+id/nav_informe" android:title="Capturar Informe" android:icon="@drawable/ic_description"/>
+    <item android:id="@+id/nav_ant_predio" android:title="Anterior Predio Leido" android:icon="@drawable/ic_history"/>
+    <item android:id="@+id/nav_buscar" android:title="Buscar Cliente" android:icon="@drawable/ic_search"/>
+    <item android:id="@+id/nav_gps" android:title="Ayuda GPS" android:icon="@drawable/ic_location"/>
+    <item android:id="@+id/nav_mapa" android:title="Mapa" android:icon="@drawable/ic_map"/>
+    <item android:id="@+id/nav_enviar_lecturas" android:title="Enviar Lecturas" android:icon="@drawable/ic_send"/>
+    <item android:id="@+id/nav_procesar_reenvio" android:title="Procesar Reenvio GPRS" android:icon="@drawable/ic_sync"/>
+    <item android:id="@+id/nav_no_enviados" android:title="Evaluar No enviadas GPRS" android:icon="@drawable/ic_report"/>
+    <item android:id="@+id/nav_faltantes" android:title="Faltantes de Cierre !" android:icon="@drawable/ic_error"/>
+    <item android:id="@+id/nav_enviar_fotos" android:title="Enviar Fotos" android:icon="@drawable/ic_camera"/>
+    <item android:id="@+id/nav_archivos_cierre" android:title="Enviar: Archivos Cierre" android:icon="@drawable/ic_folder"/>
+    <item android:id="@+id/nav_estadistica" android:title="Estadística" android:icon="@drawable/ic_bar_chart"/>
+    <item android:id="@+id/nav_mensajeria" android:title="Mensajería" android:icon="@drawable/ic_chat"/>
+    <item android:id="@+id/nav_cambiar_tamano" android:title="Cambiar Tamaño Pantalla" android:icon="@drawable/ic_zoom"/>
+    <item android:id="@+id/nav_reimpresion" android:title="Reimprimir Soporte" android:icon="@drawable/ic_edit"/>
+    <item android:id="@+id/nav_selimpresora" android:title="Seleccionar Impresora" android:icon="@drawable/icon_impresora"/>
+    <item android:id="@+id/nav_tecladonumeros" android:title="Cambio Color Numeros" android:icon="@drawable/iconlapiz"/>
+    <item android:id="@+id/nav_opciones_supervisor" android:title="Modo Supervisor" android:icon="@drawable/usuario1"/>
+</menu>

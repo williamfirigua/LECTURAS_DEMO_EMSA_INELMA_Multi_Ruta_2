@@ -1,0 +1,55 @@
+{
+    "logs": [
+        {
+            "outputFile": "E:\\Proyectos pc Manuel\\Proyectos Android\\Hesego\\LecturasHesego\\designSupportLibraryProject\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\ASUS\\.gradle\\caches\\transforms-2\\files-2.1\\7b9fa7a5489fde2af90e775294f271f4\\material-1.0.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2,10",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,553",
+                        "endColumns": "59,63",
+                        "endOffsets": "110,612"
+                    },
+                    "to": {
+                        "startLines": "10,18",
+                        "startColumns": "4,4",
+                        "startOffsets": "611,1159",
+                        "endColumns": "59,63",
+                        "endOffsets": "666,1218"
+                    }
+                },
+                {
+                    "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\Hesego\\LecturasHesego\\designSupportLibraryProject\\build\\intermediates\\packaged_res\\debug\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,196,268,326,384,490,543,606",
+                        "endLines": "2,3,4,5,6,7,8,9,13",
+                        "endColumns": "69,70,71,57,57,105,52,62,12",
+                        "endOffsets": "120,191,263,321,379,485,538,601,783"
+                    },
+                    "to": {
+                        "startLines": "11,12,13,14,15,16,17,19,20",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "671,741,812,884,942,1000,1106,1223,1286",
+                        "endLines": "11,12,13,14,15,16,17,19,23",
+                        "endColumns": "69,70,71,57,57,105,52,62,12",
+                        "endOffsets": "736,807,879,937,995,1101,1154,1281,1463"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\ASUS\\.gradle\\caches\\transforms-2\\files-2.1\\b75bd6e3c518d773128b48b7d01c2eba\\appcompat-1.0.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,124,193,263,337,413,472,543",
+                        "endColumns": "68,68,69,73,75,58,70,67",
+                        "endOffsets": "119,188,258,332,408,467,538,606"
+                    }
+                }
+            ]
+        }
+    ]
+}

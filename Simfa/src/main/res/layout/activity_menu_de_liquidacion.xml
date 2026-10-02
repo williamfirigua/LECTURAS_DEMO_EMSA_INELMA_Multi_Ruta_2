@@ -1,0 +1,731 @@
+<androidx.drawerlayout.widget.DrawerLayout
+    android:id="@+id/drawer_layout"
+    android:windowSoftInputMode="stateAlwaysHidden"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- 🔥 CONTENIDO PRINCIPAL -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <!-- nuevo arriba CONTENIDO PRINCIPAL -->
+    <LinearLayout
+        android:id="@+id/contenedorPrincipal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:orientation="vertical">
+        <!-- 🔥 NUEVO TOOLBAR -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:background="@color/orangeCelsia"
+            android:title="OKINNOM.LEC-"
+            android:titleTextColor="@color/white"
+
+            />
+
+        <TableLayout
+            android:id="@+id/tabla_fondo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/orangeCelsia">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+            </TableRow>
+            <!--       <TextView
+                       android:id="@+id/tituloFila"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="OKINNOM.LEC-HESEGO"
+                       android:textStyle="bold"
+                       android:textColor="#FFFFFF"
+                       android:textSize="10sp"
+                       android:padding="1dp"/>-->
+            <TableRow
+                android:id="@+id/tablaMenu"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/orangeCelsia"
+                >
+
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imagenPrinter"
+                        android:layout_width="58dp"
+                        android:layout_height="68dp"
+                        android:background="@drawable/bg_cycle"
+                        android:elevation="4dp"
+                        android:scaleType="centerCrop"
+                        android:padding="8dp"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/impresora_inactiva"
+                        />
+
+                    <ImageView
+                        android:id="@+id/imagenRed"
+                        android:layout_width="58dp"
+                        android:layout_height="68dp"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/red_inactiva"
+                        android:background="@drawable/bg_cycle"
+                        android:elevation="4dp"
+                        android:scaleType="centerCrop"
+                        android:padding="8dp"
+                        />
+
+                    <ImageView
+                        android:id="@+id/imagenChat"
+                        android:layout_width="48dp"
+                        android:layout_height="68dp"
+                        android:background="@drawable/bg_cycle"
+                        android:elevation="4dp"
+                        android:scaleType="centerCrop"
+                        android:padding="8dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:contentDescription="@string/red_inactiva"
+                        android:focusable="true"
+                         />
+
+                    <ImageView
+                        android:id="@+id/imagenLiquid_3"
+                        android:layout_width="58dp"
+                        android:layout_height="68dp"
+                        android:background="@drawable/bg_cycle"
+                        android:elevation="4dp"
+                        android:scaleType="centerCrop"
+                        android:padding="8dp"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/red_inactiva" />
+
+                    <ImageView
+                        android:id="@+id/imagenLiquid_2"
+                        android:layout_width="58dp"
+                        android:layout_height="68dp"
+                        android:background="@drawable/bg_cycle"
+                        android:elevation="4dp"
+                        android:scaleType="centerCrop"
+                        android:padding="8dp"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/red_inactiva"
+                        android:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/imagenLiquid_1"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_cycle"
+                        android:contentDescription="@string/red_inactiva"
+                        android:elevation="4dp"
+                        android:padding="8dp"
+                        android:scaleType="centerCrop"
+                        android:visibility="gone" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar_cyclic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:minWidth="48dp"
+                        android:visibility="invisible"
+                        android:progressTint="@color/white"
+                        android:indeterminateTint="@android:color/white"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true" />
+                    <ImageView
+                        android:id="@+id/imagenmenu"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:contentDescription="Menu"
+                        android:padding="2dp"
+                        android:background="@drawable/bg_circle_button"
+                        android:src="@drawable/imagenmenu"
+                        android:tint="#FFFFFF"
+                        android:scaleType="centerCrop"/>
+
+
+                    <!--               <Spinner
+                                       android:id="@+id/spinnerMenu"
+                                       android:layout_width="wrap_content"
+                                       android:layout_height="40dp"
+                                       android:layout_gravity="center_vertical"
+                                       android:background="@color/blueCelsia"
+                                       android:popupBackground="@color/blueCelsia"
+                                       android:spinnerMode="dropdown"
+                                       android:theme="@style/style_items" />-->
+
+                </LinearLayout>
+
+            </TableRow>
+        </TableLayout>
+
+        <RelativeLayout
+            android:id="@+id/panelLecturas1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:scrollbars="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/linlout1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TableLayout
+                        android:id="@+id/cabecera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TableLayout>
+
+                    <ScrollView
+                        android:id="@+id/scroll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="80dp"
+                        android:minHeight="80dp"
+                        android:scrollbars="horizontal|vertical">
+
+                        <LinearLayout
+                            android:id="@+id/linlout2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TableLayout
+                                android:id="@+id/tablaResumen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                            </TableLayout>
+
+                        </LinearLayout>
+
+                    </ScrollView>
+                    <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <ImageButton
+                            android:id="@+id/btnAtras"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_weight="1"
+                            android:contentDescription="@string/atras_un_registro"
+                            android:background="@drawable/bg_cycle2"
+                            android:elevation="6dp"
+                            android:scaleType="centerCrop"
+                            android:padding="4dp"
+                            android:src="@android:drawable/ic_media_previous"
+                            android:visibility="visible"/>
+
+                        <ImageButton
+                            android:id="@+id/btnPrimero"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_weight="1"
+                            android:contentDescription="@string/primer_registro"
+                            android:background="@drawable/bg_cycle2"
+                            android:elevation="6dp"
+                            android:scaleType="centerCrop"
+                            android:padding="4dp"
+                            android:src="@android:drawable/ic_media_rew" />
+
+                        <ImageButton
+                            android:id="@+id/btnUltimo"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_weight="1"
+                            android:contentDescription="@string/ultimo_registro"
+                            android:background="@drawable/bg_cycle2"
+                            android:elevation="6dp"
+                            android:scaleType="centerCrop"
+                            android:padding="4dp"
+                            android:src="@android:drawable/ic_media_ff" />
+
+                        <ImageButton
+                            android:id="@+id/btnAdelante"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_weight="1"
+                            android:contentDescription="@string/adelanta_un_registro"
+                            android:background="@drawable/bg_cycle2"
+                            android:elevation="6dp"
+                            android:scaleType="centerCrop"
+                            android:padding="4dp"
+                            android:src="@android:drawable/ic_media_next"
+                            android:visibility="visible"/>
+
+
+                        <ImageButton
+                            android:id="@+id/btnActivaScanner"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_weight="0"
+                            android:background="@drawable/bg_cycle2"
+                            android:contentDescription="@string/adelanta_un_registro"
+                            android:elevation="6dp"
+                            android:padding="4dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/escaner_de_codigo"
+                            android:visibility="visible" />
+
+                        <ImageButton
+                            android:id="@+id/btnFotografia"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_cycle2"
+                            android:contentDescription="Fotografia"
+                            android:elevation="6dp"
+                            android:padding="4dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/camarareflexdigital" />
+
+                        <ImageButton
+                            android:id="@+id/btnBuscar"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_cycle2"
+                            android:contentDescription="Buscar"
+                            android:elevation="6dp"
+                            android:padding="4dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/buscar_usuario" />
+
+
+                    </TableRow>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/horizontalView"
+                android:orientation="horizontal">
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    >
+
+                    <EditText
+                        android:id="@+id/txtElectura"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_weight="2"
+                        android:background="@drawable/bg_input"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:hint="👉 DIGITE LECTURA"
+                        android:inputType="number|phone"
+                        android:padding="2dp"
+                        android:textColorHint="#FF9800"
+                        android:textSize="34sp"
+                        android:textStyle="bold"
+                        android:windowSoftInputMode="stateAlwaysHidden" />
+                    <TextView
+                        android:id="@+id/lblInfoMedida"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginLeft="2dp"
+                        android:gravity="right"
+                        android:text="0"
+                        android:textSize="20dp"
+                        android:textStyle="bold|italic" />
+
+                    <ImageButton
+                        android:id="@+id/btnAnomalia"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="right|bottom"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/bg_cycle2"
+                        android:contentDescription="Causales"
+                        android:elevation="6dp"
+                        android:gravity="right"
+                        android:padding="4dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/deteccion1" />
+                    <!--                </RelativeLayout >-->
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/txtMedidorCuenta"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="2dp"
+                        android:background="@color/grayBlueSoft"
+                        android:ems="10"
+                        android:layout_weight="6"
+                        android:inputType="number|textNoSuggestions"
+                        android:textSize="18sp"
+                        android:hint="# Medidor"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/lblpuntero"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@color/grayBlueSoft"
+                        android:layout_weight="4"
+                        android:text="0"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                </TableRow>
+
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txtLatitud"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:background="@color/grayBlue"
+                        android:hint=""
+                        android:maxLength="14"
+                        android:text="0.00"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/txtLongitud"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:background="@color/grayBlue"
+                        android:hint=""
+                        android:maxLength="14"
+                        android:text="0.00"
+                        android:textSize="14sp" />
+
+                </TableRow>
+
+                <android.inputmethodservice.KeyboardView
+                    android:id="@+id/keyboardview"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtLatitud"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:keyTextSize="28dp"
+                    android:visibility="gone"
+
+                    />
+                <!--            android:keyBackground="@color/bluePopHard"-->
+
+            </TableLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/Boton1"
+        android:layout_width="115dp"
+        android:layout_height="60dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="2dp"
+        app:cardBackgroundColor="@color/bluePopHard"
+        app:layout_constraintTop_toBottomOf="@+id/contenedorPrincipal"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:text="1"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/Boton2"
+        android:layout_width="115dp"
+        android:layout_height="60dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        app:cardBackgroundColor="@color/bluePopHard"
+        app:layout_constraintTop_toBottomOf="@+id/contenedorPrincipal"
+        app:layout_constraintStart_toEndOf="@+id/Boton1">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:text="2"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/Boton3"
+        android:layout_width="115dp"
+        android:layout_height="60dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        app:cardBackgroundColor="@color/bluePopHard"
+        app:layout_constraintTop_toBottomOf="@+id/contenedorPrincipal"
+        app:layout_constraintStart_toEndOf="@+id/Boton2">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:text="3"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/Boton4"
+        android:layout_width="115dp"
+        android:layout_height="60dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="2dp"
+        app:cardBackgroundColor="@color/bluePopHard"
+        app:layout_constraintTop_toBottomOf="@id/Boton1"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:text="4"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/Boton5"
+        android:layout_width="115dp"
+        android:layout_height="60dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        app:cardBackgroundColor="@color/bluePopHard"
+        app:layout_constraintTop_toBottomOf="@id/Boton2"
+        app:layout_constraintStart_toEndOf="@+id/Boton4">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:text="5"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/Boton6"
+        android:layout_width="115dp"
+        android:layout_height="60dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        app:cardBackgroundColor="@color/bluePopHard"
+        app:layout_constraintTop_toBottomOf="@id/Boton3"
+        app:layout_constraintStart_toEndOf="@+id/Boton5">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:text="6"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/Boton7"
+        android:layout_width="115dp"
+        android:layout_height="60dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="2dp"
+        app:cardBackgroundColor="@color/bluePopHard"
+        app:layout_constraintTop_toBottomOf="@id/Boton4"
+        app:layout_constraintStart_toStartOf="parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:text="7"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/Boton8"
+        android:layout_width="115dp"
+        android:layout_height="60dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        app:cardBackgroundColor="@color/bluePopHard"
+        app:layout_constraintTop_toBottomOf="@id/Boton5"
+        app:layout_constraintStart_toEndOf="@+id/Boton7">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:text="8"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/Boton9"
+        android:layout_width="115dp"
+        android:layout_height="60dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        app:cardBackgroundColor="@color/bluePopHard"
+        app:layout_constraintTop_toBottomOf="@id/Boton6"
+        app:layout_constraintStart_toEndOf="@+id/Boton8">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:text="9"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/Boton0"
+        android:layout_width="115dp"
+        android:layout_height="60dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        app:cardBackgroundColor="@color/bluePopHard"
+        app:layout_constraintTop_toBottomOf="@id/Boton8"
+        app:layout_constraintStart_toEndOf="@+id/BotonDel">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:text="0"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/BotonDel"
+        android:layout_width="115dp"
+        android:layout_height="60dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="2dp"
+        app:cardBackgroundColor="@color/bluePopHard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Boton7">
+
+        <ImageView
+            android:id="@+id/delete"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+
+            app:srcCompat="@drawable/backspace" />
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/BotonOk"
+        android:layout_width="115dp"
+        android:layout_height="60dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        app:cardBackgroundColor="@color/bluePopHard"
+        app:layout_constraintTop_toBottomOf="@id/Boton9"
+        app:layout_constraintStart_toEndOf="@+id/Boton0">
+        <TextView
+            android:id="@+id/Btn_ok"
+            android:layout_width="match_parent"
+            android:textColor="@color/white"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:text="OK"
+            android:textSize="40sp"
+            android:textStyle="bold"/>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- 🔥 MENÚ LATERAL -->
+    <!-- android:layout_gravity="start"-->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:background="#F5F6FA"
+        app:itemIconTint="@color/orangeCelsia"
+        app:menu="@menu/menu_lateral"
+        app:itemTextColor="@color/blueCelsia"
+        app:itemBackground="@drawable/menu_item_bg"
+        app:itemHorizontalPadding="16dp"
+        app:itemTextAppearance="@style/MenuTextStyle"/>
+</androidx.drawerlayout.widget.DrawerLayout>

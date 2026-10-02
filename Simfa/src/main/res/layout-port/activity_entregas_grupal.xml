@@ -1,0 +1,326 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:orientation="vertical"
+    tools:context="com.gstolima.moduloentregasgrupal.ModuloEntregasGrupal">
+
+    <TableLayout
+        android:id="@+id/tableLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TableRow
+            android:id="@+id/tableComunicaciones"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/certificado"
+            android:gravity="right"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <TextView
+                android:id="@+id/txtTitleComunicaciones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:layout_weight="1"
+                android:background="@color/orangeCelsia"
+                android:gravity="center|bottom"
+                android:text="ENTREGA GRUPAL"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:textStyle="bold">
+
+            </TextView>
+        </TableRow>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:shrinkColumns="0"
+        android:stretchColumns="0">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="Nombre"
+                android:textStyle="bold"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/txtNombreEntregrupal"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="2"
+                android:background="@drawable/bg_bordes"
+                android:inputType="textCapWords"
+                android:maxLength="48"
+                android:hint="Nombre"
+                android:paddingLeft="3dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="Telefono"
+                android:textStyle="bold"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/txtTelefEntregrupal"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="2dp"
+                android:layout_weight="2"
+                android:background="@drawable/bg_bordes"
+                android:inputType="number"
+                android:maxLength="20"
+                android:hint="Telefono"
+                android:paddingLeft="3dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="54dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="Cuenta"
+                android:textStyle="bold"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/txtCuentaEntregrupal"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="2dp"
+                android:layout_weight="2"
+                android:background="@drawable/bg_bordes"
+                android:inputType="number"
+                android:maxLength="9"
+                android:paddingLeft="3dp"
+                android:text="Cuenta" />
+
+            <ImageView
+                android:id="@+id/imagennoexiste"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="2dp"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/btnActivaScannEg"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/adelanta_un_registro"
+                android:padding="0dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/escaner_de_codigo" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Cuenta Principal"
+                android:textStyle="bold"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Ultima Cuenta Leida"
+                android:textStyle="bold"
+                android:textSize="16dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <EditText
+                android:id="@+id/txtCuentaPpal"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="2dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_bordes"
+                android:focusable="false"
+                android:inputType="number"
+                android:maxLength="9"
+                android:hint="Cuenta Princ."
+                android:paddingLeft="3dp" />
+
+            <EditText
+                android:id="@+id/txtCuentaLeida"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_bordes"
+                android:focusable="false"
+                android:inputType="number"
+                android:hint="Ultima Cuenta"
+                android:maxLength="9"
+                android:paddingLeft="3dp" />
+
+        </TableRow>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lista Entregas"
+            android:textStyle="bold"
+            android:textSize="16dp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@color/bluePopSoft" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:id="@+id/tblcabeceraforo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </TableLayout>
+
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="170dp"
+                android:layout_marginTop="1dip"
+                android:fillViewport="true"
+                android:scrollbarStyle="outsideInset"
+                android:contentDescription="Lista de Entrega"
+                android:scrollbars="horizontal|vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TableLayout
+                        android:id="@+id/tblaforos"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="1dp">
+
+                    </TableLayout>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@color/bluePopSoft" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="70dp"
+                android:layout_marginTop="2dp"
+                android:gravity="right"
+                android:text="Total"
+                android:textStyle="bold"
+                android:textSize="16dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnRetornarEntregag"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_boton_redondeado"
+                android:text="Retornar"
+                android:textStyle="bold"
+                android:textColor="@color/white" />
+
+            <EditText
+                android:id="@+id/txtTotalEntregrupal"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="2"
+                android:background="@drawable/bg_bordes"
+                android:focusable="false"
+                android:maxLength="8"
+                android:hint="Grupo"
+                android:paddingLeft="3dp" />
+
+        </TableRow>
+    </TableLayout>
+    </TableLayout>
+</LinearLayout>

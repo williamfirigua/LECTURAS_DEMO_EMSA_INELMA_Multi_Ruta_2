@@ -1,0 +1,1322 @@
+[
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_bg_boton1.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxxhdpi\\bg_boton1.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v11_imagen_verificar_predio.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xhdpi-v11\\imagen_verificar_predio.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_enviardatos.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-mdpi\\enviardatos.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_regreso.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\regreso.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_opciones_supervisor.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_opciones_supervisor.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_buscar.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\buscar.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_informacion.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\informacion.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_notificacion.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\notificacion.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_webserviceoff.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-hdpi\\webserviceoff.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_buscarusuario1.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\buscarusuario1.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v9_buscar.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi-v9\\buscar.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v9_chat_msg_no.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-hdpi-v9\\chat_msg_no.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_validarenvio.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-hdpi\\validarenvio.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ic_location.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ic_location.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_borrador.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxhdpi\\borrador.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ic_bar_chart.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ic_bar_chart.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_modulo_consultnoenviads.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_modulo_consultnoenviads.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ic_lectura2.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ic_lectura2.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_webserviceon.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxhdpi\\webserviceon.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_enviarfotos.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxhdpi\\enviarfotos.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ddm300.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xhdpi\\ddm300.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_sobre.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\sobre.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\xml_file_paths.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\xml\\file_paths.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_salidadeemergencia.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\salidadeemergencia.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v11_icon_camera.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-hdpi-v11\\icon_camera.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_loginnew.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_loginnew.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_operadomovil.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\operadomovil.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_camara.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xhdpi\\camara.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_gui_acceso.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_gui_acceso.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_formato_de_sinarchivo.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\formato_de_sinarchivo.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ic_sync.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ic_sync.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_borrarimagen.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxhdpi\\borrarimagen.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_borrador.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-mdpi\\borrador.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_eliminarinfo.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxxhdpi\\eliminarinfo.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_traerruta.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xhdpi\\traerruta.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v9_version2.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-mdpi-v9\\version2.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_imagenmenu.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\imagenmenu.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_bg_button.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\bg_button.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v11_enertolima.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xhdpi-v11\\enertolima.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_computadora.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\computadora.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_imagen_lecturas_iguales.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\imagen_lecturas_iguales.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_printer3.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-mdpi\\printer3.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ic_send.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ic_send.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_pindeubicacion.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\pindeubicacion.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ic_chat.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ic_chat.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_medios_de_comunicacion_social.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\medios_de_comunicacion_social.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_borrarbckpfotos.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xhdpi\\borrarbckpfotos.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_btnindocs300.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-mdpi\\btnindocs300.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_protecciondedatos1.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\protecciondedatos1.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_bg_boton_primario.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\bg_boton_primario.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_bg_cycle2.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\bg_cycle2.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_bateria4.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\bateria4.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_inicialecturas_w.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxxhdpi\\inicialecturas_w.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_borrador.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-hdpi\\borrador.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_modulo_busqueda_cuenta.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_modulo_busqueda_cuenta.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v9_bg_bordes.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-mdpi-v9\\bg_bordes.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_gps.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\gps.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_enviardatos.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-hdpi\\enviardatos.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ic_folder.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ic_folder.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_eliminarinfo.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-hdpi\\eliminarinfo.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v9_iconborrador.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xhdpi-v9\\iconborrador.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_informacion1.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\informacion1.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ajustes.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-mdpi\\ajustes.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_icon_volver.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\icon_volver.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_traerruta.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-ldpi\\traerruta.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\xml_keyboard.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\xml\\keyboard.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_inicialecturas_w.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xhdpi\\inicialecturas_w.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_inicialecturas_w.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-mdpi\\inicialecturas_w.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ubicaciondelmapa.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ubicaciondelmapa.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_testigo.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\testigo.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_btnindocs42.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-ldpi\\btnindocs42.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_traerruta.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-mdpi\\traerruta.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_validarenvio.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxhdpi\\validarenvio.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_bluetooth.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\bluetooth.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_busqueda.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\busqueda.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_rutero12.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\rutero12.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_lapiz.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-mdpi\\lapiz.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_validarenvio.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-ldpi\\validarenvio.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ubicacion.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ubicacion.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_integrador.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\integrador.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_webserviceon.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-mdpi\\webserviceon.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_cambiar_estado_suspension.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_cambiar_estado_suspension.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_pic_lectura.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\pic_lectura.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_imagen_prin_apagada.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\imagen_prin_apagada.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_saliralsistema1.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\saliralsistema1.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v9_edittextstyle.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi-v9\\edittextstyle.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_sys_speechbubbledoble.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\sys_speechbubbledoble.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_bg_chip.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\bg_chip.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_icon_asignarnolectura.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\icon_asignarnolectura.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-tvdpi_ddm300.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-tvdpi\\ddm300.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_btnindocs300.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxxhdpi\\btnindocs300.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_modulo_cambio_digitos.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_modulo_cambio_digitos.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\menu_resumen_estadistico.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\menu\\resumen_estadistico.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_traerruta.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxhdpi\\traerruta.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_imagen_consumo_muy_alto.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\imagen_consumo_muy_alto.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v9_fondo_no_seleccionado.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi-v9\\fondo_no_seleccionado.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ic_description.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ic_description.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v11_imagen_verificar_predio.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-hdpi-v11\\imagen_verificar_predio.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_inicialecturas_w.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-hdpi\\inicialecturas_w.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_servidorenlinea.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\servidorenlinea.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_borrador.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxxhdpi\\borrador.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_bg_input.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\bg_input.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_menu_de_liquidacion.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_menu_de_liquidacion.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ddm300.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\ddm300.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_delete.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\delete.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_sys_bluetooth.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\sys_bluetooth.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v11_scanner2.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi-v11\\scanner2.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_icon_bluetooth.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\icon_bluetooth.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_redinativa.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\redinativa.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_tabla_celda.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\tabla_celda.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v11_imagen_verificar_predio.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi-v11\\imagen_verificar_predio.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_enviardatos.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-ldpi\\enviardatos.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_enviardatos.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxhdpi\\enviardatos.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_configurar_web_ip.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_configurar_web_ip.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ajustes.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-hdpi\\ajustes.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher1.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\ic_launcher1.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_borrarbckpfotos.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-hdpi\\borrarbckpfotos.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_camarareflexdigital.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\camarareflexdigital.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ic_report.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ic_report.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_webserviceon.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-hdpi\\webserviceon.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_bg_cycle.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\bg_cycle.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_estadobateria.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\estadobateria.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_fondos_global_1.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\fondos_global_1.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_borrador.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xhdpi\\borrador.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_seekbar_slider.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\seekbar_slider.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_insertar.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_insertar.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout-port_fila.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout-port\\fila.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_validarenvio.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxxhdpi\\validarenvio.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_veritas2logo.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\veritas2logo.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_act_licencia.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_act_licencia.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_webserviceon.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xhdpi\\webserviceon.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v11_icon_camera_flash.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-hdpi-v11\\icon_camera_flash.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_icon_activa_camara_off.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\icon_activa_camara_off.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_eliminarinfo.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxhdpi\\eliminarinfo.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_camera.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_camera.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_adelante.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-mdpi\\adelante.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ic_map.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ic_map.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ic_camera.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ic_camera.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_borrarimagen.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxxhdpi\\borrarimagen.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_cortado.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\cortado.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_traerruta.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-hdpi\\traerruta.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ic_zoom.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ic_zoom.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ic_flash_off.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ic_flash_off.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_resumen_estadistico.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_resumen_estadistico.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ubicaciondelmapa2.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ubicaciondelmapa2.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_freewifi.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\freewifi.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_icon_fecha.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\icon_fecha.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_webserviceoff.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxhdpi\\webserviceoff.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_celda_cuerpo.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-ldpi\\celda_cuerpo.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_borrarbckpfotos.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-mdpi\\borrarbckpfotos.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_atras1.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-mdpi\\atras1.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_lapiz.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xhdpi\\lapiz.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_electrico2.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\electrico2.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ic_cerrar.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ic_cerrar.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_lapiz.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxhdpi\\lapiz.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_comunicacionesant.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_comunicacionesant.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v9_backspace.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-mdpi-v9\\backspace.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_enviarfotos.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-hdpi\\enviarfotos.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_eliminar23.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\eliminar23.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_email.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\email.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v11_icon_camera_flashno.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-hdpi-v11\\icon_camera_flashno.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_simle_logolecturas2.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\simle_logolecturas2.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_eliminarinfo.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-mdpi\\eliminarinfo.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_webserviceoff.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xhdpi\\webserviceoff.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_electrico1.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\electrico1.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_webserviceoff.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-mdpi\\webserviceoff.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_escaner_de_codigo.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\escaner_de_codigo.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_enviarfotos.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxxhdpi\\enviarfotos.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_tabla_celda1.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\tabla_celda1.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_borrarbckpfotos.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxhdpi\\borrarbckpfotos.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ubicaciondelmapa1.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ubicaciondelmapa1.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_icon_activa_camara_on.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\icon_activa_camara_on.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_enviardatos.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xhdpi\\enviardatos.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_flecha.jpg.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-mdpi\\flecha.jpg"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout-port_activity_entregas_grupal.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout-port\\activity_entregas_grupal.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout-port_activity_actualiza_aforos.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout-port\\activity_actualiza_aforos.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_btnindocs300.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-hdpi\\btnindocs300.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_imagen_consumo_bajo.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\imagen_consumo_bajo.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ic_error.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ic_error.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_validarenvio.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-mdpi\\validarenvio.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_iconborrarredondo.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-mdpi\\iconborrarredondo.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ajustes.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxhdpi\\ajustes.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_recibidos.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_recibidos.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_firma.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_firma.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\menu_menu_lateral.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\menu\\menu_lateral.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v11_imagen_verificar_predio.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-mdpi-v11\\imagen_verificar_predio.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_bg_input2.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\bg_input2.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_inicialecturas_w.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxhdpi\\inicialecturas_w.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v11_icon_camera_ok.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-hdpi-v11\\icon_camera_ok.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_device_name.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\device_name.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_buscar_usuario.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\buscar_usuario.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_capturar_informe.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_capturar_informe.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_borrarbckpfotos.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxxhdpi\\borrarbckpfotos.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_alfiler.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\alfiler.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_pindeubicacion1.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\pindeubicacion1.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_seekbar_layer.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\seekbar_layer.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_certificado.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\certificado.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v11_icon_camera_cancel.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-hdpi-v11\\icon_camera_cancel.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_bg_boton_zoom.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\bg_boton_zoom.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_menu_item_bg.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\menu_item_bg.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_flprimero.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-mdpi\\flprimero.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_contratada.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\contratada.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_fondos_global.jpg.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\fondos_global.jpg"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_lapiz.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-hdpi\\lapiz.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ic_search.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ic_search.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_imagen_postal.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\imagen_postal.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_bg_icon_button_selector.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\bg_icon_button_selector.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ajustes.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xhdpi\\ajustes.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_adelante1.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-mdpi\\adelante1.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_eliminarinfo.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xhdpi\\eliminarinfo.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ic_history.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ic_history.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_verificar.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\verificar.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_retornodelainversion.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\retornodelainversion.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_rfondos_global.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\rfondos_global.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_impresora.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\impresora.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v9_chat_msg_si.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-hdpi-v9\\chat_msg_si.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_enviarfotos.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-mdpi\\enviarfotos.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_primero.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-mdpi\\primero.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v11_celsialogo.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xhdpi-v11\\celsialogo.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_fechay_hora.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_fechay_hora.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_tabla_celda_cabecera.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\tabla_celda_cabecera.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_comunicaciones.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_comunicaciones.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ic_person_add.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ic_person_add.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_webserviceoff.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxxhdpi\\webserviceoff.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_camara_foto.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_camara_foto.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_sys_person_contact.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\sys_person_contact.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_device_list.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\device_list.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v9_iconeliminar.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xhdpi-v9\\iconeliminar.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_cuenta_nueva.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_cuenta_nueva.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v11_icon_camera_flip.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-hdpi-v11\\icon_camera_flip.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_usuario1.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-mdpi\\usuario1.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_enviardatos.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxxhdpi\\enviardatos.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_icon_impresora.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\icon_impresora.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_validarenvio.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xhdpi\\validarenvio.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ultimo1.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-mdpi\\ultimo1.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_modulo_de_anomalias.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_modulo_de_anomalias.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_importante.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\importante.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_camara_foto_legacy.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_camara_foto_legacy.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_txt_remote_device.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_txt_remote_device.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_spinner_menu.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\spinner_menu.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\anim_rotar.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\anim\\rotar.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_btnindocs300.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxhdpi\\btnindocs300.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_formato_de_archivo.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\formato_de_archivo.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v9_iconvolverredondo.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xhdpi-v9\\iconvolverredondo.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-tvdpi_scanner.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-tvdpi\\scanner.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_mensajeria.jpg.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\mensajeria.jpg"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_panel_comentarios.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_panel_comentarios.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_comunica1.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\comunica1.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_cam.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\cam.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_retornar31.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\retornar31.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_redactiva.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\redactiva.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v9_iconguardar.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xhdpi-v9\\iconguardar.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ic_check.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ic_check.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_borrarimagen.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-mdpi\\borrarimagen.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_enviarfotos.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-ldpi\\enviarfotos.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\menu_modulo_de_anomalias.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\menu\\modulo_de_anomalias.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_regreso1.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\regreso1.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ic_edit.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ic_edit.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_cerrarconllave.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\cerrarconllave.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\menu_main.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\menu\\main.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v9_fondo_seleccionado.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi-v9\\fondo_seleccionado.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ultimo.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-mdpi\\ultimo.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_traerruta.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxxhdpi\\traerruta.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_act_gps.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_act_gps.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_bateriacargada1.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\bateriacargada1.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ripple_effect.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ripple_effect.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_bg_indicador_enfoque.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\bg_indicador_enfoque.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_btnindocs300.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xhdpi\\btnindocs300.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_atras.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-mdpi\\atras.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_imagen_negativo.bmp.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\imagen_negativo.bmp"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_enviarfotos.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xhdpi\\enviarfotos.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_avatar_man_icono.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-hdpi\\avatar_man_icono.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ddm300.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxxhdpi\\ddm300.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ic_warning.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ic_warning.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_webserviceon.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxxhdpi\\webserviceon.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_borrarimagen.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xhdpi\\borrarimagen.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_celda_cabecera.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-ldpi\\celda_cabecera.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_bg_boton_redondeado.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\bg_boton_redondeado.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_bg_card.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\bg_card.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_item_simple_pequeno.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\item_simple_pequeno.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_icon_mic.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\icon_mic.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\menu_gui_acceso.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\menu\\gui_acceso.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_bg_botonestados.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\bg_botonestados.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ic_upload.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ic_upload.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_menu_principal.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_menu_principal.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_bg_boton_captura.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\bg_boton_captura.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_novedad.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\novedad.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_bg_boton_secundario.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\bg_boton_secundario.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\menu_menu_principal.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\menu\\menu_principal.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_sys_calculator2.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\sys_calculator2.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_imagen_verificarpredio.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\imagen_verificarpredio.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ic_flash_on.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ic_flash_on.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v11_anomalia.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi-v11\\anomalia.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_maps.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_maps.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_imagen_negativo1.bmp.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi\\imagen_negativo1.bmp"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_olvide_la_contrasena_de_movil.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\olvide_la_contrasena_de_movil.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_utilitario31.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\utilitario31.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_wifi_1.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\wifi_1.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_loading_activity.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\loading_activity.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v9_selector_filas.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xxhdpi-v9\\selector_filas.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_deteccion1.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\deteccion1.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v9_iconlapiz.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xhdpi-v9\\iconlapiz.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_lapiz.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxxhdpi\\lapiz.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v11_oldenertolima.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-xhdpi-v11\\oldenertolima.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_bg_bordecomun.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\bg_bordecomun.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_bg_card2.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\bg_card2.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_borrarimagen.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-hdpi\\borrarimagen.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_entrega.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\entrega.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ic_lectura.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ic_lectura.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ajustes.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\mipmap-xxxhdpi\\ajustes.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_ubicacion1.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\ubicacion1.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_bg_circle_button.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\bg_circle_button.xml"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_protecciondedatos.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\protecciondedatos.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_camara.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\camara.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_hesego.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\hesego.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v9_noexiste.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-hdpi-v9\\noexiste.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_borrarbckpfotos.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable-ldpi\\borrarbckpfotos.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_obrero.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\obrero.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\drawable_electrico.png.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\drawable\\electrico.png"
+    },
+    {
+        "merged": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\res\\merged\\debug\\layout_activity_chat.xml.flat",
+        "source": "E:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\src\\main\\res\\layout\\activity_chat.xml"
+    }
+]

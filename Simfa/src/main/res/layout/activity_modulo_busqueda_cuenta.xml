@@ -1,0 +1,163 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingBottom="@dimen/activity_vertical_margin" android:paddingLeft="@dimen/activity_horizontal_margin" android:paddingRight="@dimen/activity_horizontal_margin" android:paddingTop="@dimen/activity_vertical_margin" tools:context="com.gstolima.modulobusquedacuenta.ModuloBusquedaCuenta">
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <TableLayout android:id="@+id/tableLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TableRow
+                android:id="@+id/tableRowBusqueda"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <ImageButton
+                    android:id="@+id/btnLogos"
+                    android:layout_width="96dp"
+                    android:layout_height="80dp"
+                    android:background="@color/zxing_transparent"
+                    android:contentDescription="@string/info"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/simle_logolecturas2" />
+
+                <TextView
+                    android:id="@+id/txtTitleBusqueda"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:layout_weight="1"
+                    android:background="@color/orangeCelsia"
+                    android:gravity="center|bottom"
+                    android:text="BUSQUEDA"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"></TextView>
+            </TableRow>
+            <ImageButton
+                android:id="@+id/btnLogos2"
+                android:layout_width="396dp"
+                android:layout_height="80dp"
+                android:background="@color/zxing_transparent"
+                android:contentDescription="@string/info"
+                android:scaleType="centerInside"
+                android:src="@drawable/olvide_la_contrasena_de_movil" />
+
+            <!-- HEADER -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔎 BÚSQUEDA DE USUARIO"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#333"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"/>
+            <!-- SELECTOR TIPO BUSQUEDA -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <RadioGroup
+                    android:id="@+id/rgBotones"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- CHIP -->
+                    <RadioButton
+                        android:id="@+id/rbContador"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="🔢 Medidor"
+                        android:background="@drawable/bg_chip"
+                        android:button="@null"
+                        android:padding="10dp"
+                        android:layout_margin="4dp"/>
+
+                    <RadioButton
+                        android:id="@+id/rbCuenta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="💳 Cuenta"
+                        android:background="@drawable/bg_chip"
+                        android:button="@null"
+                        android:padding="10dp"
+                        android:layout_margin="4dp"/>
+
+                    <RadioButton
+                        android:id="@+id/rbRuta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="🗺 Ruta"
+                        android:background="@drawable/bg_chip"
+                        android:button="@null"
+                        android:padding="10dp"
+                        android:layout_margin="4dp"/>
+
+                    <RadioButton
+                        android:id="@+id/rbDireccion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="📍 Dirección"
+                        android:background="@drawable/bg_chip"
+                        android:button="@null"
+                        android:padding="10dp"
+                        android:layout_margin="4dp"/>
+
+                    <RadioButton
+                        android:id="@+id/rbNombre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="👤 Nombre"
+                        android:background="@drawable/bg_chip"
+                        android:button="@null"
+                        android:padding="10dp"
+                        android:layout_margin="4dp"/>
+                </RadioGroup>
+            </HorizontalScrollView>
+            <EditText android:id="@+id/txtBuscar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/rgBotones"
+                android:background="@drawable/bg_input"
+                android:ems="10"
+                android:maxLength="63"
+                android:inputType="text"
+                android:hint="DIGITE VALOR A BUSCAR"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceLarge">
+                <requestFocus/>
+            </EditText>
+            <!-- INFO DINÁMICA -->
+            <TextView
+                android:id="@+id/txtTipoBusqueda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Buscando por: Cuenta"
+                android:textColor="#1976D2"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+            <HorizontalScrollView android:id="@+id/horizontalView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignLeft="@+id/rgBotones" android:layout_alignParentBottom="true" android:layout_marginTop="15px" android:scrollbars="horizontal">
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="20dp" android:orientation="vertical">
+                    <TableLayout android:id="@+id/cabeceraDatos" android:layout_width="wrap_content" android:layout_height="wrap_content"> </TableLayout>
+                    <ScrollView android:id="@+id/scroll" android:layout_width="wrap_content" android:layout_height="280dp" android:scrollbars="horizontal|vertical">
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical">
+                            <TableLayout android:id="@+id/tablaResumenDatos" android:layout_width="wrap_content" android:layout_height="wrap_content" android:clickable="true"> </TableLayout>
+                        </LinearLayout>
+                    </ScrollView>
+                </LinearLayout>
+            </HorizontalScrollView>
+        </TableLayout>
+    </LinearLayout>
+</RelativeLayout>

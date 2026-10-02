@@ -1,0 +1,75 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <!--
+        Bridge: mantiene compatibilidad con vistas AppCompat existentes
+        mientras habilita MaterialCardView, FloatingActionButton, etc.
+        NO cambiar a Theme.MaterialComponents sin .Bridge salvo que
+        todos los layouts estén migrados a Material Components.
+    -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <item name="colorPrimary">#95547d</item>
+        <item name="colorPrimaryDark">#303F9F</item>
+        <item name="colorAccent">#0069FF</item>
+    </style>
+
+    <!-- Estilos de texto — sin cambios -->
+    <style name="etiqueta">
+        <item name="android:typeface">normal</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="campo">
+        <item name="android:typeface">normal</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">17dp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <!--
+        Tema de la pantalla de camara. El tema AppCompat normal trae un windowBackground
+        claro y opaco: mientras el Surface todavia no existe, el sistema pinta esa ventana
+        blanca completa, que es el destello que se ve al abrir la camara y un pase de dibujo
+        de mas. Con fondo negro y sin preview de ventana, la transicion va directo a la vista.
+    -->
+    <style name="TemaCamara" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AlertDialogTheme" parent="android:Theme.Dialog">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="estilo_celda">
+        <item name="android:typeface">normal</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="style_items" parent="android:Theme.Light">
+        <item name="android:divider">#ffffff</item>
+        <item name="android:dividerHeight">2dp</item>
+    </style>
+
+    <style name="MenuTextStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/blueCelsia</item>
+    </style>
+
+    <style name="ToolbarTitleStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+</resources>

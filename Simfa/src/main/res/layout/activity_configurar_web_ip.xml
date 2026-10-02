@@ -1,0 +1,348 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gstolima.comunicaciones.Configurar_webIp">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp"
+            tools:ignore="UselessParent">
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btnLogos"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/info"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/redactiva" />
+
+
+                <TextView
+                    android:layout_width="400dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="bottom|center"
+                    android:layout_weight="1"
+                    android:background="@color/orangeCelsia"
+                    android:gravity="center|bottom"
+                    android:text="CONFIGURACION WEB"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_card"
+                android:elevation="6dp"
+                android:orientation="horizontal"
+                android:padding="20dp"></LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <CheckBox
+                    android:id="@+id/chkIp1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Activa IP1" />
+
+                <CheckBox
+                    android:id="@+id/chkIp2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Activa IP2" />
+
+                <CheckBox
+                    android:id="@+id/chkHttp1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Https?:" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/bg_card"
+                android:elevation="6dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/lblIpws"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="IP WS"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="18sp" />
+                <EditText
+                    android:id="@+id/txtdirWs"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_input"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:textColor="#AA2323">
+
+                    <requestFocus />
+
+                </EditText>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/bg_card"
+                android:elevation="6dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/lblNombreServicioWeb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Nombre Servicio Web:"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/txtDescServWeb"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_input"
+                    android:ems="10"
+                    android:enabled="true"
+                    android:inputType="textMultiLine|textFilter"
+                    android:textColor="#AA2323" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/bg_card"
+                android:elevation="6dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/lblrutaadministrador"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Ruta Administrador:"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/txtrutaadmin"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_input"
+                    android:ems="10"
+                    android:enabled="true"
+                    android:inputType="textMultiLine|textFilter"
+                    android:textColor="#AA2323" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_card"
+                android:elevation="6dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/lblpuertoAPI"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Puerto comunicaciones API:"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/edtxPuertoAPI"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_input"
+                    android:ems="10"
+                    android:enabled="true"
+                    android:inputType="textUri"
+                    android:hint="https://meta.inelma.info/api/"
+                    android:textColor="#AA2323" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/lblMaxRegEnvio"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Registros por envio:"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/edtxMaxRegEnvio"
+                        android:layout_width="80dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/bg_input"
+                        android:gravity="center"
+                        android:hint="50"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:textColor="#AA2323" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+            <TableRow
+                android:id="@+id/tableRow6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btnGrabarIp"
+                    style="@style/AppTheme"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_input"
+                    android:backgroundTint="#FF6A00"
+                    android:text="Establecer Datos"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnPruebaWs"
+                    style="@style/AppTheme"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_input"
+                    android:backgroundTint="#FF6A00"
+                    android:text="PRUEBA WS"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/lblTransmite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow9"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp">
+
+                <ImageView
+                    android:id="@+id/iconwebserviceon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginTop="10dp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="RED ACTIVA"
+                    android:maxWidth="36dp"
+                    android:maxHeight="36dp"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/webserviceon"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/iconwebserviceoff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="RED ACTIVA"
+                    android:maxWidth="36dp"
+                    android:maxHeight="36dp"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/webserviceoff"
+                    android:visibility="visible" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow1x"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="22dp">
+
+            </TableRow>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="65dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnRegresar1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:width="200dp"
+                    android:background="@drawable/bg_input"
+                    android:backgroundTint="#FF6A00"
+                    android:gravity="center"
+                    android:lines="1"
+                    android:text="Regresar al modulo"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </TableLayout>
+
+    </ScrollView>
+</RelativeLayout>

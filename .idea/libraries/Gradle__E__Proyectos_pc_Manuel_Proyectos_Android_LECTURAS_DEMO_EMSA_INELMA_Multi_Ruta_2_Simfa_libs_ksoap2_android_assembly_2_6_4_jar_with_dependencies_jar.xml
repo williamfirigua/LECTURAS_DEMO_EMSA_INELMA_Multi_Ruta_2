@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: E./Proyectos pc Manuel/Proyectos Android/LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2/Simfa/libs/ksoap2-android-assembly-2.6.4-jar-with-dependencies.jar" external-system-id="GRADLE">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Simfa/libs/ksoap2-android-assembly-2.6.4-jar-with-dependencies.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,6 @@
+<!-- res/anim/rotar.xml -->
+<rotate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromDegrees="90"
+    android:toDegrees="180"
+    android:duration="1000"
+    android:repeatCount="infinite"/>

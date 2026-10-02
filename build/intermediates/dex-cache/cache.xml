@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="H:\Ax\Android\LecturasTolima\Simfa\libs\ksoap2-android-assembly-2.6.4-jar-with-dependencies.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="07807e2efeabd47e4ff827ec198c16cef3c0d0c8">
+        <dex dex="H:\Ax\Android\LecturasTolima\Simfa\build\intermediates\transforms\preDex\release\1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\pcc\.gradle\caches\transforms-1\files-1.1\logback-android-2.0.0.aar\744a0e7799dc54d4aca995179947ff28\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="5f02a3e51d579e2385e078621da43beac791268f">
+        <dex dex="H:\Ax\Android\LecturasTolima\Simfa\build\intermediates\transforms\preDex\release\11.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\pcc\.gradle\caches\modules-2\files-2.1\org.slf4j\slf4j-api\1.7.25\da76ca59f6a57ee3102f8f9bd9cee742973efa8a\slf4j-api-1.7.25.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="da76ca59f6a57ee3102f8f9bd9cee742973efa8a">
+        <dex dex="H:\Ax\Android\LecturasTolima\Simfa\build\intermediates\transforms\preDex\release\10.jar" />
+    </item>
+
+</items>

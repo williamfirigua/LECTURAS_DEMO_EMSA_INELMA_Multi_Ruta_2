@@ -1,0 +1,217 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gstolima.modulocomentarios.Informe">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+        <TableLayout
+            android:id="@+id/tableLayout1inf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center">
+                <LinearLayout
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/btnLogos"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="@color/zxing_transparent"
+                        android:contentDescription="@string/info"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/simle_logolecturas2" />
+
+                    <ImageButton
+                        android:id="@+id/btnLogos2"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="@color/zxing_transparent"
+                        android:contentDescription="@string/info"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/email" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txtTitleNovLect"
+                    android:layout_width="390dp"
+                    android:layout_height="28sp"
+                    android:layout_gravity="bottom|right"
+                    android:layout_weight="1"
+                    android:background="@color/orangeCelsia"
+                    android:gravity="center|bottom"
+                    android:text="CAPTURAR INFORME"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    android:textStyle="bold">
+
+                </TextView>
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/listadoinformes"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="1dp"
+                android:drawSelectorOnTop="false"
+                android:minLines="2"
+                android:textSize="4dp"
+                android:visibility="gone">
+
+            </ListView>
+
+            <TableRow
+                android:id="@+id/tablecategoria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible">
+
+                <TextView
+                    android:id="@+id/txtnoimpo"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@drawable/bg_input"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:text="Categoria Seleccionada"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/lblcategoria"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@drawable/bg_input"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_weight="1"
+                    android:textSize="18dp" />
+
+            </TableRow>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_card"
+                android:elevation="6dp"
+                android:orientation="horizontal"
+                android:padding="20dp"></LinearLayout>
+            <TextView
+                android:id="@+id/txtdigiteinformes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="1dp"
+                android:text="Informe Escrito"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <TableRow
+                android:id="@+id/tableRow5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <EditText
+                    android:id="@+id/txtInforme"
+                    android:layout_width="0px"
+                    android:layout_height="158dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_bordes"
+                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 "
+                    android:enabled="false"
+                    android:gravity="top|left"
+                    android:hint="Digitar Informe escrito"
+                    android:imeOptions="actionDone"
+                    android:inputType="textCapCharacters|textImeMultiLine"
+                    android:maxLength="250"
+                    android:padding="6dp" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow_btnGuardar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <Button
+                    android:id="@+id/bntguardarInf"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_boton_redondeado"
+
+                    android:backgroundTint="#FF6A00"
+                    android:text="Guardar"
+                    android:textColor="@color/white" />
+
+                <ImageButton
+                    android:id="@+id/imgbtnhablar"
+                    android:layout_width="38dp"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="12dp"
+                    android:clickable="false"
+                    android:enabled="false"
+                    android:padding="0dp"
+                    android:scaleType="fitXY"
+                    android:contentDescription="Captura voz operador"
+                    android:background="@null"
+                    android:src="@drawable/icon_mic" />
+
+
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow_btnSin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <Button
+                    android:id="@+id/bntSinInf"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_boton_redondeado"
+                    android:backgroundTint="#FF6A00"
+                    android:text="Sin informe"
+                    android:textColor="@color/white" />
+
+            </TableRow>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_card"
+                android:elevation="6dp"
+                android:orientation="horizontal"
+                android:padding="20dp"></LinearLayout>
+        </TableLayout>
+    </LinearLayout>
+</ScrollView>

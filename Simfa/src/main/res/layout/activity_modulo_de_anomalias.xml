@@ -1,0 +1,101 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F6FA"
+    android:padding="10dp">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/orangeCelsia"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/txtTitleAnomalia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📋 ANOMALÍAS"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- BUSCADOR -->
+    <EditText
+        android:id="@+id/txtNumAnomalia"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_card"
+        android:hint="🔍 Buscar anomalía..."
+        android:padding="12dp"
+        android:textSize="14sp"
+        android:inputType="textCapCharacters"
+        android:maxLength="2"/>
+
+    <!-- LISTA -->
+    <TextView
+        android:id="@+id/txtDescripcion"
+        android:layout_width="394dp"
+        android:layout_height="wrap_content"
+        android:text="📋 Cod y Descripcion           Inf. Foto  Lect."
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_card">
+
+        <ListView
+            android:id="@+id/listadoAnomaliasNoLectura"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:dividerHeight="1dp"
+            android:padding="6dp"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/btnAceptarSubcausas"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_boton_redondeado"
+        android:text="✔ ACEPTAR SELECCIÓN"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+    <!-- SELECCIÓN -->
+    <TextView
+        android:id="@+id/txtAnomalia"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_card"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:text="Anomalía seleccionada"
+        android:textSize="14sp"
+        android:textStyle="bold"/>
+
+    <!-- BOTÓN -->
+    <Button
+        android:id="@+id/btncnreotornar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_boton_redondeado"
+        android:text="⬅ RETORNAR"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

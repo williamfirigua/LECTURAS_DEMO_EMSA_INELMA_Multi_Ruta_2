@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gstolima.modulocomentarios.Firma">
+
+    <TableLayout
+        android:id="@+id/txt1"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="0dp"
+        android:orientation="vertical">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:background="@drawable/chat_msg_si"
+            android:gravity="right"
+            android:stretchColumns="1"
+            android:weightSum="4">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_weight="1"
+                android:background="@color/orangeCelsia"
+                android:gravity="center|bottom"
+                android:text="MENSAJES"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold">
+
+            </TextView>
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        android:orientation="vertical">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="50dp"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/btnVolver"
+                        android:layout_width="68dp"
+                        android:layout_height="78dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:contentDescription="Retornar"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/iconvolverredondo" />
+
+                    <TextView
+                        android:layout_width="68dp"
+                        android:layout_height="12dp"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:text="REGRESAR"
+                        android:textAlignment="center"
+                        android:textSize="9sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="50dp"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/btnBorrar"
+                        android:layout_width="68dp"
+                        android:layout_height="78dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:contentDescription="Eleminar"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/iconborrarredondo" />
+
+                    <TextView
+                        android:layout_width="68dp"
+                        android:layout_height="12dp"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:text="BORRAR TODO"
+                        android:textAlignment="center"
+                        android:textSize="9sp" />
+                </LinearLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:id="@+id/txttittle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Mensajes:"
+                    android:textSize="16sp" />
+
+            </TableRow>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_margin="10dp"
+                android:background="@color/grayBlue" />
+
+            <ListView
+                android:id="@+id/listview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </ListView>
+
+        </TableLayout>
+    </LinearLayout>
+</RelativeLayout>

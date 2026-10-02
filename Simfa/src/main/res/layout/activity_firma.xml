@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gstolima.modulocomentarios.Firma">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btnLogos"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@color/zxing_transparent"
+                    android:contentDescription="@string/info"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher1" />
+
+                <ImageButton
+                    android:id="@+id/btnLogos2"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/zxing_transparent"
+                    android:contentDescription="@string/info"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/cerrarconllave" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtTitleHoraFecha"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_gravity="bottom|right"
+                android:layout_weight="1"
+                android:background="@color/orangeCelsia"
+                android:gravity="center|bottom"
+                android:text="CAPTURA DE FIRMAS"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:textStyle="bold">
+
+            </TextView>
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="130dp"
+        android:orientation="vertical">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TableRow>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="59dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="5dp"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/btnVolver"
+                        android:layout_width="68dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:scaleType="centerInside"
+                        android:contentDescription="Retornar"
+                        android:src="@drawable/iconvolverredondo" />
+
+                    <TextView
+                        android:layout_width="68dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:text="REGRESAR"
+                        android:textAlignment="center"
+                        android:textSize="9dp" />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/btnmfDraw"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:padding="12dp"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="Editar"
+                    android:src="@drawable/iconlapiz" />
+
+                <ImageButton
+                    android:id="@+id/btnmfErase"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:padding="12dp"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="borrar"
+                    android:src="@drawable/iconborrador" />
+
+                <ImageButton
+                    android:id="@+id/btnmfDelete"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_gravity="right"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:padding="12dp"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="Eleminar"
+                    android:src="@drawable/iconeliminar" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/btngrabar"
+                        android:layout_width="60dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:scaleType="centerInside"
+                        android:contentDescription="Grabar"
+                        android:src="@drawable/iconguardar" />
+
+                    <TextView
+                        android:id="@+id/textsave"
+                        android:layout_width="60dp"
+                        android:layout_height="10dp"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:text="GUARDAR"
+                        android:textAlignment="center"
+                        android:textSize="9dp" />
+                </LinearLayout>
+
+            </TableRow>
+
+
+            <RadioGroup
+                android:id="@+id/rgBotones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- CHIP -->
+                <RadioButton
+                    android:id="@+id/radio_tel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:checked="true"
+                    android:text="🔢 Telefono"
+                    android:background="@drawable/bg_chip"
+                    android:button="@null"
+                    android:padding="10dp"
+                    android:layout_margin="4dp"/>
+
+                <RadioButton
+                    android:id="@+id/radio_ced"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="💳 Cedula"
+                    android:background="@drawable/bg_chip"
+                    android:button="@null"
+                    android:padding="10dp"
+                    android:layout_margin="4dp"/>
+
+
+
+
+
+
+            </RadioGroup>
+            <TableRow
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp">
+
+
+                <EditText
+                    android:id="@+id/edttelefono"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:textSize="16dp"
+                    android:inputType="number|phone"
+                    android:maxLength="12"
+                    android:hint="Digitar Seleccion"
+                    android:background="@drawable/bg_bordes"/>
+
+            </TableRow>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_margin="10dp"
+                android:background="@color/grayBlue" />
+
+            <TableRow
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:id="@+id/txttittle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Firmar aqui:"
+                    android:textSize="16dp" />
+
+            </TableRow>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_margin="10dp"
+                android:background="@color/grayBlue" />
+
+            <RelativeLayout
+                android:id="@+id/reloutmf"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/bg_bordes">
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_margin="10dp"
+                android:background="@color/grayBlue" />
+
+
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TableRow
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Firma Existente:"
+                    android:textSize="16dp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp">
+
+                <ImageView
+                    android:id="@+id/imvFirma"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp">
+                </ImageView>
+            </TableRow>
+
+        </TableLayout>
+    </LinearLayout>
+</RelativeLayout>

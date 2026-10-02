@@ -1,0 +1,111 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/capturar_anomalia"
+        android:orderInCategory="1"
+        android:title="@string/action_capturar_anomalia" />
+
+
+    <item
+        android:id="@+id/capturar_informe"
+        android:orderInCategory="3"
+        android:title="Capturar Informe" />
+
+    <item
+        android:id="@+id/anterior_predio_leido"
+        android:orderInCategory="3"
+        android:title="@string/action_anterior_predio" />
+
+    <item
+    android:id="@+id/crear_cuenta_nueva"
+    android:orderInCategory="3"
+    android:title="Crear Cuenta Nueva"
+    android:visible="false"/>
+
+    <item
+        android:id="@+id/cambiar_estado_suspension"
+        android:orderInCategory="3"
+        android:title="Cambiar Estado Suspension"
+        android:visible="false"/>
+
+    <item
+        android:id="@+id/modificar_nro_digitos"
+        android:orderInCategory="3"
+        android:title="@string/action_modificar_digitos" />
+
+    <item
+        android:id="@+id/buscar_cliente"
+        android:orderInCategory="3"
+        android:title="@string/action_buscar_cliente" />
+
+    <item
+        android:id="@+id/habilitar_impresora"
+        android:orderInCategory="3"
+        android:title="@string/action_habilitar_impresora"
+        android:visible="false"/>
+
+    <item
+        android:id="@+id/cambiar_impresora"
+        android:orderInCategory="3"
+        android:title="@string/action_cambiar_puerto"
+        android:visible="false"/>
+
+    <item
+        android:id="@+id/estadistica_proceso"
+        android:orderInCategory="3"
+        android:title="@string/action_estadistica_proceso" />
+
+    <item
+        android:id="@+id/ayuda_ubicacion_GPS"
+        android:orderInCategory="3"
+        android:title="@string/action_ayuda_ubicacion" />
+
+    <item
+        android:id="@+id/opcionesupervisor"
+        android:orderInCategory="3"
+        android:title="Opciones del Supervisor"
+        android:visible="false"/>
+
+    <item
+        android:id="@+id/utilidades"
+        android:orderInCategory="3"
+        android:title="@string/action_utilerias"
+        android:visible="false"/>
+
+    <item
+        android:id="@+id/enviar_facturacion_gprs"
+        android:orderInCategory="3"
+        android:title="Enviar_Lecturas GPRS" />
+
+    <item
+        android:id="@+id/enviar_fotos"
+        android:orderInCategory="3"
+        android:title="Enviar Fotos" />
+
+    <item
+        android:id="@+id/mensajes"
+        android:orderInCategory="3"
+        android:title="@string/action_enviar_mensajes" />
+
+    <item
+        android:id="@+id/procesar_reenvio_gprs"
+        android:orderInCategory="3"
+        android:title="@string/action_procesar_reenvioGprs" />
+
+    <item
+        android:id="@+id/evaluar_noEnviadas_gprs"
+        android:orderInCategory="3"
+        android:title="@string/action_evaluar_noEnviadas" />
+
+    <item
+        android:id="@+id/barras_grupal"
+        android:orderInCategory="3"
+        android:title="Barras Grupal"
+        android:visible="false"/>
+
+    <item
+        android:id="@+id/mapa"
+        android:orderInCategory="3"
+        android:title="@string/action_mapa"/>
+
+</menu>

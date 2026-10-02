@@ -1,0 +1,617 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.gstolima.accesoyseguridad"
+4    android:versionCode="2"
+5    android:versionName="2.3" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="29"
+8-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="32" />
+9-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml
+10
+11    <!--
+12         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+13         Google Maps Android API v2, but you must specify either coarse or fine
+14         location permissions for the 'MyLocation' functionality.
+15    -->
+16    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+16-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:13:5-79
+16-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:13:22-76
+17    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+17-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:14:5-79
+17-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:14:22-77
+18    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+18-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:15:5-76
+18-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:15:22-73
+19    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+19-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:16:5-73
+19-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:16:22-70
+20    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+20-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:17:5-122
+20-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:17:22-83
+21    <uses-permission android:name="android.permission.MANAGE_MEDIA" />
+21-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:18:5-19:47
+21-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:18:22-68
+22    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
+22-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:20:5-21:47
+22-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:20:22-72
+23    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+23-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:22:5-23:40
+23-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:22:22-79
+24    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+24-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:24:5-81
+24-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:24:22-78
+25    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+25-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:25:5-80
+25-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:25:22-77
+26    <uses-permission android:name="android.permission.CAMERA" />
+26-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:26:5-65
+26-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:26:22-62
+27    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+27-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:27:5-75
+27-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:27:22-72
+28    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+28-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:28:5-81
+28-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:28:22-78
+29    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+29-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:29:5-74
+29-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:29:22-71
+30    <uses-permission android:name="android.permission.BLUETOOTH" />
+30-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:30:5-68
+30-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:30:22-65
+31    <uses-permission android:name="android.permission.INTERNET" />
+31-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:32:5-67
+31-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:32:22-64
+32    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+32-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:33:5-75
+32-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:33:22-73
+33    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+33-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:34:5-76
+33-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:34:22-73
+34    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+34-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:35:5-79
+34-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:35:22-76
+35    <uses-permission android:name="android.permission.VIBRATE" />
+35-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:36:5-66
+35-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:36:22-63
+36    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+36-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:37:5-82
+36-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:37:22-80
+37    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+37-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:38:5-77
+37-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:38:22-74
+38    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+38-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:39:5-87
+38-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:39:22-84
+39    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+39-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:40:5-77
+39-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:40:22-74
+40    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+40-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:41:5-86
+40-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:41:22-83
+41
+42    <uses-feature android:name="android.hardware.camera.autofocus" />
+42-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:44:5-70
+42-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:44:19-67
+43    <uses-feature
+43-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:45:5-47:36
+44        android:name="android.hardware.camera.front"
+44-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:46:9-53
+45        android:required="false" />
+45-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:47:9-33
+46    <uses-feature android:name="android.hardware.camera" />
+46-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:48:5-60
+46-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:48:19-57
+47
+48    <!--
+49requerido desde android 11 api 30+ packege visibility filtering
+50sin este bloque, packemanager.getApplicationInfo() leanza
+51nameNotFoundException para cualquier app externa, aunque este instalada.
+52Esto hacia que NavigationHelper cayera siempre al fallcack in app.
+53    -->
+54    <queries>
+54-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:56:5-70:15
+55
+56        <!-- Google Maps — navegación turn-by-turn -->
+57        <package android:name="com.google.android.apps.maps" />
+57-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:58:9-64
+57-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:58:18-61
+58        <!-- Waze -->
+59        <package android:name="com.waze" />
+59-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:60:9-44
+59-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:60:18-41
+60        <!-- Fallback: cualquier app que maneje URIs de navegación -->
+61        <intent>
+61-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:62:9-65:18
+62            <action android:name="android.intent.action.VIEW" />
+62-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:63:13-65
+62-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:63:21-62
+63
+64            <data android:scheme="google.navigation" />
+64-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:64:13-56
+64-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:64:19-53
+65        </intent>
+66        <intent>
+66-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:66:9-69:18
+67            <action android:name="android.intent.action.VIEW" />
+67-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:63:13-65
+67-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:63:21-62
+68
+69            <data android:scheme="waze" />
+69-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:64:13-56
+69-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:64:19-53
+70        </intent>
+71    </queries>
+72
+73    <uses-feature
+73-->[com.google.android.gms:play-services-maps:16.0.0] C:\Users\ASUS\.gradle\caches\transforms-3\f67fa6312d611fe96e35348340a8fbcf\transformed\jetified-play-services-maps-16.0.0\AndroidManifest.xml:26:5-28:35
+74        android:glEsVersion="0x00020000"
+74-->[com.google.android.gms:play-services-maps:16.0.0] C:\Users\ASUS\.gradle\caches\transforms-3\f67fa6312d611fe96e35348340a8fbcf\transformed\jetified-play-services-maps-16.0.0\AndroidManifest.xml:27:9-41
+75        android:required="true" />
+75-->[com.google.android.gms:play-services-maps:16.0.0] C:\Users\ASUS\.gradle\caches\transforms-3\f67fa6312d611fe96e35348340a8fbcf\transformed\jetified-play-services-maps-16.0.0\AndroidManifest.xml:28:9-32
+76    <uses-feature
+76-->[com.journeyapps:zxing-android-embedded:3.3.0] C:\Users\ASUS\.gradle\caches\transforms-3\42ecabf0d42d7a8f738eff97e0424c6d\transformed\jetified-zxing-android-embedded-3.3.0\AndroidManifest.xml:35:5-37:36
+77        android:name="android.hardware.camera.flash"
+77-->[com.journeyapps:zxing-android-embedded:3.3.0] C:\Users\ASUS\.gradle\caches\transforms-3\42ecabf0d42d7a8f738eff97e0424c6d\transformed\jetified-zxing-android-embedded-3.3.0\AndroidManifest.xml:36:9-53
+78        android:required="false" />
+78-->[com.journeyapps:zxing-android-embedded:3.3.0] C:\Users\ASUS\.gradle\caches\transforms-3\42ecabf0d42d7a8f738eff97e0424c6d\transformed\jetified-zxing-android-embedded-3.3.0\AndroidManifest.xml:37:9-33
+79    <uses-feature
+79-->[com.journeyapps:zxing-android-embedded:3.3.0] C:\Users\ASUS\.gradle\caches\transforms-3\42ecabf0d42d7a8f738eff97e0424c6d\transformed\jetified-zxing-android-embedded-3.3.0\AndroidManifest.xml:38:5-40:36
+80        android:name="android.hardware.screen.landscape"
+80-->[com.journeyapps:zxing-android-embedded:3.3.0] C:\Users\ASUS\.gradle\caches\transforms-3\42ecabf0d42d7a8f738eff97e0424c6d\transformed\jetified-zxing-android-embedded-3.3.0\AndroidManifest.xml:39:9-57
+81        android:required="false" />
+81-->[com.journeyapps:zxing-android-embedded:3.3.0] C:\Users\ASUS\.gradle\caches\transforms-3\42ecabf0d42d7a8f738eff97e0424c6d\transformed\jetified-zxing-android-embedded-3.3.0\AndroidManifest.xml:40:9-33
+82    <uses-feature
+82-->[com.journeyapps:zxing-android-embedded:3.3.0] C:\Users\ASUS\.gradle\caches\transforms-3\42ecabf0d42d7a8f738eff97e0424c6d\transformed\jetified-zxing-android-embedded-3.3.0\AndroidManifest.xml:41:5-43:36
+83        android:name="android.hardware.wifi"
+83-->[com.journeyapps:zxing-android-embedded:3.3.0] C:\Users\ASUS\.gradle\caches\transforms-3\42ecabf0d42d7a8f738eff97e0424c6d\transformed\jetified-zxing-android-embedded-3.3.0\AndroidManifest.xml:42:9-45
+84        android:required="false" />
+84-->[com.journeyapps:zxing-android-embedded:3.3.0] C:\Users\ASUS\.gradle\caches\transforms-3\42ecabf0d42d7a8f738eff97e0424c6d\transformed\jetified-zxing-android-embedded-3.3.0\AndroidManifest.xml:43:9-33
+85
+86    <application
+86-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:73:5-263:19
+87        android:name="com.gstolima.accesoyseguridad.MainApplication"
+87-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:74:9-69
+88        android:allowBackup="true"
+88-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:75:9-35
+89        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+89-->[androidx.core:core:1.7.0] C:\Users\ASUS\.gradle\caches\transforms-3\730cdee244f9981b8a8d05da7da0ed05\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
+90        android:debuggable="true"
+91        android:exported="true"
+91-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:81:9-32
+92        android:extractNativeLibs="false"
+93        android:icon="@drawable/ic_launcher1"
+93-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:76:9-46
+94        android:label="@string/app_name"
+94-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:77:9-41
+95        android:largeHeap="true"
+95-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:79:9-33
+96        android:requestLegacyExternalStorage="true"
+96-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:80:9-52
+97        android:testOnly="true"
+98        android:theme="@style/AppTheme"
+98-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:82:9-40
+99        android:usesCleartextTraffic="true" >
+99-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:78:9-44
+100        <meta-data
+100-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:84:9-86:55
+101            android:name="com.google.android.geo.API_KEY"
+101-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:85:13-58
+102            android:value="@string/google_maps_key" />
+102-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:86:13-52
+103
+104        <activity
+104-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:88:9-90:59
+105            android:name="com.gstolima.moduloMapas.MapsActivity"
+105-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:89:13-65
+106            android:label="@string/title_activity_maps" />
+106-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:90:13-56
+107        <activity
+107-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:91:9-102:20
+108            android:name="com.gstolima.accesoyseguridad.GuiAcceso"
+108-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:92:13-67
+109            android:exported="true"
+109-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:95:13-36
+110            android:label="@string/app_name"
+110-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:93:13-45
+111            android:screenOrientation="portrait" >
+111-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:94:13-49
+112            <intent-filter android:exported="true" >
+112-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:96:13-101:29
+112-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:97:17-40
+113                <action android:name="android.intent.action.MAIN" />
+113-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:98:17-69
+113-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:98:25-66
+114
+115                <category android:name="android.intent.category.LAUNCHER" />
+115-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:100:17-77
+115-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:100:27-74
+116            </intent-filter>
+117        </activity>
+118        <activity
+118-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:103:9-113:20
+119            android:name="com.gstolima.modulobluetooth.DeviceListActivity"
+119-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:104:13-75
+120            android:configChanges="orientation|keyboardHidden"
+120-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:105:13-63
+121            android:label="@string/select_device"
+121-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:106:13-50
+122            android:parentActivityName="com.gstolima.accesoyseguridad.GuiAcceso"
+122-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:107:13-81
+123            android:screenOrientation="portrait"
+123-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:108:13-49
+124            android:theme="@android:style/Theme.Dialog" >
+124-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:109:13-56
+125            <meta-data
+125-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:110:13-112:75
+126                android:name="android.support.PARENT_ACTIVITY"
+126-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:111:17-63
+127                android:value="com.gstolima.accesoyseguridad.GuiAcceso" />
+127-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:112:17-72
+128        </activity>
+129        <activity
+129-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:114:9-122:20
+130            android:name="com.gstolima.accesoyseguridad.MenuPrincipal"
+130-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:115:13-71
+131            android:label="@string/title_activity_menu_principal"
+131-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:116:13-66
+132            android:parentActivityName="com.gstolima.accesoyseguridad.GuiAcceso"
+132-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:117:13-81
+133            android:screenOrientation="portrait" >
+133-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:118:13-49
+134            <meta-data
+134-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:110:13-112:75
+135                android:name="android.support.PARENT_ACTIVITY"
+135-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:111:17-63
+136                android:value="com.gstolima.accesoyseguridad.GuiAcceso" />
+136-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:112:17-72
+137        </activity>
+138        <activity
+138-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:123:9-131:20
+139            android:name="com.gstolima.accesoyseguridad.ResumenEstadistico"
+139-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:124:13-76
+140            android:label="@string/title_activity_resumen_estadistico"
+140-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:125:13-71
+141            android:parentActivityName="com.gstolima.accesoyseguridad.MenuPrincipal"
+141-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:126:13-85
+142            android:screenOrientation="portrait" >
+142-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:127:13-49
+143            <meta-data
+143-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:110:13-112:75
+144                android:name="android.support.PARENT_ACTIVITY"
+144-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:111:17-63
+145                android:value="com.gstolima.accesoyseguridad.MenuPrincipal" />
+145-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:112:17-72
+146        </activity>
+147        <activity
+147-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:132:9-141:20
+148            android:name="com.gstolima.accesoyseguridad.MenuDeLiquidacion"
+148-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:133:13-75
+149            android:label="@string/title_activity_menu_de_liquidacion"
+149-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:134:13-71
+150            android:parentActivityName="com.gstolima.accesoyseguridad.ResumenEstadistico"
+150-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:135:13-90
+151            android:screenOrientation="portrait"
+151-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:136:13-49
+152            android:windowSoftInputMode="stateHidden" >
+152-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:137:13-54
+153            <meta-data
+153-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:110:13-112:75
+154                android:name="android.support.PARENT_ACTIVITY"
+154-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:111:17-63
+155                android:value="com.gstolima.accesoyseguridad.ResumenEstadistico" />
+155-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:112:17-72
+156        </activity>
+157        <activity
+157-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:142:9-146:55
+158            android:name="com.gstolima.moduloanomalias.ModuloDeAnomalias"
+158-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:143:13-74
+159            android:label="@string/title_activity_modulo_de_anomalias"
+159-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:144:13-71
+160            android:screenOrientation="portrait"
+160-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:145:13-49
+161            android:windowSoftInputMode="adjustPan" />
+161-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:146:13-52
+162        <activity
+162-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:147:9-151:55
+163            android:name="com.gstolima.modulocomentarios.PanelComentarios"
+163-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:148:13-75
+164            android:label="@string/title_activity_panel_comentarios"
+164-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:149:13-69
+165            android:screenOrientation="portrait"
+165-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:150:13-49
+166            android:windowSoftInputMode="adjustPan" />
+166-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:151:13-52
+167        <activity
+167-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:152:9-156:55
+168            android:name="com.gstolima.modulocomentarios.Firma"
+168-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:153:13-64
+169            android:label="Firma"
+169-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:154:13-34
+170            android:screenOrientation="portrait"
+170-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:155:13-49
+171            android:windowSoftInputMode="adjustPan" />
+171-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:156:13-52
+172        <activity
+172-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:157:9-161:55
+173            android:name="com.gstolima.modulocomentarios.Informe"
+173-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:158:13-66
+174            android:label="Panel Informe"
+174-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:159:13-42
+175            android:screenOrientation="portrait"
+175-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:160:13-49
+176            android:windowSoftInputMode="adjustPan" />
+176-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:161:13-52
+177        <activity
+177-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:162:9-165:52
+178            android:name="com.gstolima.modulocambiodigitos.ModuloCambioDigitos"
+178-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:163:13-80
+179            android:label="@string/title_activity_modulo_cambio_digitos"
+179-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:164:13-73
+180            android:screenOrientation="portrait" />
+180-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:165:13-49
+181        <activity
+181-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:166:9-169:52
+182            android:name="com.gstolima.modulobusquedacuenta.ModuloBusquedaCuenta"
+182-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:167:13-82
+183            android:label="@string/title_activity_modulo_busqueda_cuenta"
+183-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:168:13-74
+184            android:screenOrientation="portrait" />
+184-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:169:13-49
+185        <activity
+185-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:170:9-178:20
+186            android:name="com.gstolima.comunicaciones.Comunicaciones"
+186-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:171:13-70
+187            android:label="@string/title_activity_comunicaciones"
+187-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:172:13-66
+188            android:parentActivityName="com.gstolima.accesoyseguridad.GuiAcceso"
+188-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:173:13-81
+189            android:screenOrientation="portrait" >
+189-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:174:13-49
+190            <meta-data
+190-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:110:13-112:75
+191                android:name="android.support.PARENT_ACTIVITY"
+191-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:111:17-63
+192                android:value="com.gstolima.accesoyseguridad.GuiAcceso" />
+192-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:112:17-72
+193        </activity>
+194        <activity
+194-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:179:9-187:20
+195            android:name="com.gstolima.comunicaciones.Configurar_webIp"
+195-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:180:13-72
+196            android:label="@string/title_activity_configurar_web_ip"
+196-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:181:13-69
+197            android:parentActivityName="com.gstolima.comunicaciones.Comunicaciones"
+197-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:182:13-84
+198            android:theme="@style/AppTheme" >
+198-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:183:13-44
+199            <meta-data
+199-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:110:13-112:75
+200                android:name="android.support.PARENT_ACTIVITY"
+200-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:111:17-63
+201                android:value="com.gstolima.comunicaciones.Comunicaciones" />
+201-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:112:17-72
+202        </activity>
+203        <activity android:name="com.gstolima.accesoyseguridad.FechayHora" />
+203-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:188:9-77
+203-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:188:19-74
+204        <activity
+204-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:189:9-193:55
+205            android:name="com.gstolima.modulocaptnovedlect.ModuloActualizaAforos"
+205-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:190:13-82
+206            android:label="ModuloActualizaAforos"
+206-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:191:13-50
+207            android:screenOrientation="portrait"
+207-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:192:13-49
+208            android:windowSoftInputMode="adjustPan" />
+208-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:193:13-52
+209        <activity
+209-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:194:9-197:52
+210            android:name="com.gstolima.modulobusquedacuenta.ModuloConsultaNoEnviados"
+210-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:195:13-86
+211            android:label="ModuloConsultaNoEnviados"
+211-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:196:13-53
+212            android:screenOrientation="portrait" />
+212-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:197:13-49
+213        <activity
+213-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:198:9-200:52
+214            android:name="com.gstolima.modulochat.Insertar"
+214-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:199:13-60
+215            android:screenOrientation="portrait" />
+215-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:200:13-49
+216        <activity
+216-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:201:9-203:52
+217            android:name="com.gstolima.modulochat.Recibidos"
+217-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:202:13-61
+218            android:screenOrientation="portrait" />
+218-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:203:13-49
+219        <activity
+219-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:204:9-206:52
+220            android:name="com.gstolima.modulochat.Chat"
+220-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:205:13-56
+221            android:screenOrientation="portrait" />
+221-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:206:13-49
+222        <activity
+222-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:207:9-210:57
+223            android:name="com.gstolima.moduloGPS.ActGPS"
+223-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:208:13-57
+224            android:screenOrientation="portrait"
+224-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:209:13-49
+225            android:windowSoftInputMode="stateHidden" />
+225-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:210:13-54
+226        <activity
+226-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:211:9-215:55
+227            android:name="com.gstolima.moduloentregasgrupal.ModuloEntregasGrupal"
+227-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:212:13-82
+228            android:label="ModuloEntregasGrupal"
+228-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:213:13-49
+229            android:screenOrientation="portrait"
+229-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:214:13-49
+230            android:windowSoftInputMode="adjustPan" />
+230-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:215:13-52
+231        <activity
+231-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:216:9-218:52
+232            android:name="com.gstolima.moduloLicencia.ActLicencia"
+232-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:217:13-67
+233            android:screenOrientation="portrait" />
+233-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:218:13-49
+234        <activity
+234-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:219:9-221:52
+235            android:name="com.gstolima.moduloestadosuspension.CambiarEstadosuspension"
+235-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:220:13-87
+236            android:screenOrientation="portrait" />
+236-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:221:13-49
+237        <activity
+237-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:222:9-224:52
+238            android:name="com.gstolima.moduloopcionesupervisor.OpcionesDeSupervisor"
+238-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:223:13-85
+239            android:screenOrientation="portrait" />
+239-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:224:13-49
+240        <activity
+240-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:225:9-228:55
+241            android:name="com.gstolima.modulocuentanueva.ModuloCuentaNueva"
+241-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:226:13-76
+242            android:screenOrientation="portrait"
+242-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:227:13-49
+243            android:windowSoftInputMode="adjustPan" />
+243-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:228:13-52
+244        <activity
+244-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:229:9-232:74
+245            android:name="com.gstolima.accesoyseguridad.AndroidCamera"
+245-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:230:13-71
+246            android:screenOrientation="portrait"
+246-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:231:13-49
+247            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+247-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:232:13-71
+248        <activity
+248-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:233:9-237:40
+249            android:name="com.gstolima.accesoyseguridad.CamaraFotoActivity"
+249-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:234:13-76
+250            android:exported="false"
+250-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:237:13-37
+251            android:screenOrientation="portrait"
+251-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:235:13-49
+252            android:theme="@style/Theme.AppCompat.NoActionBar" />
+252-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:236:13-63
+253        <activity
+253-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:238:9-242:40
+254            android:name="com.gstolima.accesoyseguridad.CamaraFotoLegacyActivity"
+254-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:239:13-82
+255            android:exported="false"
+255-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:242:13-37
+256            android:screenOrientation="portrait"
+256-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:240:13-49
+257            android:theme="@style/TemaCamara" />
+257-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:241:13-46
+258
+259        <provider
+259-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:243:9-251:20
+260            android:name="androidx.core.content.FileProvider"
+260-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:244:13-62
+261            android:authorities="com.gstolima.accesoyseguridad.fileprovider"
+261-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:245:13-77
+262            android:exported="false"
+262-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:246:13-37
+263            android:grantUriPermissions="true" >
+263-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:247:13-47
+264            <meta-data
+264-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:248:13-250:54
+265                android:name="android.support.FILE_PROVIDER_PATHS"
+265-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:249:17-67
+266                android:resource="@xml/file_paths" />
+266-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:250:17-51
+267        </provider>
+268
+269        <service
+269-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:253:9-257:56
+270            android:name="com.gstolima.accesoyseguridad.LecturaSyncService"
+270-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:254:13-47
+271            android:enabled="true"
+271-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:255:13-35
+272            android:exported="false"
+272-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:256:13-37
+273            android:foregroundServiceType="dataSync" />
+273-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:257:13-53
+274        <service
+274-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:258:9-262:56
+275            android:name="com.gstolima.accesoyseguridad.TrackingLocationService"
+275-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:259:13-52
+276            android:enabled="true"
+276-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:260:13-35
+277            android:exported="false"
+277-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:261:13-37
+278            android:foregroundServiceType="location" />
+278-->E:\Proyectos pc Manuel\Proyectos Android\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\Simfa\src\main\AndroidManifest.xml:262:13-53
+279
+280        <activity
+280-->[com.journeyapps:zxing-android-embedded:3.3.0] C:\Users\ASUS\.gradle\caches\transforms-3\42ecabf0d42d7a8f738eff97e0424c6d\transformed\jetified-zxing-android-embedded-3.3.0\AndroidManifest.xml:46:9-52:63
+281            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+281-->[com.journeyapps:zxing-android-embedded:3.3.0] C:\Users\ASUS\.gradle\caches\transforms-3\42ecabf0d42d7a8f738eff97e0424c6d\transformed\jetified-zxing-android-embedded-3.3.0\AndroidManifest.xml:47:13-74
+282            android:clearTaskOnLaunch="true"
+282-->[com.journeyapps:zxing-android-embedded:3.3.0] C:\Users\ASUS\.gradle\caches\transforms-3\42ecabf0d42d7a8f738eff97e0424c6d\transformed\jetified-zxing-android-embedded-3.3.0\AndroidManifest.xml:48:13-45
+283            android:screenOrientation="sensorLandscape"
+283-->[com.journeyapps:zxing-android-embedded:3.3.0] C:\Users\ASUS\.gradle\caches\transforms-3\42ecabf0d42d7a8f738eff97e0424c6d\transformed\jetified-zxing-android-embedded-3.3.0\AndroidManifest.xml:49:13-56
+284            android:stateNotNeeded="true"
+284-->[com.journeyapps:zxing-android-embedded:3.3.0] C:\Users\ASUS\.gradle\caches\transforms-3\42ecabf0d42d7a8f738eff97e0424c6d\transformed\jetified-zxing-android-embedded-3.3.0\AndroidManifest.xml:50:13-42
+285            android:theme="@style/zxing_CaptureTheme"
+285-->[com.journeyapps:zxing-android-embedded:3.3.0] C:\Users\ASUS\.gradle\caches\transforms-3\42ecabf0d42d7a8f738eff97e0424c6d\transformed\jetified-zxing-android-embedded-3.3.0\AndroidManifest.xml:51:13-54
+286            android:windowSoftInputMode="stateAlwaysHidden" />
+286-->[com.journeyapps:zxing-android-embedded:3.3.0] C:\Users\ASUS\.gradle\caches\transforms-3\42ecabf0d42d7a8f738eff97e0424c6d\transformed\jetified-zxing-android-embedded-3.3.0\AndroidManifest.xml:52:13-60
+287
+288        <service
+288-->[androidx.camera:camera-camera2:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-3\147b385df9a72a5d538acbb9ed7ea3ec\transformed\jetified-camera-camera2-1.1.0\AndroidManifest.xml:26:9-35:19
+289            android:name="androidx.camera.core.impl.MetadataHolderService"
+289-->[androidx.camera:camera-camera2:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-3\147b385df9a72a5d538acbb9ed7ea3ec\transformed\jetified-camera-camera2-1.1.0\AndroidManifest.xml:27:13-75
+290            android:enabled="false"
+290-->[androidx.camera:camera-camera2:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-3\147b385df9a72a5d538acbb9ed7ea3ec\transformed\jetified-camera-camera2-1.1.0\AndroidManifest.xml:28:13-36
+291            android:exported="false" >
+291-->[androidx.camera:camera-camera2:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-3\147b385df9a72a5d538acbb9ed7ea3ec\transformed\jetified-camera-camera2-1.1.0\AndroidManifest.xml:29:13-37
+292            <meta-data
+292-->[androidx.camera:camera-camera2:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-3\147b385df9a72a5d538acbb9ed7ea3ec\transformed\jetified-camera-camera2-1.1.0\AndroidManifest.xml:32:13-34:89
+293                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
+293-->[androidx.camera:camera-camera2:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-3\147b385df9a72a5d538acbb9ed7ea3ec\transformed\jetified-camera-camera2-1.1.0\AndroidManifest.xml:33:17-103
+294                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
+294-->[androidx.camera:camera-camera2:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-3\147b385df9a72a5d538acbb9ed7ea3ec\transformed\jetified-camera-camera2-1.1.0\AndroidManifest.xml:34:17-86
+295        </service>
+296
+297        <activity
+297-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\ASUS\.gradle\caches\transforms-3\7c634e463dfec013f2eb4d487db5c3a5\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
+298            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+298-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\ASUS\.gradle\caches\transforms-3\7c634e463dfec013f2eb4d487db5c3a5\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:19-85
+299            android:exported="false"
+299-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\ASUS\.gradle\caches\transforms-3\7c634e463dfec013f2eb4d487db5c3a5\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:22:19-43
+300            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+300-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\ASUS\.gradle\caches\transforms-3\7c634e463dfec013f2eb4d487db5c3a5\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:21:19-78
+301
+302        <meta-data
+302-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\ASUS\.gradle\caches\transforms-3\ebd9970979e7c0a2c59a3858386f5a15\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
+303            android:name="com.google.android.gms.version"
+303-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\ASUS\.gradle\caches\transforms-3\ebd9970979e7c0a2c59a3858386f5a15\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
+304            android:value="@integer/google_play_services_version" />
+304-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\ASUS\.gradle\caches\transforms-3\ebd9970979e7c0a2c59a3858386f5a15\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
+305
+306        <provider
+306-->[androidx.emoji2:emoji2:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-3\326f9b6c410db1488419d9aa46556c48\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+307            android:name="androidx.startup.InitializationProvider"
+307-->[androidx.emoji2:emoji2:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-3\326f9b6c410db1488419d9aa46556c48\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
+308            android:authorities="com.gstolima.accesoyseguridad.androidx-startup"
+308-->[androidx.emoji2:emoji2:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-3\326f9b6c410db1488419d9aa46556c48\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
+309            android:exported="false" >
+309-->[androidx.emoji2:emoji2:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-3\326f9b6c410db1488419d9aa46556c48\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
+310            <meta-data
+310-->[androidx.emoji2:emoji2:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-3\326f9b6c410db1488419d9aa46556c48\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+311                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+311-->[androidx.emoji2:emoji2:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-3\326f9b6c410db1488419d9aa46556c48\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
+312                android:value="androidx.startup" />
+312-->[androidx.emoji2:emoji2:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-3\326f9b6c410db1488419d9aa46556c48\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
+313            <meta-data
+313-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\ASUS\.gradle\caches\transforms-3\4f8c85f1879921a348bcc2a5c5eb83b4\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+314                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+314-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\ASUS\.gradle\caches\transforms-3\4f8c85f1879921a348bcc2a5c5eb83b4\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+315                android:value="androidx.startup" />
+315-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\ASUS\.gradle\caches\transforms-3\4f8c85f1879921a348bcc2a5c5eb83b4\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+316        </provider>
+317    </application>
+318
+319</manifest>

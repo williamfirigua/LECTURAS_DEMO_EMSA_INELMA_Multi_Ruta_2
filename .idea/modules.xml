@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2.iml" filepath="$PROJECT_DIR$/.idea/modules/LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Simfa/LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2.Simfa.iml" filepath="$PROJECT_DIR$/.idea/modules/Simfa/LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2.Simfa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Simfa/LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2.Simfa.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/Simfa/LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2.Simfa.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Simfa/LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2.Simfa.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Simfa/LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2.Simfa.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Simfa/LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2.Simfa.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/Simfa/LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2.Simfa.unitTest.iml" />
+    </modules>
+  </component>
+</project>

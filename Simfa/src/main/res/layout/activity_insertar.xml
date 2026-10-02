@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F6FA">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/btnLogos"
+            android:layout_width="90dp"
+            android:layout_height="68dp"
+            android:background="@color/zxing_transparent"
+            android:contentDescription="@string/info"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher1" />
+    </LinearLayout>
+    <!-- HEADER -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/orangeCelsia"
+        android:gravity="center"
+        android:text="📩 Mensajería"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- CONTENIDO -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:orientation="vertical">
+
+            <!-- DESTINATARIO -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="👤 Para:"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+
+            <ListView
+                android:id="@+id/usuario"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@drawable/bg_card"
+                android:dividerHeight="1dp"
+                android:padding="6dp"
+                android:layout_marginTop="6dp"/>
+
+            <!-- ASUNTO -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📝 Asunto"
+                android:layout_marginTop="10dp"/>
+
+            <EditText
+                android:id="@+id/asunto"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_input"
+                android:hint="Escribe el asunto"
+                android:padding="10dp"/>
+
+            <!-- MENSAJE -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="💬 Mensaje"
+                android:layout_marginTop="10dp"/>
+
+            <EditText
+                android:id="@+id/mensaje"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@drawable/bg_input"
+                android:hint="Escribe tu mensaje..."
+                android:inputType="textMultiLine"
+                android:gravity="top"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- BOTONES -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/recibidos"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="📥 Recibidos"
+            android:background="@drawable/bg_boton_secundario"
+            android:textColor="@android:color/white"/>
+
+        <Button
+            android:id="@+id/volver"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="6dp"
+            android:text="⬅ Volver"
+            android:background="@drawable/bg_boton_secundario"
+            android:textColor="@android:color/white"/>
+
+        <Button
+            android:id="@+id/enviar"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="6dp"
+            android:text="📤 Enviar"
+            android:background="@drawable/bg_boton_primario"
+            android:textColor="@android:color/white"/>
+
+    </LinearLayout>
+
+</LinearLayout>
