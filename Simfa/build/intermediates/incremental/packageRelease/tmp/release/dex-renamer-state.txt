@@ -1,0 +1,7 @@
+#Mon Oct 05 16:20:17 COT 2026
+base.0=E\:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
+path.1=classes2.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=E\:\\Proyectos pc Manuel\\Proyectos Android\\LECTURAS_DEMO_EMSA_INELMA_Multi_Ruta_2\\Simfa\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes2.dex

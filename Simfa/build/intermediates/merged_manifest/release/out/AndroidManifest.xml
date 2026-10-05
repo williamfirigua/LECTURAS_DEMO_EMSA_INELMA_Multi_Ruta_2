@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gstolima.accesoyseguridad"
+    android:versionCode="2"
+    android:versionName="2.3" >
+
+    <uses-sdk
+        android:minSdkVersion="29"
+        android:targetSdkVersion="32" />
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MANAGE_MEDIA" />
+    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+    <uses-feature android:name="android.hardware.camera" />
+
+    <!--
+requerido desde android 11 api 30+ packege visibility filtering
+sin este bloque, packemanager.getApplicationInfo() leanza
+nameNotFoundException para cualquier app externa, aunque este instalada.
+Esto hacia que NavigationHelper cayera siempre al fallcack in app.
+    -->
+    <queries>
+
+        <!-- Google Maps — navegación turn-by-turn -->
+        <package android:name="com.google.android.apps.maps" />
+        <!-- Waze -->
+        <package android:name="com.waze" />
+        <!-- Fallback: cualquier app que maneje URIs de navegación -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+
+            <data android:scheme="google.navigation" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+
+            <data android:scheme="waze" />
+        </intent>
+    </queries>
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.screen.landscape"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false" />
+
+    <application
+        android:name="com.gstolima.accesoyseguridad.MainApplication"
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:exported="true"
+        android:extractNativeLibs="false"
+        android:icon="@drawable/ic_launcher1"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true" >
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name="com.gstolima.moduloMapas.MapsActivity"
+            android:label="@string/title_activity_maps" />
+        <activity
+            android:name="com.gstolima.accesoyseguridad.GuiAcceso"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter android:exported="true" >
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.gstolima.modulobluetooth.DeviceListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/select_device"
+            android:parentActivityName="com.gstolima.accesoyseguridad.GuiAcceso"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.gstolima.accesoyseguridad.GuiAcceso" />
+        </activity>
+        <activity
+            android:name="com.gstolima.accesoyseguridad.MenuPrincipal"
+            android:label="@string/title_activity_menu_principal"
+            android:parentActivityName="com.gstolima.accesoyseguridad.GuiAcceso"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.gstolima.accesoyseguridad.GuiAcceso" />
+        </activity>
+        <activity
+            android:name="com.gstolima.accesoyseguridad.ResumenEstadistico"
+            android:label="@string/title_activity_resumen_estadistico"
+            android:parentActivityName="com.gstolima.accesoyseguridad.MenuPrincipal"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.gstolima.accesoyseguridad.MenuPrincipal" />
+        </activity>
+        <activity
+            android:name="com.gstolima.accesoyseguridad.MenuDeLiquidacion"
+            android:label="@string/title_activity_menu_de_liquidacion"
+            android:parentActivityName="com.gstolima.accesoyseguridad.ResumenEstadistico"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.gstolima.accesoyseguridad.ResumenEstadistico" />
+        </activity>
+        <activity
+            android:name="com.gstolima.moduloanomalias.ModuloDeAnomalias"
+            android:label="@string/title_activity_modulo_de_anomalias"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.gstolima.modulocomentarios.PanelComentarios"
+            android:label="@string/title_activity_panel_comentarios"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.gstolima.modulocomentarios.Firma"
+            android:label="Firma"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.gstolima.modulocomentarios.Informe"
+            android:label="Panel Informe"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.gstolima.modulocambiodigitos.ModuloCambioDigitos"
+            android:label="@string/title_activity_modulo_cambio_digitos"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.gstolima.modulobusquedacuenta.ModuloBusquedaCuenta"
+            android:label="@string/title_activity_modulo_busqueda_cuenta"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.gstolima.comunicaciones.Comunicaciones"
+            android:label="@string/title_activity_comunicaciones"
+            android:parentActivityName="com.gstolima.accesoyseguridad.GuiAcceso"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.gstolima.accesoyseguridad.GuiAcceso" />
+        </activity>
+        <activity
+            android:name="com.gstolima.comunicaciones.Configurar_webIp"
+            android:label="@string/title_activity_configurar_web_ip"
+            android:parentActivityName="com.gstolima.comunicaciones.Comunicaciones"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.gstolima.comunicaciones.Comunicaciones" />
+        </activity>
+        <activity android:name="com.gstolima.accesoyseguridad.FechayHora" />
+        <activity
+            android:name="com.gstolima.modulocaptnovedlect.ModuloActualizaAforos"
+            android:label="ModuloActualizaAforos"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.gstolima.modulobusquedacuenta.ModuloConsultaNoEnviados"
+            android:label="ModuloConsultaNoEnviados"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.gstolima.modulochat.Insertar"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.gstolima.modulochat.Recibidos"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.gstolima.modulochat.Chat"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.gstolima.moduloGPS.ActGPS"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.gstolima.moduloentregasgrupal.ModuloEntregasGrupal"
+            android:label="ModuloEntregasGrupal"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.gstolima.moduloLicencia.ActLicencia"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.gstolima.moduloestadosuspension.CambiarEstadosuspension"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.gstolima.moduloopcionesupervisor.OpcionesDeSupervisor"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.gstolima.modulocuentanueva.ModuloCuentaNueva"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.gstolima.accesoyseguridad.AndroidCamera"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.gstolima.accesoyseguridad.CamaraFotoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name="com.gstolima.accesoyseguridad.CamaraFotoLegacyActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/TemaCamara" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.gstolima.accesoyseguridad.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <service
+            android:name="com.gstolima.accesoyseguridad.LecturaSyncService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+        <service
+            android:name="com.gstolima.accesoyseguridad.TrackingLocationService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="location" />
+
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:clearTaskOnLaunch="true"
+            android:screenOrientation="sensorLandscape"
+            android:stateNotNeeded="true"
+            android:theme="@style/zxing_CaptureTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <service
+            android:name="androidx.camera.core.impl.MetadataHolderService"
+            android:enabled="false"
+            android:exported="false" >
+            <meta-data
+                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
+                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
+        </service>
+
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="com.gstolima.accesoyseguridad.androidx-startup"
+            android:exported="false" >
+            <meta-data
+                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+                android:value="androidx.startup" />
+        </provider>
+    </application>
+
+</manifest>

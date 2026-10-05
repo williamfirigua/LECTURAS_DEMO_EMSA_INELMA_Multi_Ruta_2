@@ -102,6 +102,7 @@ import com.gstolima.modulocomentarios.Firma;
 import com.gstolima.modulocomentarios.Informe;
 import com.gstolima.modulocuentanueva.ModuloCuentaNueva;
 import com.gstolima.tablas.EnvioGPS;
+import com.gstolima.tablas.GrupoMedidas;
 import com.gstolima.tablas.Notificaciones;
 import com.gstolima.tablas.TablaCodBarras;
 import com.gstolima.tablas.TablaEncabezado_General;
@@ -2718,7 +2719,7 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         cn_Cod_Ruta = String.format("%4s", infoRegistroSalida.gettablaRegistroSalida_RUTA().trim()).replace(" ", "0");
         ;
         cn_Ciclo = infoRegistroSalida.gettablaRegistroSalida_CICLO();
-        cn_Desc_Depto = infoRegistroSalida.gettablaRegistroSalida_DESCDEPTO();
+        cn_Desc_Depto = infoRegistroSalida.gettablaRegistroSalida_CUENTA();
         cn_Cod_Municipio = infoRegistroSalida.gettablaRegistroSalida_CODMUNICIPIO();
         cn_Cod_Sector = String.format("%3s", infoRegistroSalida.gettablaRegistroSalida_CODSECTOR()).replace(" ", "0");
         llenarListaCliente("SECC-RUTA", cn_Cod_Sector + "-" + cn_Cod_Ruta);
@@ -5300,15 +5301,22 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
      */
     private void cargarNumeroDeFotosDeLaAnomalia(String causa) {
         try {
-            if (causa == null || causa.trim().isEmpty()) return;
+            if (causa == null || causa.trim().isEmpty()) {
+                LogEventos.escribir(this, "[FOTOS] cargarNumeroDeFotos: causa vacia, no se carga nada.");
+                return;
+            }
 
             if (!anomaliaDeLectura.abrir_AnomaliaDeNoLectura(anomaliaDeLectura.getArchivo_AnomaliaDeNoLectura())) {
+                LogEventos.escribir(this, "[FOTOS] cargarNumeroDeFotos: NO se pudo abrir CAUSAS. archivo='"
+                        + anomaliaDeLectura.getArchivo_AnomaliaDeNoLectura() + "' causa='" + causa.trim() + "'");
                 return;
             }
             try {
                 anomaliaDeLectura.lectura_AnomaliaDeNoLectura(1);
                 anomaliaDeLectura.buscarAnomaliaDeNoLectura(causa.trim());
                 if (anomaliaDeLectura.getEncontro_AnomaliaDeNoLectura() == 0) {
+                    LogEventos.escribir(this, "[FOTOS] cargarNumeroDeFotos: causa '" + causa.trim()
+                            + "' NO encontrada en CAUSAS.");
                     return;
                 }
                 int pedidas = parseStringToInteger(anomaliaDeLectura.getAnomaliaDeNoLectura_NroFotos());
@@ -5317,6 +5325,10 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
                     Parametro_CUENTA = infoRegistroSalida.gettablaRegistroSalida_CUENTA().trim();
                     Parametro_TIPOMEDIDA = infoRegistroSalida.gettablaRegistroSalida_TIPOMEDIDA().trim();
                 }
+                LogEventos.escribir(this, "[FOTOS] cargarNumeroDeFotos: causa='" + causa.trim()
+                        + "' NroFotos='" + anomaliaDeLectura.getAnomaliaDeNoLectura_NroFotos()
+                        + "' pedidas=" + pedidas + " -> NumeroDeFotos=" + NumeroDeFotos
+                        + " Parametro_CUENTA='" + Parametro_CUENTA + "'");
             } finally {
                 anomaliaDeLectura.Cerrar_AnomaliaDeNoLectura();
             }
@@ -5538,21 +5550,10 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
                         break;
                     case "reimpresiondefactura":
                         if (infoRegistroSalida.gettablaRegistroSalida_DESCSECTOR().substring(0, 1).equals("L")) {
-                            //  EscribaArchivoImpresion("");
-                            if (MarcaDeImpresora.equals("ZEBRA")) {
-                                if (VariablesGlobales.habilitadaimpresora == 1) {
-                                    EscribaArchivoImpresion("");
-                                }
-                            }
-                            else {
-                                //nuevo metodo de imprimir en las jal
-
-                                //finish();
-                                if (VariablesGlobales.habilitadaimpresora == 1)
-                                {
-                                    EscribaArchivoImpresionESC(logoParaImpresora());
-
-                                }
+                            // El protocolo (CPCL para la Zebra, ESC/POS para la StarPOS) lo
+                            // resuelve imprimirTirilla(); aqui solo se decide si se imprime.
+                            if (VariablesGlobales.habilitadaimpresora == 1) {
+                                reimprimirTicketDeLaCuenta();
                             }
 
                         } else {
@@ -5851,6 +5852,14 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         imagenLiquid_3.setImageResource(android.R.color.transparent);
         code.setLength(0);
         BorroLecturaOCausa = false;
+
+        // Mismo freno que en avanzarRegistro(): el operario puede quedar parado primero en la
+        // activa y querer irse hacia atras a la reactiva -o salirse de la cuenta- con una
+        // medida sin cerrar.
+        if (atenderMedidaPendiente()) {
+            return (1);
+        }
+
         while (tmpreg > 0) {
             if (validarEstadoRegistroMinimo(tmpreg, "L") == 0) {
                 VariablesGlobales.registroactual = tmpreg;
@@ -5885,6 +5894,14 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         code.setLength(0);
         YaMostroMensaje = 0;
         BorroLecturaOCausa = false;
+
+        // Cuenta con varias medidas: antes de pasar a la cuenta siguiente hay que cerrar las
+        // que falten de ESTA. Tambien cubre el caso de que la medida pendiente este ANTES en el
+        // archivo, que el barrido de abajo -que solo mira hacia adelante- se saltaria.
+        if (atenderMedidaPendiente()) {
+            return (1);
+        }
+
         while (tmpreg <= x) {
             int v = validarEstadoRegistroMinimo(tmpreg, "L");
 
@@ -6588,7 +6605,7 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
                             //nuevo metodo de imprimir en las jal
 
                             //finish();
-                            EscribaArchivoImpresionESC(logoParaImpresora());
+                            imprimirTicketDeLaCuenta();
                         }
 
                     }
@@ -6603,16 +6620,8 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
                     // if (!imprimirTrasFoto) {                          // <-- NUEVO
                     if (ControlEspecialZonaRoja.trim().equals("000")) {
                         if (ControlEspecialImpresora.equals("1")) {
-                            if (MarcaDeImpresora.equals("ZEBRA")) {
-                                if (VariablesGlobales.habilitadaimpresora == 1) {
-                                    EscribaArchivoImpresion("");
-                                }
-                            }
-                            else {
-                                if (VariablesGlobales.habilitadaimpresora == 1)
-                                {
-                                    EscribaArchivoImpresionESC(logoParaImpresora());
-                                }
+                            if (VariablesGlobales.habilitadaimpresora == 1) {
+                                imprimirTicketDeLaCuenta();
                             }
                         }
                     }
@@ -7401,8 +7410,15 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         if (!tomandoFotoAdicionalEntrega
                 && Parametro_CUENTA != null
                 && !Parametro_CUENTA.trim().equals(nombre == null ? "" : nombre.trim())) {
+            LogEventos.escribir(this, "[FOTOS] ejecutarProcesoDeFoto: se DESCARTA la secuencia."
+                    + " Parametro_CUENTA='" + Parametro_CUENTA.trim() + "' != cuenta='"
+                    + (nombre == null ? "" : nombre.trim()) + "'. NumeroDeFotos pasa de "
+                    + NumeroDeFotos + " a 0");
             NumeroDeFotos = 0;
         }
+        LogEventos.escribir(this, "[FOTOS] ejecutarProcesoDeFoto: cuenta='"
+                + (nombre == null ? "" : nombre.trim()) + "' veces=" + veces
+                + " NumeroDeFotos=" + NumeroDeFotos + " tipoProceso='" + tipoProceso + "'");
 
         // ENTREGAS: por cada foto que el sistema decida tomar, se toma una segunda.
         // No cambia NINGUNA condicion de cuando se toma foto: cuando ya se iba a tomar una,
@@ -7573,16 +7589,11 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
             if (sector.length() > 0 && sector.substring(0, 1).equals("L")) {
                 if (ControlEspecialZonaRoja.trim().equals("000")) {
                     if (ControlEspecialImpresora.equals("1")) {
-                        if (MarcaDeImpresora.equals("ZEBRA")) {
-                            if (VariablesGlobales.habilitadaimpresora == 1) {
-                                EscribaArchivoImpresion("");
-                            }
-                        }
-                        else {
-                            if (VariablesGlobales.habilitadaimpresora == 1)
-                            {
-                                EscribaArchivoImpresionESC(logoParaImpresora());
-                            }
+                        // Antes llamaba al renderizador directo y se saltaba el agrupamiento:
+                        // la cuenta de varias medidas que cerraba con foto sacaba una tirilla
+                        // por medida. Ahora entra por el mismo punto que el cierre normal.
+                        if (VariablesGlobales.habilitadaimpresora == 1) {
+                            imprimirTicketDeLaCuenta();
                         }
                     }
                 }
@@ -7888,6 +7899,9 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         }
         if (error == null) {
             FotoObligatoriaXLectura = 0;
+            LogEventos.escribir(this, "[FOTOS] onFotoProcesada: cuenta=" + job.cuenta
+                    + " NumeroDeFotos=" + NumeroDeFotos
+                    + (NumeroDeFotos > 1 ? " -> encadena otra" : " -> no encadena mas"));
             if (NumeroDeFotos > 1) {
                 YaImprimio = 1;
                 // Se descuenta una, no se pone en cero: una anomalia parametrizada con 3 o mas
@@ -11416,6 +11430,7 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
             texto += ";//TONE 0" + "\r\n";
             texto += ";//SPEED 3" + "\r\n";
             texto += "PAGE-WIDTH 580" + "\r\n";
+            texto += cpclPostfeed();
             texto += ";//BAR-SENSE" + "\r\n";
             texto += ";// PAGE 0000000004190520" + "\r\n";
             texto += "PCX 5 0 !<EMSA.PCX" + "\r\n";
@@ -11451,12 +11466,22 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         } else {
             //tipo 2
             String Municipio = DescripcionMunicipio(variables.getCodigoEmpresa());
-            texto += "! 0 200 200 560 1\r\n";
+            // La observacion sale del campo INFORME (250 caracteres). CPCL no envuelve solo,
+            // asi que se parte aqui y la etiqueta crece lo que haga falta: con una sola linea
+            // la tirilla queda exactamente igual que siempre.
+            java.util.List<String> obsRenglones = envolverCpcl("OBS: " + LecturaTomada, CPCL_ANCHO_LINEA);
+            if (obsRenglones.isEmpty()) {
+                obsRenglones.add("OBS: ");
+            }
+            int altoTipo2 = 560 + (obsRenglones.size() - 1) * CPCL_SALTO;
+
+            texto += "! 0 200 200 " + altoTipo2 + " 1\r\n";
             texto += "LABEL\r\n";
             texto += ";//CONTRAST 0\r\n";
             texto += ";//TONE 0\r\n";
             texto += ";//SPEED \r\n";
             texto += "PAGE-WIDTH 560\r\n";
+            texto += cpclPostfeed();
             texto += ";//BAR-SENSE\r\n";
             texto += ";// PAGE 0000000006200520\r\n";
             texto += "PCX 5 0 !<EMSA1.PCX\r\n";
@@ -11471,21 +11496,27 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
             texto += "T 7 0 85 160 " + "reporte" + "\r\n";
             texto += "T 7 1 175 170 " + "Lectura  : " + parseStringToInteger(String.format("%1$9s", infoRegistroSalida.gettablaRegistroSalida_LECTURATOMADA().trim()).replace(" ", "0")) + "\r\n";
 
-            texto += "T 7 0 85 220 " + "OBS: " + LecturaTomada + "\r\n";
-            texto += "T 7 0 85 240 " + "Cuenta   : " + infoRegistroSalida.gettablaRegistroSalida_CUENTA().trim() + "\r\n";
-            texto += "T 7 0 85 260 " + "Municipio: " + Municipio.trim() + "\r\n";
-            texto += "T 7 0 85 280 " + "Nombre   : " + infoRegistroSalida.gettablaRegistroSalida_NOMBRE().substring(0, 20) + "\r\n";
+            // Desde aqui la Y va corrida: si la observacion ocupo mas de un renglon, todo lo
+            // que sigue baja en bloque en vez de quedar pisado.
+            int yT2 = 220;
+            for (String renglon : obsRenglones) {
+                texto += "T 7 0 85 " + yT2 + " " + renglon + "\r\n";
+                yT2 += CPCL_SALTO;
+            }
+            texto += "T 7 0 85 " + yT2 + " " + "Cuenta   : " + infoRegistroSalida.gettablaRegistroSalida_CUENTA().trim() + "\r\n";  yT2 += CPCL_SALTO;
+            texto += "T 7 0 85 " + yT2 + " " + "Municipio: " + Municipio.trim() + "\r\n";  yT2 += CPCL_SALTO;
+            texto += "T 7 0 85 " + yT2 + " " + "Nombre   : " + infoRegistroSalida.gettablaRegistroSalida_NOMBRE().substring(0, 20) + "\r\n";  yT2 += CPCL_SALTO;
 
-            texto += "T 7 0 85 300 " + "Direccion: " + infoRegistroSalida.gettablaRegistroSalida_DIRECCION().substring(0, 20) + "\r\n";
-            texto += "T 7 0 85 320 " + infoRegistroSalida.gettablaRegistroSalida_DIRECCION().substring(20, 40) + "\r\n";
-            texto += "T 7 0 85 340 " + "Medidor  : " + infoRegistroSalida.gettablaRegistroSalida_NROCONTADOR().trim()+" - Marca: " +infoRegistroSalida.gettablaRegistroSalida_MARCA().trim() + "\r\n";
-            texto += "T 7 0 85 360 " + "Inspector: " + infoRegistroSalida.gettablaRegistroSalida_LECTOR() + "\r\n";
-            texto += "T 7 0 85 380 " + "PARA MAYOR INFORMACION COMUNIQUESE A " + "\r\n";
-            texto += "T 7 0 85 400 " + "LA LINEA WHATSAPP 3102305947" + "\r\n";
-            texto += "T 7 0 85 420 " + "Proceso de Lectura elaborado " + "\r\n";
-            texto += "T 7 0 85 440 " + "por INELMA SAS" + "\r\n";
-            texto += "T 7 0 85 460 " + "version " + VariablesGlobales.versionApp + "\r\n";
-            texto += "T 7 0 85 480 " + ".." + "\r\n";
+            texto += "T 7 0 85 " + yT2 + " " + "Direccion: " + infoRegistroSalida.gettablaRegistroSalida_DIRECCION().substring(0, 20) + "\r\n";  yT2 += CPCL_SALTO;
+            texto += "T 7 0 85 " + yT2 + " " + infoRegistroSalida.gettablaRegistroSalida_DIRECCION().substring(20, 40) + "\r\n";  yT2 += CPCL_SALTO;
+            texto += "T 7 0 85 " + yT2 + " " + "Medidor  : " + infoRegistroSalida.gettablaRegistroSalida_NROCONTADOR().trim()+" - Marca: " +infoRegistroSalida.gettablaRegistroSalida_MARCA().trim() + "\r\n";  yT2 += CPCL_SALTO;
+            texto += "T 7 0 85 " + yT2 + " " + "Inspector: " + infoRegistroSalida.gettablaRegistroSalida_LECTOR() + "\r\n";  yT2 += CPCL_SALTO;
+            texto += "T 7 0 85 " + yT2 + " " + "PARA MAYOR INFORMACION COMUNIQUESE A " + "\r\n";  yT2 += CPCL_SALTO;
+            texto += "T 7 0 85 " + yT2 + " " + "LA LINEA WHATSAPP 3102305947" + "\r\n";  yT2 += CPCL_SALTO;
+            texto += "T 7 0 85 " + yT2 + " " + "Proceso de Lectura elaborado " + "\r\n";  yT2 += CPCL_SALTO;
+            texto += "T 7 0 85 " + yT2 + " " + "por INELMA SAS" + "\r\n";  yT2 += CPCL_SALTO;
+            texto += "T 7 0 85 " + yT2 + " " + "version " + VariablesGlobales.versionApp + "\r\n";  yT2 += CPCL_SALTO;
+            texto += "T 7 0 85 " + yT2 + " " + ".." + "\r\n";
             texto += "PRINT" + "\r\n";
 
         }
@@ -11627,6 +11658,477 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
             imprimirBinarioNuevoModelo(datosImpresion); // Ax: reemplaza imprimirESC() - ver MODELO NUEVO DE IMPRESIÓN al final
         }
     }*/
+
+    // ================================================================================
+    // CUENTAS CON MAS DE UNA MEDIDA (Activa / Reactiva, o dos Activas)
+    //
+    // Una cuenta puede traer dos registros en el plano: la medida activa y la reactiva del
+    // mismo medidor, o -mas raro- dos activas de dos medidores fisicos distintos. Antes cada
+    // registro se cerraba e imprimia por separado y al cliente le quedaban dos tirillas
+    // sueltas de la misma cuenta.
+    //
+    // Ahora: al cerrar una medida de una cuenta agrupada NO se imprime; avanzarRegistro()
+    // lleva a la medida que falta, y al cerrar la ultima sale UNA sola tirilla con las dos.
+    // Las cuentas de una sola medida -la enorme mayoria- siguen imprimiendo igual que siempre.
+    // ================================================================================
+
+    /** El indice de la ruta, o null si no se pudo armar (ahi todo sigue como antes). */
+    private GrupoMedidas grupoDeMedidas() {
+        try {
+            return GrupoMedidas.obtener(infoRegistroSalida.getArchivo_TablaRegistroSalida());
+        } catch (Exception e) {
+            logger.info("grupoDeMedidas() " + e.getMessage());
+            return null;
+        }
+    }
+
+    /**
+     * Registro de la otra medida de esta cuenta que todavia esta sin cerrar, o 0 si no hay.
+     * Se consulta con la cuenta que esta en memoria, asi que hay que llamarlo ANTES de moverse
+     * de registro.
+     */
+    private int medidaPendienteDeLaCuentaActual() {
+        GrupoMedidas grupo = grupoDeMedidas();
+        if (grupo == null) {
+            return 0;
+        }
+        String cuenta = infoRegistroSalida.gettablaRegistroSalida_CUENTA().trim();
+        if (!grupo.esGrupo(cuenta)) {
+            return 0;
+        }
+        // pendienteSiYaInicio y no primerPendiente: mientras no haya cerrado ninguna medida el
+        // operario todavia puede saltarse la cuenta completa. La obligacion aparece cuando ya
+        // cerro una.
+        return grupo.pendienteSiYaInicio(cuenta);
+    }
+
+    /**
+     * Freno comun de avanzarRegistro() y retrocedeRegistro() para las cuentas de varias medidas.
+     *
+     * Devuelve true cuando ya se atendio el movimiento y el llamador debe salir con exito:
+     *   - si la medida pendiente es OTRA, lleva a ella;
+     *   - si la pendiente es la que ya esta en pantalla, no se mueve y avisa.
+     *
+     * El segundo caso es el que faltaba: con el operario parado sobre la medida sin cerrar,
+     * tocar siguiente o anterior lo dejaba escapar de la cuenta a medio hacer.
+     */
+    private boolean atenderMedidaPendiente() {
+        int medidaPendiente = medidaPendienteDeLaCuentaActual();
+        if (medidaPendiente <= 0) {
+            return false;
+        }
+        if (medidaPendiente != VariablesGlobales.registroactual) {
+            VariablesGlobales.registroactual = medidaPendiente;
+            leerInformacionUsuario(1);
+            visualizarInformacionCliente(1);
+            mensajeT("Esta cuenta tiene otra medida pendiente.\nDebe cerrarla antes de continuar.", msgMedio);
+        } else {
+            visualizarInformacionCliente(1);
+            mensajeT("Debe cerrar esta medida antes de salir de la cuenta.", msgMedio);
+        }
+        return true;
+    }
+
+    /** Resultado de decidir que se imprime: ver decidirTirilla(). */
+    private static final int[] TIRILLA_SIMPLE = new int[0];
+
+    /**
+     * Decide QUE se imprime, sin saber en que protocolo. Un solo lugar manda y los dos
+     * renderizadores (CPCL para la Zebra, ESC/POS para la StarPOS) solo dibujan; antes la
+     * decision estaba dentro del camino ESC/POS y por eso la Zebra seguia sacando una
+     * tirilla por medida.
+     *
+     * @param esReimpresion true cuando el operario la pidio a mano: ahi nunca se aplaza.
+     * @return null             -> no imprimir todavia, falta cerrar la otra medida
+     *         TIRILLA_SIMPLE   -> tirilla normal del registro en pantalla
+     *         int[] con >1     -> tirilla unica con esos registros
+     */
+    private int[] decidirTirilla(boolean esReimpresion) {
+        GrupoMedidas grupo = grupoDeMedidas();
+        String cuenta = infoRegistroSalida.gettablaRegistroSalida_CUENTA().trim();
+
+        if (grupo == null || !grupo.esGrupo(cuenta)) {
+            return TIRILLA_SIMPLE;                 // la enorme mayoria: una sola medida
+        }
+        if (grupo.primerPendiente(cuenta) != 0) {
+            if (esReimpresion) {
+                // El operario pidio un papel y tiene que recibirlo, asi el grupo este a medias.
+                return TIRILLA_SIMPLE;
+            }
+            logger.info("[IMPRESION] Cuenta " + cuenta + " con varias medidas: se aplaza la tirilla.");
+            return null;
+        }
+        return grupo.registrosDe(cuenta);
+    }
+
+    /**
+     * Punto unico de impresion al cerrar una lectura. Reemplaza las llamadas directas a
+     * EscribaArchivoImpresionESC() dentro de procesarLectura2().
+     */
+    private void imprimirTicketDeLaCuenta() {
+        imprimirTirilla(decidirTirilla(false));
+    }
+
+    /**
+     * Reimpresion a pedido del operario. A diferencia de la impresion normal, aqui NUNCA se
+     * aplaza: si el grupo esta completo sale la tirilla unificada y si no, sale la de la medida
+     * que esta en pantalla.
+     */
+    private void reimprimirTicketDeLaCuenta() {
+        imprimirTirilla(decidirTirilla(true));
+    }
+
+    /**
+     * Renderiza lo que decidirTirilla() mando, en el protocolo de la impresora que este
+     * seleccionada. Es el unico lugar donde se elige CPCL o ESC/POS para la tirilla.
+     */
+    private void imprimirTirilla(int[] registros) {
+        if (registros == null) {
+            return;                                 // aplazada
+        }
+        boolean zebra = MarcaDeImpresora.equals("ZEBRA");
+
+        if (registros.length <= 1) {
+            if (zebra) EscribaArchivoImpresion("");
+            else EscribaArchivoImpresionESC(logoParaImpresora());
+            return;
+        }
+        if (zebra) EscribaArchivoImpresionGrupo(registros);
+        else EscribaArchivoImpresionESCGrupo(logoParaImpresora(), registros);
+    }
+
+    /** Datos de una medida, ya leidos del archivo, para armar la tirilla. */
+    private static final class Medida {
+        String tipo;      // ACTIVA / REACTIVA
+        String medidor;
+        String marca;
+        String lectura;   // ya formateada, o "---" si quedo sin lectura
+        String obs;
+    }
+
+    /**
+     * Tirilla unica con todas las medidas de la cuenta.
+     *
+     * Se leen los registros del grupo con una instancia APARTE de TablaRegistroSalida: tocar
+     * infoRegistroSalida dejaria el registro en pantalla apuntando a otra medida.
+     *
+     * El medidor se imprime UNA sola vez cuando todas las medidas comparten medidor y marca
+     * (el caso Activa+Reactiva, que es el comun) y baja a cada bloque solo cuando difieren
+     * (el caso de dos activas con dos equipos distintos).
+     */
+    /** Cabecera y medidas de la cuenta, ya leidas, listas para cualquier renderizador. */
+    private static final class DatosTirilla {
+        String cuenta = "", nombre = "", direccion = "";
+        java.util.List<Medida> medidas = new java.util.ArrayList<>();
+        /** true cuando todas las medidas comparten medidor y marca (Activa+Reactiva). */
+        boolean mismoMedidor = true;
+    }
+
+    /**
+     * Lee del archivo los registros del grupo. Se usa una instancia APARTE de
+     * TablaRegistroSalida: tocar infoRegistroSalida dejaria el registro en pantalla
+     * apuntando a otra medida.
+     *
+     * La comparten los dos renderizadores de tirilla agrupada (CPCL y ESC/POS), para que
+     * el contenido del papel sea el mismo sin importar la impresora.
+     *
+     * @return null cuando no se pudo leer nada util; ahi el llamador cae a la tirilla simple.
+     */
+    private DatosTirilla leerMedidasDelGrupo(int[] registros) {
+        if (registros == null || registros.length == 0) {
+            return null;
+        }
+
+        DatosTirilla datos = new DatosTirilla();
+        TablaRegistroSalida lector = new TablaRegistroSalida();
+        lector.setArchivo_TablaRegistroSalida(infoRegistroSalida.getArchivo_TablaRegistroSalida());
+
+        if (!lector.abrir_TablaRegistroSalida(lector.getArchivo_TablaRegistroSalida())) {
+            logger.info("[IMPRESION] No se pudo abrir el archivo para armar la tirilla agrupada.");
+            return null;
+        }
+        try {
+            for (int registro : registros) {
+                lector.lectura_TablaRegistroSalida(registro);
+
+                if (datos.cuenta.isEmpty()) {
+                    datos.cuenta = lector.gettablaRegistroSalida_CUENTA().trim();
+                    datos.nombre = recortar(lector.gettablaRegistroSalida_NOMBRE().trim(), 30);
+                    datos.direccion = recortar(lector.gettablaRegistroSalida_DIRECCION().trim(), 30);
+                }
+
+                Medida m = new Medida();
+                m.tipo = lector.gettablaRegistroSalida_NROMEDIDORES().trim().toUpperCase().startsWith("R")
+                        ? "REACTIVA" : "ACTIVA";
+                m.medidor = lector.gettablaRegistroSalida_NROCONTADOR().trim();
+                m.marca = lector.gettablaRegistroSalida_MARCA().trim();
+
+                String tomada = lector.gettablaRegistroSalida_LECTURATOMADA().trim();
+                String causa = lector.gettablaRegistroSalida_CAUSADENOLECTURA().trim();
+                boolean sinLectura = tomada.isEmpty() || tomada.replace("0", "").isEmpty();
+
+                m.lectura = (sinLectura && !causa.isEmpty())
+                        ? "---"
+                        : "" + parseStringToInteger(String.format("%1$9s", tomada).replace(" ", "0"));
+
+                String informe = lector.gettablaRegistroSalida_INFORME().trim();
+                if (!informe.isEmpty()) {
+                    m.obs = informe;
+                } else if (!causa.isEmpty()) {
+                    m.obs = DescripAnomaliaDeNoLectura(causa);
+                } else {
+                    m.obs = "0 : Toma Exitosa";
+                }
+                datos.medidas.add(m);
+            }
+        } catch (Exception e) {
+            logger.info("leerMedidasDelGrupo() " + e.getMessage());
+        } finally {
+            lector.Cerrar_TablaRegistroSalida();
+        }
+
+        if (datos.medidas.isEmpty()) {
+            return null;
+        }
+
+        for (Medida m : datos.medidas) {
+            if (!m.medidor.equals(datos.medidas.get(0).medidor)
+                    || !m.marca.equals(datos.medidas.get(0).marca)) {
+                datos.mismoMedidor = false;
+                break;
+            }
+        }
+        return datos;
+    }
+
+    private void EscribaArchivoImpresionESCGrupo(Bitmap logo, int[] registros) {
+        DatosTirilla datos = leerMedidasDelGrupo(registros);
+        if (datos == null) {
+            EscribaArchivoImpresionESC(logo);
+            return;
+        }
+
+        java.util.List<Medida> medidas = datos.medidas;
+        boolean mismoMedidor = datos.mismoMedidor;
+        String cuenta = datos.cuenta, nombre = datos.nombre, direccion = datos.direccion;
+
+        String municipio = DescripcionMunicipio(variables.getCodigoEmpresa());
+
+        EscPosBuilder esc = new EscPosBuilder();
+        esc.Fondo_B();
+        esc.Linea_SMALL();
+        esc.center()
+                .logo(logo)
+                .left()
+                .line("Contrato : C4511951")
+                .line("Estimado usuario el dia de hoy")
+                .line("Fecha    : " + tomarFechaSistemaII(1))
+                .line("Estuvimos realizando la toma de lectura con reporte:")
+                .line("Cuenta   : " + cuenta)
+                .line("Municipio: " + municipio.trim())
+                .line("Nombre   : " + nombre)
+                .line("Direccion: " + direccion);
+
+        if (mismoMedidor) {
+            esc.line("Medidor  : " + medidas.get(0).medidor + " - Marca: " + medidas.get(0).marca);
+        }
+
+        for (Medida m : medidas) {
+            esc.line(String.format("%-9s: %s", m.tipo, m.lectura));
+            if (!mismoMedidor) {
+                esc.line("Medidor  : " + m.medidor + " - Marca: " + m.marca);
+            }
+            esc.lineaEnvuelta("OBS: " + m.obs, 42);
+        }
+
+        esc.line("Inspector: " + infoRegistroSalida.gettablaRegistroSalida_LECTOR())
+                .line("PARA MAYOR INFORMACION COMUNIQUESE A LA ")
+                .line("LINEA WHATSAPP 3102305947")
+                .line("Proceso de Lectura elaborado por INELMA ")
+                .line("SAS")
+                .line("version " + VariablesGlobales.versionApp)
+                .feed(4)
+                .cut();
+
+        File file = new File(
+                VariablesGlobales.directorioactual +
+                        VariablesGlobales.getCarpetaLecturas() + "/IMPRIMIR.BIN"
+        );
+        if (file.exists()) file.delete();
+
+        byte[] datosImpresion = esc.build();
+        escribirArchivoBinario(file, datosImpresion);
+
+        logger.info("[IMPRESION] Tirilla unificada de la cuenta " + cuenta
+                + " con " + medidas.size() + " medida(s).");
+
+        if (!VariablesGlobales.tipoDeRuta.equals("E")) {
+            imprimirBinarioNuevoModelo(datosImpresion);
+        }
+    }
+
+    private static String recortar(String texto, int largo) {
+        if (texto == null) return "";
+        return texto.length() > largo ? texto.substring(0, largo) : texto;
+    }
+
+    // ================================================================================
+    // TIRILLA AGRUPADA EN CPCL (Zebra ZQ521)
+    //
+    // Equivalente de EscribaArchivoImpresionESCGrupo() para la Zebra. Las dos leen los
+    // mismos datos con leerMedidasDelGrupo(); lo unico distinto es como se dibujan.
+    //
+    // En CPCL el texto se ubica por coordenada absoluta (T <fuente> <tam> <x> <y>), no hay
+    // flujo de lineas, y la altura de la etiqueta va declarada en el encabezado. Por eso se
+    // lleva una Y corriente y la altura se calcula al final: con dos medidas el papel es mas
+    // largo que el de una, y si se dejara el 560 fijo del formato original la tirilla saldria
+    // cortada.
+    // ================================================================================
+
+    private static final int CPCL_X = 85;             // margen izquierdo, el del formato original
+    private static final int CPCL_SALTO = 20;         // alto de renglon de la fuente 7 tamano 0
+    private static final int CPCL_Y_INICIAL = 70;     // debajo del logo PCX
+    private static final int CPCL_ANCHO_LINEA = 36;   // caracteres que caben desde x=85 con PAGE-WIDTH 560
+    private static final int CPCL_MARGEN_FINAL = 80;  // aire al pie, igual que el formato original
+
+    /**
+     * Papel que se avanza DESPUES de imprimir, en dots (8 dots = 1 mm a 203 dpi).
+     *
+     * El cabezal de la ZQ521 queda 4,8 mm (38 dots) antes de la barra de corte, asi que al
+     * terminar la tirilla ese tramo final sigue dentro de la impresora y al cortar se lleva
+     * pegado el pie de la anterior. El aire al pie de la etiqueta no lo resuelve porque el
+     * firmware no alimenta ese blanco; POSTFEED si es una orden explicita de avanzar, y es la
+     * que usa la prueba de impresion que siempre sale bien.
+     *
+     * 40 dots = 5 mm, el tope que pediste y a la vez el minimo util (por debajo de 38 la
+     * ultima linea no pasa la barra). Es el UNICO numero a mover: si queda corto subirlo, si
+     * desperdicia papel bajarlo. Vale para los tres formatos de lectura.
+     */
+    private static final int CPCL_POSTFEED = 5;
+
+    /** Linea POSTFEED del encabezado CPCL, o vacio si se deja en 0. */
+    private static String cpclPostfeed() {
+        return CPCL_POSTFEED > 0 ? ("POSTFEED " + CPCL_POSTFEED + "\r\n") : "";
+    }
+
+    /** Agrega un renglon y devuelve la Y del siguiente. */
+    private int lineaCpcl(StringBuilder sb, int y, String texto) {
+        sb.append("T 7 0 ").append(CPCL_X).append(' ').append(y).append(' ')
+                .append(texto == null ? "" : texto).append("\r\n");
+        return y + CPCL_SALTO;
+    }
+
+    /**
+     * Parte un texto en renglones de a lo sumo 'ancho' caracteres, cortando por espacio.
+     *
+     * CPCL no envuelve solo: un comando T saca todo de un tiron y lo que no cabe se monta
+     * sobre lo que sigue. El campo INFORME admite 250 caracteres, asi que una observacion
+     * larga daba la vuelta encima del resto de la tirilla. Unica regla de corte para las dos
+     * tirillas, la simple y la agrupada.
+     */
+    private static java.util.List<String> envolverCpcl(String texto, int ancho) {
+        java.util.List<String> renglones = new java.util.ArrayList<>();
+        if (texto == null) {
+            return renglones;
+        }
+        String resto = texto.trim();
+        while (resto.length() > ancho) {
+            int corte = resto.lastIndexOf(' ', ancho);
+            if (corte <= 0) corte = ancho;                 // palabra mas larga que el renglon
+            renglones.add(resto.substring(0, corte).trim());
+            resto = resto.substring(corte).trim();
+        }
+        if (!resto.isEmpty()) {
+            renglones.add(resto);
+        }
+        return renglones;
+    }
+
+    /** Agrega el texto partido en varios renglones. Devuelve la Y del siguiente. */
+    private int lineaCpclEnvuelta(StringBuilder sb, int y, String texto, int ancho) {
+        for (String renglon : envolverCpcl(texto, ancho)) {
+            y = lineaCpcl(sb, y, renglon);
+        }
+        return y;
+    }
+
+    /**
+     * Tirilla unica en CPCL con todas las medidas de la cuenta.
+     *
+     * El medidor se imprime UNA sola vez cuando todas las medidas comparten medidor y marca
+     * (el caso Activa+Reactiva, que es el comun) y baja a cada bloque solo cuando difieren
+     * (dos activas con dos equipos distintos). Sin separadores, para no gastar papel.
+     */
+    private void EscribaArchivoImpresionGrupo(int[] registros) {
+        DatosTirilla datos = leerMedidasDelGrupo(registros);
+        if (datos == null) {
+            EscribaArchivoImpresion("");               // no se pudo armar: tirilla de siempre
+            return;
+        }
+
+        String municipio = DescripcionMunicipio(variables.getCodigoEmpresa());
+
+        StringBuilder cuerpo = new StringBuilder();
+        int y = CPCL_Y_INICIAL;
+
+        y = lineaCpcl(cuerpo, y, "Contrato : C4511951");
+        y = lineaCpcl(cuerpo, y, "Estimado usuario el dia de hoy");
+        y = lineaCpcl(cuerpo, y, tomarFechaSistemaII(1) + " Estuvimos");
+        y = lineaCpcl(cuerpo, y, "realizando la toma de lectura con");
+        y = lineaCpcl(cuerpo, y, "reporte:");
+        y = lineaCpcl(cuerpo, y, "Cuenta   : " + datos.cuenta);
+        y = lineaCpcl(cuerpo, y, "Municipio: " + municipio.trim());
+        y = lineaCpclEnvuelta(cuerpo, y, "Nombre   : " + datos.nombre, CPCL_ANCHO_LINEA);
+        y = lineaCpclEnvuelta(cuerpo, y, "Direccion: " + datos.direccion, CPCL_ANCHO_LINEA);
+
+        if (datos.mismoMedidor) {
+            y = lineaCpcl(cuerpo, y, "Medidor  : " + datos.medidas.get(0).medidor
+                    + " - Marca: " + datos.medidas.get(0).marca);
+        }
+
+        for (Medida m : datos.medidas) {
+            y = lineaCpcl(cuerpo, y, String.format("%-9s: %s", m.tipo, m.lectura));
+            if (!datos.mismoMedidor) {
+                y = lineaCpcl(cuerpo, y, "Medidor  : " + m.medidor + " - Marca: " + m.marca);
+            }
+            y = lineaCpclEnvuelta(cuerpo, y, "OBS: " + m.obs, CPCL_ANCHO_LINEA);
+        }
+
+        y = lineaCpcl(cuerpo, y, "Inspector: " + infoRegistroSalida.gettablaRegistroSalida_LECTOR());
+        y = lineaCpcl(cuerpo, y, "PARA MAYOR INFORMACION COMUNIQUESE A");
+        y = lineaCpcl(cuerpo, y, "LA LINEA WHATSAPP 3102305947");
+        y = lineaCpcl(cuerpo, y, "Proceso de Lectura elaborado");
+        y = lineaCpcl(cuerpo, y, "por INELMA SAS");
+        y = lineaCpcl(cuerpo, y, "version " + VariablesGlobales.versionApp);
+        y = lineaCpcl(cuerpo, y, "..");
+
+        int alto = y + CPCL_MARGEN_FINAL;
+
+        StringBuilder texto = new StringBuilder();
+        texto.append("! 0 200 200 ").append(alto).append(" 1\r\n");
+        texto.append("LABEL\r\n");
+        texto.append(";//CONTRAST 0\r\n");
+        texto.append(";//TONE 0\r\n");
+        texto.append(";//SPEED \r\n");
+        texto.append("PAGE-WIDTH 560\r\n");
+        texto.append(cpclPostfeed());
+        texto.append(";//BAR-SENSE\r\n");
+        texto.append("PCX 5 0 !<EMSA1.PCX\r\n");
+        texto.append(cuerpo);
+        texto.append("PRINT\r\n");
+
+        File fileName = new File(VariablesGlobales.directorioactual
+                + VariablesGlobales.getCarpetaLecturas() + "/IMPRIMIR.TXT");
+        if (fileName.exists()) fileName.delete();
+        utils.EscribirLinea(fileName, texto.toString());
+
+        logger.info("[IMPRESION] Tirilla unificada CPCL de la cuenta " + datos.cuenta
+                + " con " + datos.medidas.size() + " medida(s), alto " + alto + " dots.");
+
+        if (!VariablesGlobales.tipoDeRuta.equals("E")) {
+            imprimirTextoNuevoModelo(texto.toString());
+        }
+    }
 
     //nuevo modelo para imprimir
     private void EscribaArchivoImpresionESC(Bitmap logo) {//Bitmap logo

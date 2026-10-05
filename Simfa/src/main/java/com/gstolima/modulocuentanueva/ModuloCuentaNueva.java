@@ -46,6 +46,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+
 import com.gstolima.comunicaciones.SyncHelper;
 import com.gstolima.comunicaciones.EnvioCuentaNueva;
 import com.gstolima.comunicaciones.CrudEnvioCuentaNueva;
@@ -158,7 +159,7 @@ public class ModuloCuentaNueva extends AppCompatActivity {
                 + "-" + cnCodMunicipio + "-" + cnCodSector + "-" + cnCodRuta);
         txtcnDireccion.requestFocus();
 
-        logfile = new File(AppPath + VariablesGlobales.getCarpetaLecturas()+"/LOGEVENTOS.LOG");
+        logfile = new File(AppPath + VariablesGlobales.getCarpetaLecturas() + "/LOGEVENTOS.LOG");
 
         btncnfoto.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -173,7 +174,7 @@ public class ModuloCuentaNueva extends AppCompatActivity {
         btncngrabar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                if (!validarDatos() ) {//|| !validarFoto()
+                if (!validarDatos()) {//|| !validarFoto()
                     mensajes("Faltan datos por llenar!");
                 } else {
                     dialogMsg();
@@ -289,16 +290,21 @@ public class ModuloCuentaNueva extends AppCompatActivity {
 
         String linea = "";
         try {
-            File f = new File(AppPath + VariablesGlobales.getCarpetaLecturas()+"/" + "N" + nombrearchivo6);
+            File f = new File(AppPath + VariablesGlobales.getCarpetaLecturas() + "/" + "N" + nombrearchivo6);
             // Archivo de respaldo para recuperación en otro dispositivo
-            File cuentasEnvio = new File(AppPath + VariablesGlobales.getCarpetaLecturas()+"/" + "CUENTASNUEVA" + serial + ".SDA");
+            File cuentasEnvio = new File(AppPath + VariablesGlobales.getCarpetaLecturas() + "/" + "CUENTASNUEVA" + serial + ".SDA");
 
-            if (cnDescDepto.length() > 31) {
+            /*if (cnDescDepto.length() > 31) {
                 cnDescDepto = cnDescDepto.substring(30, 32);
             } else {
                 if (cnDescDepto.length() > 1) {
                     cnDescDepto = cnDescDepto.substring(0, 2);
                 }
+            }*/
+            if (cnDescDepto != null) {
+                cnDescDepto = cnDescDepto.length() > 32
+                        ? cnDescDepto.substring(0, 32)
+                        : cnDescDepto;
             }
 
             String InformeFinal = txtcuInforme.getText().toString().trim();
@@ -309,9 +315,14 @@ public class ModuloCuentaNueva extends AppCompatActivity {
             InformeFinal = InformeFinal.replace("é", "e");
             InformeFinal = InformeFinal.replace("ñ", "n");
             InformeFinal = InformeFinal.replace("Ñ", "N");
+            InformeFinal = InformeFinal.replace("Ñ", "N");
+            InformeFinal = InformeFinal.replace(";", " ");
+            InformeFinal = InformeFinal.replace("|", " ");
+            InformeFinal = InformeFinal.replace("\r", " ");
+            InformeFinal = InformeFinal.replace("\n", " ");
 
             // Crear línea para archivo local (se mantiene para respaldo)
-            String Tipomedidor = spnTipoMedida.getSelectedItem().toString().trim().substring(0,2);
+            String Tipomedidor = spnTipoMedida.getSelectedItem().toString().trim().substring(0, 2);
             linea = String.format("%1$-64s", txtcnDireccion.getText().toString().trim()) + ";" +
                     String.format("%1$-20s", txtcnContador.getText().toString().trim()) + ";" +
                     String.format("%1$-15s", txtcuMarca.getText().toString().trim()) + ";" +
@@ -934,7 +945,6 @@ public class ModuloCuentaNueva extends AppCompatActivity {
         }
         return return_msg;
     }
-
 
 
     private String getPhoneDate() {//Retorna la fecha actual en formato dd/MM/yyyy

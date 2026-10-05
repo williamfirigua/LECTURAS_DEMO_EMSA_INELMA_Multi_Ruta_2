@@ -272,11 +272,11 @@ public class GuiAcceso extends AppCompatActivity {
             if (externalpath.contains(hardcoding)) {
                 externalpath = externalpath.substring(0, externalpath.indexOf(hardcoding));
             }
-            String consecutivo = "2.3.6";
+            String consecutivo = "2.3.8";
             txtVersion.setText("Versión " + consecutivo);
             VariablesGlobales.directorioactual = externalpath;
-            VariablesGlobales.vrsDerechos = "Septi. 24 2026. L-" + Empresa + "_GSS"; //Vrs para mostrar desde el login
-            VariablesGlobales.versionApp = "Ver" + consecutivo + "-260924"; //Vrs para envio al modulo de liquidacion
+            VariablesGlobales.vrsDerechos = "Octubre. 05 2026. L-" + Empresa + "_GSS"; //Vrs para mostrar desde el login
+            VariablesGlobales.versionApp = "Ver" + consecutivo + "-261005"; //Vrs para envio al modulo de liquidacion
             VariablesGlobales.archivolog = externalpath + VariablesGlobales.getCarpetaLecturas()+"/LOGEVENTOS.LOG"; //path hacia el Log
             Thread.setDefaultUncaughtExceptionHandler(new myExceptionHandler(getApplicationContext()));
 

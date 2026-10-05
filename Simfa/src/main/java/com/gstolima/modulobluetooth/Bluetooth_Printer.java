@@ -63,7 +63,14 @@ public class Bluetooth_Printer {
      * primer ticket de la jornada en vez de uno por cada ticket. Si la impresora se apaga, se
      * aleja o corta el enlace, la escritura falla y se reconecta sola (ver escribirConReintento).
      *
-     * Poner en false para volver al comportamiento viejo (conectar y desconectar por ticket).
+     * OJO - SOLO APLICA AL BINARIO ESC/POS (StarPOS). Las Zebra imprimen por el camino de
+     * TEXTO (CPCL/EPL) y ese va SIEMPRE con conexion nueva, como antes de todo esto. El
+     * 02/10/2026 se comprobo en campo que la ZQ521 recibia la trama -se le veia el LED- pero no
+     * sacaba el papel, mientras el MISMO archivo por cable si imprimia. Esa impresora necesita
+     * el cierre del socket para dar la etiqueta por terminada, asi que para texto no se
+     * reutiliza nada. Quien decide es el parametro permiteReuso de cada print().
+     *
+     * Poner en false para volver al comportamiento viejo tambien en el binario.
      */
     public static boolean REUSAR_CONEXION = true;
 
@@ -106,8 +113,10 @@ public class Bluetooth_Printer {
 
         List<byte[]> lotes = new ArrayList<>();
         lotes.add(textoComandos.getBytes(CHARSET_IMPRESORA));
+        // true: CPCL tambien reutiliza. Con false, cada tirilla pagaba una conexion
+        // Bluetooth nueva (~1,5 a 4 s) mas la pausa final de 800 ms.
         enviarLotes(mac, lotes, 0,
-                BUFFER_SIZE_TEXTO, PAUSA_MICRO_TEXTO_MS, PAUSA_FINAL_TEXTO_MS, callback);
+                BUFFER_SIZE_TEXTO, PAUSA_MICRO_TEXTO_MS, PAUSA_FINAL_TEXTO_MS, true, callback);
     }
 
     /**
@@ -128,7 +137,7 @@ public class Bluetooth_Printer {
 
         List<byte[]> lotes = partirEnLotesDeLineas(textoComandos, lineasPorLote);
         enviarLotes(mac, lotes, pausaEntreLotesMs,
-                BUFFER_SIZE_TEXTO, PAUSA_MICRO_TEXTO_MS, PAUSA_FINAL_TEXTO_MS, callback);
+                BUFFER_SIZE_TEXTO, PAUSA_MICRO_TEXTO_MS, PAUSA_FINAL_TEXTO_MS, true, callback);
     }
 
     /**
@@ -144,8 +153,10 @@ public class Bluetooth_Printer {
         }
         List<byte[]> lotes = new ArrayList<>();
         lotes.add(datos);
+        // true: solo el ESC/POS binario (StarPOS) reutiliza la conexion, que es donde se
+        // valido el arreglo del pitido.
         enviarLotes(mac, lotes, 0,
-                BUFFER_SIZE_BINARIO, PAUSA_MICRO_BINARIO_MS, PAUSA_FINAL_BINARIO_MS, callback);
+                BUFFER_SIZE_BINARIO, PAUSA_MICRO_BINARIO_MS, PAUSA_FINAL_BINARIO_MS, true, callback);
     }
 
     private List<byte[]> partirEnLotesDeLineas(String texto, int lineasPorLote) {
@@ -173,7 +184,7 @@ public class Bluetooth_Printer {
     private void enviarLotes(final String mac, final List<byte[]> lotes,
                              final long pausaEntreLotesMs,
                              final int bufferSize, final long pausaMicroMs, final long pausaFinalMs,
-                             final Callback callback) {
+                             final boolean permiteReuso, final Callback callback) {
 
         if (mac == null || mac.isEmpty()) {
             if (callback != null) callback.error(new Exception("Error: MAC de impresora no válida"));
@@ -183,14 +194,14 @@ public class Bluetooth_Printer {
         executor.execute(() -> {
             long tInicio = System.currentTimeMillis();
             try {
-                escribirConReintento(mac, lotes, pausaEntreLotesMs, bufferSize, pausaMicroMs, pausaFinalMs);
+                escribirConReintento(mac, lotes, pausaEntreLotesMs, bufferSize, pausaMicroMs, pausaFinalMs, permiteReuso);
                 Log.i("Bluetooth_Printer", "TOTAL impresión: " + (System.currentTimeMillis() - tInicio) + "ms");
                 if (callback != null) callback.success();
             } catch (Exception ex) {
                 cerrarConexion();
                 if (callback != null) callback.error(ex);
             } finally {
-                if (!REUSAR_CONEXION) {
+                if (seVaACerrar(permiteReuso)) {
                     cerrarConexion();
                 }
             }
@@ -203,11 +214,17 @@ public class Bluetooth_Printer {
      * conexion, se abre una nueva y se reintenta UNA vez desde el principio del ticket.
      */
     private void escribirConReintento(String mac, List<byte[]> lotes, long pausaEntreLotesMs,
-                                      int bufferSize, long pausaMicroMs, long pausaFinalMs) throws Exception {
-        boolean veniaReutilizada = (socketActivo != null);
+                                      int bufferSize, long pausaMicroMs, long pausaFinalMs,
+                                      boolean permiteReuso) throws Exception {
+        boolean veniaReutilizada = permiteReuso && socketActivo != null;
+
+        // La pausa final existe para que la impresora alcance a recibir ANTES de que se le
+        // cierre el socket encima. Si la conexion queda abierta no hay nada que esperar.
+        long pausaEfectiva = seVaACerrar(permiteReuso) ? pausaFinalMs : 0;
+
         try {
-            asegurarConexion(mac);
-            escribirLotes(lotes, pausaEntreLotesMs, bufferSize, pausaMicroMs, pausaFinalMs);
+            asegurarConexion(mac, permiteReuso);
+            escribirLotes(lotes, pausaEntreLotesMs, bufferSize, pausaMicroMs, pausaEfectiva);
         } catch (IOException e) {
             cerrarConexion();
             if (!veniaReutilizada) {
@@ -215,9 +232,14 @@ public class Bluetooth_Printer {
             }
             Log.w("Bluetooth_Printer", "La conexión reutilizada ya no servía ("
                     + e.getMessage() + "). Reconectando y reintentando el ticket.");
-            asegurarConexion(mac);
-            escribirLotes(lotes, pausaEntreLotesMs, bufferSize, pausaMicroMs, pausaFinalMs);
+            asegurarConexion(mac, permiteReuso);
+            escribirLotes(lotes, pausaEntreLotesMs, bufferSize, pausaMicroMs, pausaEfectiva);
         }
+    }
+
+    /** true cuando esta impresion va a cerrar el socket al terminar. */
+    private static boolean seVaACerrar(boolean permiteReuso) {
+        return !permiteReuso || !REUSAR_CONEXION;
     }
 
     private void escribirLotes(List<byte[]> lotes, long pausaEntreLotesMs,
@@ -261,8 +283,9 @@ public class Bluetooth_Printer {
 
     /** Deja lista una conexion utilizable con esa impresora, reutilizando la que haya. */
     @SuppressLint("MissingPermission")
-    private void asegurarConexion(String mac) throws Exception {
-        if (REUSAR_CONEXION
+    private void asegurarConexion(String mac, boolean permiteReuso) throws Exception {
+        if (permiteReuso
+                && REUSAR_CONEXION
                 && socketActivo != null
                 && salidaActiva != null
                 && socketActivo.isConnected()
@@ -299,6 +322,10 @@ public class Bluetooth_Printer {
         BluetoothDevice device = adapter.getRemoteDevice(mac);
 
         final AtomicBoolean isTimeout = new AtomicBoolean(false);
+        // Marca que connect() ya volvio. El vigilante se apaga con esto y no con
+        // socket.isConnected(): esa API miente, y con la conexion reutilizada el vigilante
+        // llegaba a los 4 segundos con el socket YA en uso y lo cerraba en plena faena.
+        final AtomicBoolean conexionResuelta = new AtomicBoolean(false);
         long tAntesConectar = System.currentTimeMillis();
         BluetoothSocket socket = null;
         boolean usoFallback = false;
@@ -311,16 +338,27 @@ public class Bluetooth_Printer {
             final BluetoothSocket tempSocket = socket;
             Thread timeoutWatcher = new Thread(() -> {
                 try {
-                    Thread.sleep(4000); // 4 segundos de espera máxima
-                    if (tempSocket != null && !tempSocket.isConnected()) {
+                    long limite = System.currentTimeMillis() + 4000; // espera maxima
+                    while (System.currentTimeMillis() < limite) {
+                        if (conexionResuelta.get()) {
+                            return;              // connect() ya volvio: nada que vigilar
+                        }
+                        Thread.sleep(100);
+                    }
+                    if (!conexionResuelta.get() && tempSocket != null) {
                         isTimeout.set(true);
-                        tempSocket.close();
+                        tempSocket.close();      // desbloquea el connect() colgado
                     }
                 } catch (Exception ignored) {}
             });
+            timeoutWatcher.setDaemon(true);
             timeoutWatcher.start();
 
-            socket.connect();
+            try {
+                socket.connect();
+            } finally {
+                conexionResuelta.set(true);
+            }
         } catch (Exception e) {
             try { if (socket != null) socket.close(); } catch (IOException ignored) {}
 
@@ -374,11 +412,20 @@ public class Bluetooth_Printer {
      * cerrar sesion; no hace falta entre ticket y ticket, que es justo lo que se quiere evitar.
      */
     public void desconectar() {
-        executor.execute(this::cerrarConexion);
+        try {
+            executor.execute(this::cerrarConexion);
+        } catch (RuntimeException ignored) {
+            // el executor ya estaba cerrado: no hay nada que soltar
+        }
     }
 
     public void close() {
-        executor.execute(this::cerrarConexion);
+        // execute() lanza RejectedExecutionException si ya se hizo shutdown (por ejemplo si
+        // onDestroy corre dos veces). Antes close() era solo shutdown() y eso nunca pasaba.
+        try {
+            executor.execute(this::cerrarConexion);
+        } catch (RuntimeException ignored) {
+        }
         executor.shutdown();
     }
 
