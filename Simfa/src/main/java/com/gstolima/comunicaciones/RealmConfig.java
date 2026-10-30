@@ -18,7 +18,7 @@ public final class RealmConfig {
     private static final String TAG = "RealmConfig";
 
     /** Subir de a uno y agregar el bloque correspondiente en RealmMigracion. */
-    public static final long VERSION_ESQUEMA = 1;
+    public static final long VERSION_ESQUEMA = 2;
 
     private RealmConfig() {
     }

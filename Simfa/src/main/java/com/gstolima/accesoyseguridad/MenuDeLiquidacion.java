@@ -24,6 +24,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.hardware.camera2.CameraManager;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
+import android.location.GnssStatus;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -124,6 +125,7 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.RandomAccessFile;
 import java.text.SimpleDateFormat;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -145,6 +147,7 @@ import android.view.animation.Animation;
 
 
 import com.gstolima.comunicaciones.SyncHelper;
+import com.gstolima.comunicaciones.PosicionCalidad;
 import com.gstolima.comunicaciones.EnvioLectura;
 import com.gstolima.comunicaciones.EnvioFoto;
 import com.gstolima.comunicaciones.CrudEnvioLectura;
@@ -374,6 +377,19 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
     private static final float PRECISION_MAX_RED_M = 100f;
     private static final float PRECISION_MAX_DISTANCIA_M = 100f;
     private static final float DEGRADACION_M_POR_SEG = 1.5f; // ~velocidad caminando
+    // Fase 1: calidad de la posición que se guarda con cada lectura.
+    private Location locActual;                       // la que muestra la pantalla
+    private String fuenteActual = PosicionCalidad.FUENTE_GPS;
+    private final ArrayDeque<Location> bufferGps = new ArrayDeque<>(); // últimos fixes GPS
+    private int satelitesUsadosGnss = -1;             // -1 = sin dato de GnssStatus
+    private Integer satelitesLocActual;               // satélites del fix que muestra la pantalla
+    private boolean guardandoOtroRegistro = false;    // guardarEnvioGPRSNuevo con ID != 0
+    private GnssStatus.Callback gnssCallback;
+    private static final int BUFFER_GPS_MAX = 24;            // ~2 min a 1 fix / 5 s
+    private static final long VENTANA_PROMEDIO_MS = 60_000L;
+    private static final float PRECISION_MAX_PROMEDIO_M = 30f;
+    private static final float RADIO_CLUSTER_M = 10f;
+    private static final float VELOCIDAD_MAX_QUIETO_MS = 0.8f; // Doppler del GPS: técnico parado
     String ArchivoAEnviarRecibir = ""; //Ax: Ruta servidor del archivo zip por recibir
     String arma_cuentasGps = "";//Ax. guarda datos para la funcion guardarcoordenadas
     String causadenolectura1 = "";
@@ -883,6 +899,22 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
             }
         } catch (Exception ex) {
             logger.info("Ubicacion por red no disponible: " + ex.getMessage());
+        }
+        // Satélites realmente usados en el fix (el extra "satellites" no es confiable).
+        try {
+            gnssCallback = new GnssStatus.Callback() {
+                @Override
+                public void onSatelliteStatusChanged(GnssStatus status) {
+                    int usados = 0;
+                    for (int i = 0; i < status.getSatelliteCount(); i++) {
+                        if (status.usedInFix(i)) usados++;
+                    }
+                    satelitesUsadosGnss = usados;
+                }
+            };
+            locationmanager.registerGnssStatusCallback(gnssCallback, new Handler(Looper.getMainLooper()));
+        } catch (Exception ex) {
+            logger.info("GnssStatus no disponible: " + ex.getMessage());
         }
 
         if (!locationmanager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
@@ -6840,6 +6872,10 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
             asegurarCoordenada();
         }
 
+        // Con ID != 0 se guarda otro registro con la posición actual: su calidad
+        // se marca REGISTRO_PREVIO, no se presenta como medida en ese predio.
+        guardandoOtroRegistro = (ID != 0);
+        try {
         guardarDatosAEnviarNuevo(infoRegistroSalida.gettablaRegistroSalida_NROCONTADOR(),
                 infoRegistroSalida.gettablaRegistroSalida_NROMEDIDORES(),
                 infoRegistroSalida.gettablaRegistroSalida_LECTURATOMADA().trim(),
@@ -6851,6 +6887,9 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
                 infoRegistroSalida.gettablaRegistroSalida_LEIDO(),
                 ("" + parseStringToInteger(infoRegistroSalida.gettablaRegistroSalida_LECTURAANTERIOR())),
                 misenvios.total_EnvioGPS, CodBarras);
+        } finally {
+            guardandoOtroRegistro = false;
+        }
     }
     public void preguntaCodigoOperador() {
         try {
@@ -7171,7 +7210,7 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
 
                 // ===== GUARDAR EN REALM (REEMPLAZA ARCHIVO PLANO) =====
                 try {
-                    boolean guardado = SyncHelper.guardarLecturaDesdeEnvioGPS(misenvios);
+                    boolean guardado = SyncHelper.guardarLecturaDesdeEnvioGPS(misenvios, construirCalidad(procedimiento));
                     if (guardado) {
                         Log.i("MenuDeLiquidacion", "Lectura guardada en Realm: cuenta=" + misenvios.getEnvioGPS_CUENTA());
                         logger.info("Lectura guardada en Realm: cuenta=" + misenvios.getEnvioGPS_CUENTA());
@@ -8356,6 +8395,8 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         if (respaldo != null) {
             muestraPosicionActual(respaldo);
             fixDeRespaldo = true; // aunque venga del GPS, es una posición guardada, no en vivo
+            fuenteActual = PosicionCalidad.FUENTE_ULTIMA_CONOCIDA;
+            satelitesLocActual = null;
         }
     }
 
@@ -9436,6 +9477,7 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
             txtLongitud.setText(String.valueOf(loc.getLatitude()));
             txtLatitud.setText(String.valueOf(loc.getLongitude()));
             velocidadGPS = String.valueOf(loc.getSpeed());
+            locActual = loc;
             precisionActualM = loc.hasAccuracy() ? loc.getAccuracy() : Float.MAX_VALUE;
             fixActualElapsedMs = loc.getElapsedRealtimeNanos() / 1_000_000L;
             fixDeRespaldo = !LocationManager.GPS_PROVIDER.equals(loc.getProvider());
@@ -9803,7 +9845,11 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         @Override
         public void onLocationChanged(Location loc) {
             ultimoFixGpsMs = SystemClock.elapsedRealtime();
+            bufferGps.addLast(loc);
+            while (bufferGps.size() > BUFFER_GPS_MAX) bufferGps.removeFirst();
             muestraPosicionActual(loc);
+            fuenteActual = PosicionCalidad.FUENTE_GPS;
+            satelitesLocActual = satelitesUsadosGnss >= 0 ? satelitesUsadosGnss : null;
         }
 
         @Override
@@ -9819,6 +9865,105 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         }
     }
 
+    /**
+     * Calidad de la coordenada que se está guardando. Solo lee datos ya en memoria
+     * (microsegundos): no espera ningún fix. Nunca lanza: ante cualquier problema
+     * devuelve null y la lectura se guarda igual que antes.
+     */
+    private PosicionCalidad construirCalidad(int procedimiento) {
+        try {
+            if (procedimiento == 99999) {
+                return PosicionCalidad.soloFuente(PosicionCalidad.FUENTE_PREDIO);
+            }
+            // La posición es la del técnico ahora, no una medida en ese predio.
+            if (cerrandoRuta) {
+                return PosicionCalidad.soloFuente(PosicionCalidad.FUENTE_CIERRE_RUTA);
+            }
+            if (guardandoOtroRegistro) {
+                return PosicionCalidad.soloFuente(PosicionCalidad.FUENTE_REGISTRO_PREVIO);
+            }
+            if (sinCoordenada() || locActual == null) {
+                return PosicionCalidad.soloFuente(PosicionCalidad.FUENTE_SIN_POSICION);
+            }
+            Location loc = locActual;
+            PosicionCalidad c = new PosicionCalidad();
+            c.setFuente(fuenteActual);
+            if (loc.hasAccuracy()) c.setPrecisionH(loc.getAccuracy());
+            if (loc.hasVerticalAccuracy()) c.setPrecisionV(loc.getVerticalAccuracyMeters());
+            if (loc.hasAltitude()) c.setAltitud(loc.getAltitude());
+            c.setSatelitesUsados(satelitesLocActual);
+            long edadMs = SystemClock.elapsedRealtime() - loc.getElapsedRealtimeNanos() / 1_000_000L;
+            if (edadMs >= 0) c.setEdadFixSeg((int) Math.min(edadMs / 1000L, Integer.MAX_VALUE));
+            c.setSimulada(loc.isFromMockProvider());
+            // El promedio describe el grupo de fixes GPS alrededor de la coordenada
+            // guardada: solo aplica si esa coordenada es el último fix GPS en vivo.
+            if (PosicionCalidad.FUENTE_GPS.equals(fuenteActual) && loc == bufferGps.peekLast()) {
+                calcularPromedio(c);
+            } else {
+                c.setPromedio(null, null, null, 0);
+            }
+            return c;
+        } catch (Exception ex) {
+            logger.info("construirCalidad: " + ex.getMessage());
+            // Mínimo: la fuente. Con algún gps_* presente el servidor reescribe las
+            // 11 columnas, así no queda calidad de un envío anterior junto a esta.
+            return PosicionCalidad.soloFuente(fuenteActual);
+        }
+    }
+
+    /**
+     * Promedio ponderado (1/precisión²) de los fixes GPS de los últimos 60 s
+     * tomados con el técnico QUIETO (velocidad Doppler < 0,8 m/s) y a menos de
+     * 10 m del fix más reciente: las posiciones frente al medidor, sin el camino
+     * con el que llegó. La precisión reportada nunca es menor que la dispersión
+     * real de esos fixes.
+     */
+    private void calcularPromedio(PosicionCalidad c) {
+        Location ancla = bufferGps.peekLast();
+        long ahora = SystemClock.elapsedRealtime();
+        if (ancla == null || ahora - ancla.getElapsedRealtimeNanos() / 1_000_000L > VENTANA_PROMEDIO_MS) {
+            c.setPromedio(null, null, null, 0);
+            return;
+        }
+        double cosLat = Math.cos(Math.toRadians(ancla.getLatitude()));
+        java.util.List<Location> usados = new java.util.ArrayList<>(bufferGps.size());
+        double sumaW = 0, sumaLat = 0, sumaLng = 0;
+        float minPrecision = Float.MAX_VALUE;
+        for (Location l : bufferGps) {
+            long edadMs = ahora - l.getElapsedRealtimeNanos() / 1_000_000L;
+            if (edadMs < 0 || edadMs > VENTANA_PROMEDIO_MS) continue;
+            if (!l.hasAccuracy() || l.getAccuracy() <= 0 || l.getAccuracy() > PRECISION_MAX_PROMEDIO_M) continue;
+            if (l.hasSpeed() && l.getSpeed() > VELOCIDAD_MAX_QUIETO_MS) continue;
+            double dy = (l.getLatitude() - ancla.getLatitude()) * 111_320d;
+            double dx = (l.getLongitude() - ancla.getLongitude()) * 111_320d * cosLat;
+            if (Math.hypot(dx, dy) > RADIO_CLUSTER_M) continue;
+            double w = 1.0 / ((double) l.getAccuracy() * l.getAccuracy());
+            sumaW += w;
+            sumaLat += w * l.getLatitude();
+            sumaLng += w * l.getLongitude();
+            minPrecision = Math.min(minPrecision, l.getAccuracy());
+            usados.add(l);
+        }
+        if (usados.isEmpty()) {
+            c.setPromedio(null, null, null, 0);
+            return;
+        }
+        double latProm = sumaLat / sumaW;
+        double lngProm = sumaLng / sumaW;
+        // Dispersión real (RMS ponderado) de los fixes alrededor del promedio.
+        double sumaD2 = 0;
+        for (Location l : usados) {
+            double dy = (l.getLatitude() - latProm) * 111_320d;
+            double dx = (l.getLongitude() - lngProm) * 111_320d * cosLat;
+            sumaD2 += (1.0 / ((double) l.getAccuracy() * l.getAccuracy())) * (dx * dx + dy * dy);
+        }
+        double dispersion = Math.sqrt(sumaD2 / sumaW);
+        // Errores de fixes seguidos están correlacionados: tampoco menos de la mitad
+        // de la mejor precisión individual.
+        double precision = Math.max(Math.sqrt(1.0 / sumaW), Math.max(minPrecision * 0.5, dispersion));
+        c.setPromedio(latProm, lngProm, (float) precision, usados.size());
+    }
+
     /** Ubicación por red: solo se usa si el GPS lleva más de 30 s sin posición. */
     private class UsarRed implements LocationListener {
 
@@ -9832,6 +9977,8 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
                     || (loc.hasAccuracy() && loc.getAccuracy() <= PRECISION_MAX_RED_M
                         && loc.getAccuracy() < precisionEfectivaActual())) {
                 muestraPosicionActual(loc);
+                fuenteActual = PosicionCalidad.FUENTE_RED;
+                satelitesLocActual = null;
             }
         }
 
@@ -10824,6 +10971,12 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         try {
             if (gpsManager != null && redListener != null) {
                 gpsManager.removeUpdates(redListener);
+            }
+        } catch (Exception ex) {
+        }
+        try {
+            if (gpsManager != null && gnssCallback != null) {
+                gpsManager.unregisterGnssStatusCallback(gnssCallback);
             }
         } catch (Exception ex) {
         }

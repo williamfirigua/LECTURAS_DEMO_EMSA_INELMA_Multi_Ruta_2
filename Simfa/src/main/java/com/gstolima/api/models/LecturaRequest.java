@@ -184,6 +184,40 @@ public class LecturaRequest {
 
     @SerializedName("modulo_trabajo")
     private String moduloTrabajo; // "LECTURAMEDIDORES" o "ENTREGAMEDIDORES"
+
+    // Calidad de la posición GPS (fase 1). Gson omite los null: el servidor deja NULL.
+    @SerializedName("gps_precision_h")
+    private Float gpsPrecisionH;
+
+    @SerializedName("gps_precision_v")
+    private Float gpsPrecisionV;
+
+    @SerializedName("gps_altitud")
+    private Double gpsAltitud;
+
+    @SerializedName("gps_satelites_usados")
+    private Integer gpsSatelitesUsados;
+
+    @SerializedName("gps_edad_fix_seg")
+    private Integer gpsEdadFixSeg;
+
+    @SerializedName("gps_fuente")
+    private String gpsFuente;
+
+    @SerializedName("gps_simulada")
+    private Boolean gpsSimulada;
+
+    @SerializedName("gps_lat_promedio")
+    private Double gpsLatPromedio;
+
+    @SerializedName("gps_lng_promedio")
+    private Double gpsLngPromedio;
+
+    @SerializedName("gps_precision_promedio")
+    private Float gpsPrecisionPromedio;
+
+    @SerializedName("gps_n_fixes")
+    private Integer gpsNFixes;
     public LecturaRequest() {
     }
 
@@ -253,6 +287,19 @@ public class LecturaRequest {
         req.idContador = envio.getIdContador();
         req.descAnomalia = envio.getDescAnomalia();
         req.descComentario = envio.getDescComentario();
+
+        // Calidad de la posición GPS
+        req.gpsPrecisionH = envio.getGpsPrecisionH();
+        req.gpsPrecisionV = envio.getGpsPrecisionV();
+        req.gpsAltitud = envio.getGpsAltitud();
+        req.gpsSatelitesUsados = envio.getGpsSatelitesUsados();
+        req.gpsEdadFixSeg = envio.getGpsEdadFixSeg();
+        req.gpsFuente = envio.getGpsFuente();
+        req.gpsSimulada = envio.getGpsSimulada();
+        req.gpsLatPromedio = envio.getGpsLatPromedio();
+        req.gpsLngPromedio = envio.getGpsLngPromedio();
+        req.gpsPrecisionPromedio = envio.getGpsPrecisionPromedio();
+        req.gpsNFixes = envio.getGpsNFixes();
 
         return req;
     }

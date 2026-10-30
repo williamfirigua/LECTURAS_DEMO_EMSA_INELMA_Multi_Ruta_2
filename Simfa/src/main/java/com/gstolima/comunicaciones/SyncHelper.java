@@ -39,6 +39,14 @@ public class SyncHelper {
      * @return true si se guardó correctamente
      */
     public static boolean guardarLecturaDesdeEnvioGPS(EnvioGPS misenvios) {
+        return guardarLecturaDesdeEnvioGPS(misenvios, null);
+    }
+
+    /**
+     * Igual que la anterior, más la calidad de la posición GPS (fase 1).
+     * calidad puede ser null: la lectura se guarda igual, sin esos campos.
+     */
+    public static boolean guardarLecturaDesdeEnvioGPS(EnvioGPS misenvios, PosicionCalidad calidad) {
         try {
             if (misenvios == null) {
                 Log.e(TAG, "EnvioGPS es null");
@@ -64,10 +72,23 @@ public class SyncHelper {
             // se reenvía como PENDIENTE con semántica de modificación.
             if (CrudEnvioLectura.existe(cuenta, anno, mes, tipo)) {
                 EnvioLectura nueva = buildEnvioLectura(misenvios);
+                nueva.aplicarCalidad(calidad);
 
                 if (esModificacion || difiereDeAlmacenada(nueva, cuenta, anno, mes, tipo)) {
-                    nueva.setEstadoEnvioOriginal("M"); // semántica de modificación end-to-end
-                    Log.i(TAG, "Corrección detectada, reemplazando en Realm cuenta=" + cuenta);
+                    // reemplazar() BORRA la lectura anterior de la cola. Si esa
+                    // anterior todavia no habia llegado al servidor, la correccion
+                    // es la PRIMERA lectura que el servidor va a ver: tiene que
+                    // viajar como 'N'.
+                    //
+                    // Antes viajaba siempre como 'M'. En una 'M' el servidor
+                    // conserva cod_operador, cod_movil, tiempo, ulti_medidortleido
+                    // e impresiones de la lectura original... que nunca llego, asi
+                    // que quedaban en 0 / NULL. En sep-oct 2026 el 100 % de las
+                    // lecturas con cod_operador = 0 eran 'M'.
+                    String estadoFinal = estadoDeLaCorreccion(cuenta, anno, mes, tipo);
+                    nueva.setEstadoEnvioOriginal(estadoFinal);
+                    Log.i(TAG, "Corrección detectada, reemplazando en Realm cuenta=" + cuenta
+                            + " estado=" + estadoFinal);
                     return CrudEnvioLectura.reemplazar(cuenta, anno, mes, tipo, nueva);
                 }
 
@@ -77,6 +98,7 @@ public class SyncHelper {
 
             // Construir y guardar como nueva lectura pendiente
             EnvioLectura lectura = buildEnvioLectura(misenvios);
+            lectura.aplicarCalidad(calidad);
             boolean resultado = CrudEnvioLectura.insertar(lectura);
 
             if (resultado) {
@@ -313,6 +335,24 @@ public class SyncHelper {
      */
     private static String safe(String value) {
         return value != null ? value : "";
+    }
+
+    /**
+     * 'M' solo si el servidor ya recibio una version de esta lectura:
+     *   - la anterior ya se envio (ESTADO_ENVIADO), o
+     *   - la anterior, aun pendiente, ya era una correccion 'M' (es decir, la
+     *     original ya se habia enviado antes).
+     * Si la anterior nunca salio del celular, la correccion viaja como 'N'.
+     */
+    private static String estadoDeLaCorreccion(String cuenta, String anno, String mes, String tipo) {
+        EnvioLectura prev = CrudEnvioLectura.buscarPorCuentaAnnoMesTipo(cuenta, anno, mes, tipo);
+        if (prev == null) {
+            return "N";
+        }
+        if (prev.getEstadoEnvio() == EnvioLectura.ESTADO_ENVIADO) {
+            return "M";
+        }
+        return "M".equals(safe(prev.getEstadoEnvioOriginal()).trim()) ? "M" : "N";
     }
 
     /**

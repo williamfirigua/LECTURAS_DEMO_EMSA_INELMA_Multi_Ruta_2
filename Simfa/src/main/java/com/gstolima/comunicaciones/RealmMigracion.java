@@ -44,6 +44,14 @@ public class RealmMigracion implements RealmMigration {
             version++;
         }
 
+        // ---- v1 -> v2: calidad de la posición GPS de cada lectura (fase 1 del GPS) ----
+        // Tipos "boxed" (Float, Double, Integer, Boolean): admiten null, que es el valor
+        // de las filas que ya estaban en la cola al actualizar la app.
+        if (version == 1) {
+            agregarCamposCalidadGps(schema);
+            version++;
+        }
+
         if (version != newVersion) {
             Log.e(TAG, "Quedo sin migrar de la version " + version + " a la " + newVersion);
         }
@@ -69,6 +77,32 @@ public class RealmMigracion implements RealmMigration {
                     .transform(fila -> fila.setString("moduloTrabajo", ""));
         }
         Log.i(TAG, "Campos de ruta agregados a " + nombreModelo);
+    }
+
+    private void agregarCamposCalidadGps(RealmSchema schema) {
+        RealmObjectSchema modelo = schema.get("EnvioLectura");
+        if (modelo == null) {
+            Log.w(TAG, "No existe el modelo EnvioLectura, se omite la calidad GPS");
+            return;
+        }
+        agregarCampo(modelo, "gpsPrecisionH", Float.class);
+        agregarCampo(modelo, "gpsPrecisionV", Float.class);
+        agregarCampo(modelo, "gpsAltitud", Double.class);
+        agregarCampo(modelo, "gpsSatelitesUsados", Integer.class);
+        agregarCampo(modelo, "gpsEdadFixSeg", Integer.class);
+        agregarCampo(modelo, "gpsFuente", String.class);
+        agregarCampo(modelo, "gpsSimulada", Boolean.class);
+        agregarCampo(modelo, "gpsLatPromedio", Double.class);
+        agregarCampo(modelo, "gpsLngPromedio", Double.class);
+        agregarCampo(modelo, "gpsPrecisionPromedio", Float.class);
+        agregarCampo(modelo, "gpsNFixes", Integer.class);
+        Log.i(TAG, "Campos de calidad GPS agregados a EnvioLectura");
+    }
+
+    private void agregarCampo(RealmObjectSchema modelo, String nombre, Class<?> tipo) {
+        if (!modelo.hasField(nombre)) {
+            modelo.addField(nombre, tipo);
+        }
     }
 
     // Dos migraciones distintas con la misma version deben considerarse equivalentes.

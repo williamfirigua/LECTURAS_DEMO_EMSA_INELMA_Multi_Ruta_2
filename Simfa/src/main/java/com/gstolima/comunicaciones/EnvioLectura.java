@@ -103,6 +103,19 @@ public class EnvioLectura extends RealmObject {
     private String descAnomalia;            // EnvioGPS_descanomalia
     private String descComentario;          // EnvioGPS_desccomentario
 
+    // ===== Calidad de la posición GPS (fase 1, Realm v2). null = no disponible =====
+    private Float gpsPrecisionH;
+    private Float gpsPrecisionV;
+    private Double gpsAltitud;
+    private Integer gpsSatelitesUsados;
+    private Integer gpsEdadFixSeg;
+    private String gpsFuente;
+    private Boolean gpsSimulada;
+    private Double gpsLatPromedio;
+    private Double gpsLngPromedio;
+    private Float gpsPrecisionPromedio;
+    private Integer gpsNFixes;
+
     // ===== Campos de control de envío (solo Realm) =====
 
     @Index
@@ -647,4 +660,34 @@ public class EnvioLectura extends RealmObject {
     public void setModuloTrabajo(String moduloTrabajo) {
         this.moduloTrabajo = moduloTrabajo;
     }
+
+    // ===== Calidad de la posición GPS =====
+
+    /** Copia la calidad de la posición. Con null no cambia nada. */
+    public void aplicarCalidad(PosicionCalidad c) {
+        if (c == null) return;
+        gpsPrecisionH = c.getPrecisionH();
+        gpsPrecisionV = c.getPrecisionV();
+        gpsAltitud = c.getAltitud();
+        gpsSatelitesUsados = c.getSatelitesUsados();
+        gpsEdadFixSeg = c.getEdadFixSeg();
+        gpsFuente = c.getFuente();
+        gpsSimulada = c.getSimulada();
+        gpsLatPromedio = c.getLatPromedio();
+        gpsLngPromedio = c.getLngPromedio();
+        gpsPrecisionPromedio = c.getPrecisionPromedio();
+        gpsNFixes = c.getNFixes();
+    }
+
+    public Float getGpsPrecisionH() { return gpsPrecisionH; }
+    public Float getGpsPrecisionV() { return gpsPrecisionV; }
+    public Double getGpsAltitud() { return gpsAltitud; }
+    public Integer getGpsSatelitesUsados() { return gpsSatelitesUsados; }
+    public Integer getGpsEdadFixSeg() { return gpsEdadFixSeg; }
+    public String getGpsFuente() { return gpsFuente; }
+    public Boolean getGpsSimulada() { return gpsSimulada; }
+    public Double getGpsLatPromedio() { return gpsLatPromedio; }
+    public Double getGpsLngPromedio() { return gpsLngPromedio; }
+    public Float getGpsPrecisionPromedio() { return gpsPrecisionPromedio; }
+    public Integer getGpsNFixes() { return gpsNFixes; }
 }
