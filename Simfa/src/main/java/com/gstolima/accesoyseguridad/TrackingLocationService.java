@@ -12,6 +12,7 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
 import android.os.Handler;
+import android.os.HandlerThread;
 import android.os.IBinder;
 import android.os.Looper;
 import android.util.Log;
@@ -30,12 +31,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.UUID;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import okhttp3.MediaType;
@@ -72,14 +76,19 @@ public class TrackingLocationService extends Service {
     // ─── Intervalo y batch ───────────────────────────────────────────────────
     private static final long UPDATE_INTERVAL_MS   = 60_000L;  // pedir GPS cada 60 s
     private static final long FASTEST_INTERVAL_MS  = 30_000L;
-    private static final int  MAX_BATCH_SIZE        = 10;
+    private static final int  MAX_BATCH_SIZE        = 10;   // puntos nuevos que disparan un envío
     private static final long BATCH_SEND_INTERVAL_MS = 300_000L; // enviar cada 5 min
 
-    // Cota dura de la cola en memoria. Sin ella, un operador sin cobertura
-    // acumula ubicaciones indefinidamente (1/min) hasta agotar el heap.
-    // Al desbordar se descartan las MÁS ANTIGUAS: para rastreo, la posición
-    // reciente vale más que la de hace ocho horas.
-    private static final int  MAX_QUEUE_SIZE        = 500;
+    // ─── Cola persistente (TrackingStore) ────────────────────────────────────
+    // Los puntos viven en disco hasta que el servidor confirma el lote: sin
+    // cobertura (zona rural) se acumulan días y se envían al volver la señal.
+    private static final int  LOTE_ENVIO            = 150;  // puntos por request
+    private static final int  MAX_LOTES_POR_CICLO   = 40;   // 6.000 puntos por ciclo como máximo
+    // Retención un día menor que la del servidor (tracking.retencion_dias = 10):
+    // un punto más viejo lo descartaría el servidor de todos modos.
+    private static final long RETENCION_MS          = TimeUnit.DAYS.toMillis(9);
+    private static final int  MAX_FILAS_COLA        = 40_000; // ~2 semanas a 1 punto / 30 s
+    private static final int  PODAR_CADA_N_PUNTOS   = 100;
 
     // ─── Ventana horaria (sincronizada con LecturaSyncService) ───────────────
     private final AtomicInteger startHour24 = new AtomicInteger(5);
@@ -90,9 +99,16 @@ public class TrackingLocationService extends Service {
     private FusedLocationProviderClient fusedLocationClient;
     private LocationCallback locationCallback;
     private Handler handler;
+    // Los callbacks de GPS y la escritura en disco van en un hilo propio: nada
+    // de esto pasa por el hilo principal de la app.
+    private HandlerThread ioThread;
 
     // ─── Estado ──────────────────────────────────────────────────────────────
-    private List<JSONObject> ubicacionesPendientes = new ArrayList<>();
+    private TrackingStore store;
+    private ExecutorService envioExecutor;
+    private final AtomicBoolean enviando = new AtomicBoolean(false);
+    private final AtomicInteger nuevosDesdeEnvio = new AtomicInteger(0);
+    private int insertadosDesdePoda = 0; // solo se usa desde ioThread
 
     // Cliente HTTP único para todo el ciclo de vida del servicio. Antes se
     // construía uno nuevo dentro de cada enviarBatch(), lo que anulaba el
@@ -111,6 +127,11 @@ public class TrackingLocationService extends Service {
 
         handler = new Handler(Looper.getMainLooper());
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+
+        ioThread = new HandlerThread("TrackingIO");
+        ioThread.start();
+        store = TrackingStore.get(this);
+        envioExecutor = Executors.newSingleThreadExecutor();
 
         httpClient = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
@@ -219,6 +240,10 @@ public class TrackingLocationService extends Service {
             fusedLocationClient.removeLocationUpdates(locationCallback);
         }
         handler.removeCallbacksAndMessages(null);
+        // quitSafely: los puntos ya recibidos terminan de escribirse en disco.
+        if (ioThread != null) ioThread.quitSafely();
+        // shutdown (no shutdownNow): un envío en curso termina y borra solo lo confirmado.
+        if (envioExecutor != null) envioExecutor.shutdown();
         Log.i(TAG, "[onDestroy] Rastreo GPS detenido");
     }
 
@@ -259,7 +284,7 @@ public class TrackingLocationService extends Service {
         };
 
         fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback,
-                Looper.getMainLooper());
+                ioThread.getLooper());
 
         isTracking = true;
         actualizarNotificacion("GPS activo");
@@ -268,6 +293,9 @@ public class TrackingLocationService extends Service {
 
     private void pausarTracking() {
         if (!isTracking) return;
+        // Puede llegar encolado desde ioThread después de que la ventana se
+        // reabriera e iniciara una sesión nueva: no pausar esa sesión.
+        if (isWithinWindowNow()) return;
         if (locationCallback != null) {
             fusedLocationClient.removeLocationUpdates(locationCallback);
         }
@@ -279,32 +307,39 @@ public class TrackingLocationService extends Service {
     private void procesarUbicacion(Location location) {
         if (!isWithinWindowNow()) {
             Log.d(TAG, "[procesarUbicacion] Fuera de ventana → pausando");
-            pausarTracking();
+            // Este callback corre en ioThread; iniciar/pausar se hacen siempre en
+            // el hilo principal para no competir por locationCallback/isTracking.
+            handler.post(this::pausarTracking);
             return;
         }
 
         try {
-            JSONObject punto = new JSONObject();
-            punto.put("lat",       location.getLatitude());
-            punto.put("lng",       location.getLongitude());
-            punto.put("precision", location.getAccuracy());
-            punto.put("timestamp",
-                    new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US).format(new Date()));
+            // Hora de la captura (location.getTime), no la de procesamiento: el
+            // proveedor puede entregar varias ubicaciones juntas.
+            store.insertar(
+                    UUID.randomUUID().toString(),
+                    location.getLatitude(),
+                    location.getLongitude(),
+                    location.hasAccuracy() ? location.getAccuracy() : null,
+                    location.getTime());
 
-            // El tamaño se lee DENTRO del bloque: leerlo fuera es una carrera
-            // con el hilo de envío, que puede vaciar la lista entremedias.
-            final int pendientes;
-            synchronized (ubicacionesPendientes) {
-                ubicacionesPendientes.add(punto);
-                pendientes = ubicacionesPendientes.size();
+            if (++insertadosDesdePoda >= PODAR_CADA_N_PUNTOS) {
+                insertadosDesdePoda = 0;
+                // Sin red en zona rural el reloj del teléfono puede desfasarse; si se
+                // adelantara días, podar solo con él vaciaría la cola entera.
+                // El mínimo de ambos relojes: solo se descarta lo que los dos
+                // consideran viejo.
+                long referencia = Math.min(System.currentTimeMillis(), location.getTime());
+                int descartados = store.podar(referencia - RETENCION_MS, MAX_FILAS_COLA);
+                if (descartados > 0) {
+                    Log.w(TAG, "[procesarUbicacion] Cola acotada: descartados " + descartados + " puntos antiguos");
+                }
             }
 
-            Log.d(TAG, String.format("[GPS] %.6f, %.6f (±%.1fm) | pendientes: %d",
-                    location.getLatitude(), location.getLongitude(),
-                    location.getAccuracy(), pendientes));
+            Log.d(TAG, String.format(Locale.US, "[GPS] %.6f, %.6f (±%.1fm)",
+                    location.getLatitude(), location.getLongitude(), location.getAccuracy()));
 
-            // Envío inmediato si se llena el batch
-            if (pendientes >= MAX_BATCH_SIZE) {
+            if (nuevosDesdeEnvio.incrementAndGet() >= MAX_BATCH_SIZE) {
                 enviarBatch();
             }
 
@@ -327,87 +362,99 @@ public class TrackingLocationService extends Service {
         }
     };
 
+    /**
+     * Envía la cola persistente en lotes de LOTE_ENVIO, del más antiguo al más
+     * reciente. Cada lote se borra del disco solo tras HTTP 2xx con
+     * success=true; ante cualquier fallo se detiene y el lote queda para el
+     * siguiente ciclo. Reenviar es inocuo: el servidor deduplica por id.
+     * Un solo envío a la vez (enviando) y fuera del hilo principal.
+     */
     private void enviarBatch() {
-        List<JSONObject> batch;
+        if (envioExecutor == null || envioExecutor.isShutdown()) return;
+        if (!enviando.compareAndSet(false, true)) return;
+        nuevosDesdeEnvio.set(0);
 
-        synchronized (ubicacionesPendientes) {
-            if (ubicacionesPendientes.isEmpty()) return;
-            batch = new ArrayList<>(ubicacionesPendientes);
-            ubicacionesPendientes.clear();
-        }
-
-        final List<JSONObject> batchFinal = batch;
-
-        new Thread(() -> {
-            try {
-                JSONObject payload = new JSONObject();
-                // ← cod_operador (no cod_operario como en el SCR)
-                payload.put("cod_operador", codOperador);
-
-                JSONArray array = new JSONArray();
-                for (JSONObject u : batchFinal) {
-                    array.put(u);
-                }
-                payload.put("ubicaciones", array);
-
-                RequestBody body = RequestBody.create(
-                        MediaType.parse("application/json"),
-                        payload.toString()
-                );
-
-                // apiUrl ya incluye /api/ — ej: http://host:port/api/
-                String url = apiUrl + "tracking/ubicaciones";
-
-                Request request = new Request.Builder()
-                        .url(url)
-                        .post(body)
-                        .build();
-
-                Log.i(TAG, "[enviarBatch] Enviando " + batchFinal.size() +
-                        " ubicaciones → " + url);
-
-                // try-with-resources: sin esto la conexión no vuelve al pool.
-                try (Response response = httpClient.newCall(request).execute()) {
-
-                    if (response.isSuccessful()) {
-                        // body() puede ser null; string() consume el stream una
-                        // sola vez, así que se lee a una variable local.
-                        String cuerpo = response.body() != null
-                                ? response.body().string() : "";
-                        Log.i(TAG, "[enviarBatch] ✓ " + batchFinal.size() +
-                                " ubicaciones enviadas → " + cuerpo);
-                        actualizarNotificacion("GPS activo (sincronizado)");
-                    } else {
-                        Log.e(TAG, "[enviarBatch] Error HTTP " + response.code());
-                        reencolar(batchFinal);
+        try {
+            envioExecutor.execute(() -> {
+                try {
+                    int enviados = 0;
+                    for (int i = 0; i < MAX_LOTES_POR_CICLO; i++) {
+                        List<TrackingStore.Punto> lote = store.siguienteLote(LOTE_ENVIO);
+                        if (lote.isEmpty()) break;
+                        if (!enviarLote(lote)) break;
+                        store.borrar(lote);
+                        enviados += lote.size();
+                        if (lote.size() < LOTE_ENVIO) break;
                     }
+                    if (enviados > 0) {
+                        actualizarNotificacion("GPS activo (sincronizado)");
+                    }
+                } catch (Exception e) {
+                    Log.e(TAG, "[enviarBatch] Excepción: " + e.getMessage());
+                } finally {
+                    enviando.set(false);
                 }
-
-            } catch (Exception e) {
-                Log.e(TAG, "[enviarBatch] Excepción: " + e.getMessage());
-                reencolar(batchFinal);
-            }
-        }).start();
+            });
+        } catch (Exception e) {
+            // RejectedExecutionException si el servicio se está destruyendo.
+            enviando.set(false);
+        }
     }
 
-    /**
-     * Devuelve un lote fallido al frente de la cola respetando MAX_QUEUE_SIZE.
-     * Si el total desborda la cota, se descartan las ubicaciones más antiguas
-     * (las del final de la lista, ya que el lote reencolado va al frente).
-     */
-    private void reencolar(List<JSONObject> batch) {
-        synchronized (ubicacionesPendientes) {
-            ubicacionesPendientes.addAll(0, batch);
+    /** @return true solo si el servidor confirmó el lote. */
+    private boolean enviarLote(List<TrackingStore.Punto> lote) {
+        try {
+            // Mismo formato de hora que antes (local, sin zona): el servidor lo
+            // interpreta en America/Bogota.
+            SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US);
 
-            int exceso = ubicacionesPendientes.size() - MAX_QUEUE_SIZE;
-            if (exceso > 0) {
-                ubicacionesPendientes.subList(
-                        ubicacionesPendientes.size() - exceso,
-                        ubicacionesPendientes.size()
-                ).clear();
-                Log.w(TAG, "[reencolar] Cola llena, descartadas " + exceso +
-                        " ubicaciones antiguas (tope " + MAX_QUEUE_SIZE + ")");
+            JSONArray array = new JSONArray();
+            for (TrackingStore.Punto p : lote) {
+                JSONObject u = new JSONObject();
+                u.put("id",        p.uid);
+                u.put("lat",       p.lat);
+                u.put("lng",       p.lng);
+                if (p.precision != null) u.put("precision", p.precision.doubleValue());
+                u.put("timestamp", fmt.format(new Date(p.capturadoMs)));
+                array.put(u);
             }
+
+            JSONObject payload = new JSONObject();
+            // ← cod_operador (no cod_operario como en el SCR)
+            payload.put("cod_operador", codOperador);
+            payload.put("ubicaciones", array);
+
+            RequestBody body = RequestBody.create(
+                    MediaType.parse("application/json"),
+                    payload.toString()
+            );
+
+            // apiUrl ya incluye /api/ — ej: http://host:port/api/
+            String url = apiUrl + "tracking/ubicaciones";
+
+            Request request = new Request.Builder()
+                    .url(url)
+                    .post(body)
+                    .build();
+
+            // try-with-resources: sin esto la conexión no vuelve al pool.
+            try (Response response = httpClient.newCall(request).execute()) {
+                String cuerpo = response.body() != null ? response.body().string() : "";
+                if (!response.isSuccessful()) {
+                    Log.e(TAG, "[enviarLote] Error HTTP " + response.code());
+                    return false;
+                }
+                boolean ok = new JSONObject(cuerpo).optBoolean("success", false);
+                if (!ok) {
+                    Log.e(TAG, "[enviarLote] Servidor no confirmó el lote: " + cuerpo);
+                    return false;
+                }
+                Log.i(TAG, "[enviarLote] ✓ " + lote.size() + " ubicaciones → " + cuerpo);
+                return true;
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "[enviarLote] Excepción: " + e.getMessage());
+            return false;
         }
     }
 

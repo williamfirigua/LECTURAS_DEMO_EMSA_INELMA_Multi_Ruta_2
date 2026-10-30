@@ -361,6 +361,19 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
     private String name = "";
     public String[] Archivos_CPCAN; //ver ...envios aforos, novedades etc
     String altitudReportadaGPS = "0";
+    private LocationManager gpsManager;
+    private LocationListener gpsListener;
+    private LocationListener redListener;
+    private long ultimoFixGpsMs = 0L; // SystemClock.elapsedRealtime() del último fix GPS
+    // Calidad de la coordenada que muestra la pantalla (la que se guardará).
+    private float precisionActualM = Float.MAX_VALUE;
+    private long fixActualElapsedMs = 0L;
+    private boolean fixDeRespaldo = false;   // vino de red o de la última conocida, no del GPS
+    private boolean cerrandoRuta = false;    // cierre masivo: no estampar la posición actual
+    private static final long EDAD_MAX_RESPALDO_MS = 10 * 60 * 1000L;
+    private static final float PRECISION_MAX_RED_M = 100f;
+    private static final float PRECISION_MAX_DISTANCIA_M = 100f;
+    private static final float DEGRADACION_M_POR_SEG = 1.5f; // ~velocidad caminando
     String ArchivoAEnviarRecibir = ""; //Ax: Ruta servidor del archivo zip por recibir
     String arma_cuentasGps = "";//Ax. guarda datos para la funcion guardarcoordenadas
     String causadenolectura1 = "";
@@ -856,6 +869,21 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         LocationManager locationmanager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         LocationListener mlocListener = new UsarGPS();
         locationmanager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 0, mlocListener);
+        // Se guardan para darlos de baja en onDestroy: sin eso cada apertura de la
+        // pantalla dejaba otro listener vivo reteniendo la Activity anterior.
+        gpsManager = locationmanager;
+        gpsListener = mlocListener;
+        // Respaldo por red (Wi-Fi / celdas): solo llena la pantalla cuando el GPS
+        // lleva más de 30 s sin dar posición (bajo techo, por ejemplo). Sin red
+        // (zona rural) simplemente no entrega nada y manda el GPS.
+        try {
+            if (locationmanager.getAllProviders().contains(LocationManager.NETWORK_PROVIDER)) {
+                redListener = new UsarRed();
+                locationmanager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 0, redListener);
+            }
+        } catch (Exception ex) {
+            logger.info("Ubicacion por red no disponible: " + ex.getMessage());
+        }
 
         if (!locationmanager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             mensajeT("GPS No esta activo", msgLargo);
@@ -5736,7 +5764,40 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         }
     }
 
-    private int buscarCuentaMedidor(String medidor, int modeloBusqueda) {
+    /**
+     * Estado que pertenece al CLIENTE que se esta atendiendo, no a la sesion ni a la ruta.
+     *
+     * avanzarRegistro() y retrocedeRegistro() ya limpiaban este bloque cada uno por su lado, y
+     * se habian desalineado entre si (variables.cactual solo se limpiaba al avanzar). La
+     * busqueda manual, que es el TERCER camino que cambia de cliente, no limpiaba nada: por eso
+     * se traia cosas del cliente anterior.
+     *
+     * NO incluye variables.direcciondelectura: esa es direccional y la fija cada quien.
+     */
+    private void limpiarEstadoDelCliente() {
+        YaTomoFotoCliente = 0;
+        s_foto = "0";
+        tomaFotoBoton = false;
+        YaMostroMensaje = 0;
+        BorroLecturaOCausa = false;
+        permiteLectura = "0";
+        code.setLength(0);
+        variables.lactual = 0;
+        variables.consumoactual = 0;
+        variables.cactual = 0;
+        variables.nveces = 0;
+        imagenChat.setImageResource(android.R.color.transparent);
+        imagenLiquid_3.setImageResource(android.R.color.transparent);
+        imagenLiquid_2.setImageResource(android.R.color.transparent);
+    }
+
+    /**
+     * @param limpiarEstado true SOLO cuando el operario cambia de cliente a proposito (busqueda
+     *        manual). El camino de "DEBE TOMAR FOTO DE NUEVO" entra por aqui para devolver al
+     *        cliente cuya foto fallo, y ahi limpiar s_foto / YaTomoFotoCliente romperia el
+     *        reintento de la foto.
+     */
+    private int buscarCuentaMedidor(String medidor, int modeloBusqueda, boolean limpiarEstado) {
 
         int ultimoregistro;
 
@@ -5757,6 +5818,11 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         }
 
         if (infoRegistroSalida.getEncontro_TablaRegistroSalida() > 0) {
+            // Solo aqui: si la busqueda no encuentra nada, abajo se regresa al cliente anterior
+            // y limpiarle el estado seria borrarle datos a un cliente del que nunca se salio.
+            if (limpiarEstado) {
+                limpiarEstadoDelCliente();
+            }
             if (VariablesGlobales.tipodebusqueda == 1) {//Ax: antes VariablesGlobales.tipodebusqueda != 2
                 VariablesGlobales.registroactual = infoRegistroSalida.getEncontro_TablaRegistroSalida();//infoMedidorEntrada.getEncontro_TablaMedidorEntrada();
                 leerInformacionUsuario(1);
@@ -5779,6 +5845,11 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
             cerrarArchivosFacturacion();
         }
         return (0);
+    }
+
+    /** Compatibilidad: las llamadas que ya existian NO limpian estado. */
+    private int buscarCuentaMedidor(String medidor, int modeloBusqueda) {
+        return buscarCuentaMedidor(medidor, modeloBusqueda, false);
     }
 
     private boolean buscarApuntadorCliente(String apuntador) {// buscar el codigo o apuntador por el nombre de cuenta
@@ -5840,18 +5911,9 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
     private int retrocedeRegistro() {
 
         int tmpreg = VariablesGlobales.registroactual - 1;
-        YaTomoFotoCliente = 0;
-        s_foto="0";
         // NumeroDeFotos = 0;
-        variables.direcciondelectura = variables.haciaatras;
-        variables.lactual = 0;
-        variables.consumoactual = 0;
-        variables.nveces = 0;
-        tomaFotoBoton = false;
-        YaMostroMensaje = 0;
-        imagenLiquid_3.setImageResource(android.R.color.transparent);
-        code.setLength(0);
-        BorroLecturaOCausa = false;
+        variables.direcciondelectura = variables.haciaatras;      // direccional: no va en el comun
+        limpiarEstadoDelCliente();
 
         // Mismo freno que en avanzarRegistro(): el operario puede quedar parado primero en la
         // activa y querer irse hacia atras a la reactiva -o salirse de la cuenta- con una
@@ -5880,20 +5942,10 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
     private int avanzarRegistro() {
 
         int tmpreg = VariablesGlobales.registroactual + 1;
-        YaTomoFotoCliente = 0;
         // NumeroDeFotos = 0;
-        s_foto="0";
-        variables.direcciondelectura = variables.haciaadelante;
-        variables.lactual = 0;
-        variables.consumoactual = 0;
-        imagenLiquid_3.setImageResource(android.R.color.transparent);
-        variables.nveces = 0;
-        variables.cactual = 0;
-        tomaFotoBoton = false;
+        variables.direcciondelectura = variables.haciaadelante;   // direccional: no va en el comun
         int x = infoRegistroSalida.getTotal_TablaRegistroSalida();
-        code.setLength(0);
-        YaMostroMensaje = 0;
-        BorroLecturaOCausa = false;
+        limpiarEstadoDelCliente();
 
         // Cuenta con varias medidas: antes de pasar a la cuenta siguiente hay que cerrar las
         // que falten de ESTA. Tambien cubre el caso de que la medida pendiente este ANTES en el
@@ -6781,6 +6833,13 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         }
 
 
+        if (ID == 0) {
+            // Registro en pantalla: última oportunidad de no guardarlo sin coordenada.
+            // Con ID != 0 no se busca respaldo (aunque, como antes, el guardado sigue
+            // tomando lo que muestre la pantalla).
+            asegurarCoordenada();
+        }
+
         guardarDatosAEnviarNuevo(infoRegistroSalida.gettablaRegistroSalida_NROCONTADOR(),
                 infoRegistroSalida.gettablaRegistroSalida_NROMEDIDORES(),
                 infoRegistroSalida.gettablaRegistroSalida_LECTURATOMADA().trim(),
@@ -7464,7 +7523,13 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
                     // boolean salir = true;
                     int conteo = 1;
 
-                    while (conteo < 10) {
+                    // Antes el tope era 10: con las fotos de meses anteriores
+                    // que siguen en la carpeta del celular, una cuenta llegaba
+                    // a tener _0.._9 ocupados y la foto nueva salia otra vez
+                    // como _9 (Android la guardaba como "_9 (1).jpg"), y en
+                    // el servidor "ya existia" y no se guardaba. El servidor
+
+                    while (conteo < 100) {
 
                         foto2 = new File(existeFoto.trim() + (String.format("%1$1s", conteo).replace(" ", "0")) + ".jpg"); //Ax:  303123_A1_02.jpg
                         namePhoto = nombre.trim() + Separador + (String.format("%1$1s", conteo).replace(" ", "0"));
@@ -8208,7 +8273,10 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
                 latitud = txtLatitud.getText().toString().trim();
 
             int distancia;
-            if (parseStringToDouble(longitud) == 0 || parseStringToDouble(latitud) == 0) {
+            if (parseStringToDouble(longitud) == 0 || parseStringToDouble(latitud) == 0
+                    // Coordenada de respaldo imprecisa: no sirve para medir distancia al
+                    // predio; se trata igual que "sin coordenada" (antes pasaba con 150).
+                    || (fixDeRespaldo && precisionEfectivaActual() > PRECISION_MAX_DISTANCIA_M)) {
                 distancia = 150;
             } else {
                 distancia = (int) variables.evaluarDistanciaAlPredio(parseStringToDouble(longitud), parseStringToDouble(latitud), parseStringToDouble(infoRegistroSalida.gettablaRegistroSalida_CORDENADAX().trim()), parseStringToDouble(infoRegistroSalida.gettablaRegistroSalida_CORDENADAY().trim()));
@@ -8243,24 +8311,93 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
     }
 
     private void capturarCoordenadasPredio() {
-
-        if (encenderEstadoActualGPS == 1) {
-
-            if (txtLatitud.getText().toString().trim().equals("0") || txtLatitud.getText().toString().trim().equals("0.00")) {
-                txtLatitud.setText(longitudActualGpg.trim().replace(",", "."));
-            }
-
-            if (txtLongitud.getText().toString().trim().equals("0") || txtLongitud.getText().toString().trim().equals("0.00"))
-                txtLongitud.setText(latitudActualGpg.trim().replace(",", "."));
-        } else {
-
+        // Antes copiaba latitudActualGpg/longitudActualGpg, que nunca se asignaban
+        // ("0.00"), y con el GPS apagado al abrir la pantalla borraba una
+        // coordenada válida recibida después. Ahora solo deja 0 si de verdad no
+        // hay ninguna posición disponible en el teléfono.
+        asegurarCoordenada();
+        if (sinCoordenada()) {
             txtLatitud.setText("0.00");
             txtLongitud.setText("0.00");
             numeroDeSatelitesGPS = "0";
             velocidadGPS = "0";
-            Calendar calendar = Calendar.getInstance();
             fechayHoraReportadaGPS = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
         }
+    }
+
+    /** true si la pantalla no tiene coordenada (vacía o 0). */
+    private boolean sinCoordenada() {
+        String la = txtLatitud.getText().toString().trim();
+        String lo = txtLongitud.getText().toString().trim();
+        return coordenadaNula(la) || coordenadaNula(lo);
+    }
+
+    /** Vacía, ilegible o 0. Nunca lanza: se usa dentro del guardado. */
+    private static boolean coordenadaNula(String valor) {
+        if (valor == null || valor.isEmpty()) return true;
+        try {
+            return Double.parseDouble(valor.replace(',', '.')) == 0;
+        } catch (NumberFormatException ex) {
+            return true;
+        }
+    }
+
+    /**
+     * Si la pantalla está sin coordenada, toma la ubicación más reciente que el
+     * teléfono tenga por cualquier proveedor (GPS, red o pasivo). Su hora real
+     * queda en fecha_satelite, así el servidor sabe qué tan vieja es.
+     */
+    private void asegurarCoordenada() {
+        // Toca la pantalla (setText): solo desde el hilo principal.
+        if (Looper.myLooper() != Looper.getMainLooper()) return;
+        if (cerrandoRuta) return;
+        if (!sinCoordenada()) return;
+        Location respaldo = mejorUbicacionConocida();
+        if (respaldo != null) {
+            muestraPosicionActual(respaldo);
+            fixDeRespaldo = true; // aunque venga del GPS, es una posición guardada, no en vivo
+        }
+    }
+
+    /**
+     * Entre las últimas posiciones conocidas de cada proveedor, la de menor error
+     * efectivo (precisión + degradación por antigüedad). Se descartan las de más
+     * de 10 minutos: una posición de ayer en la oficina es peor que ninguna.
+     * getLastKnownLocation lee una caché: no espera al GPS ni bloquea la pantalla.
+     */
+    private Location mejorUbicacionConocida() {
+        Location mejor = null;
+        float errorMejor = Float.MAX_VALUE;
+        try {
+            LocationManager lm = gpsManager != null ? gpsManager
+                    : (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+            if (lm == null) return null;
+            long ahora = SystemClock.elapsedRealtime();
+            for (String proveedor : lm.getProviders(true)) {
+                Location l = lm.getLastKnownLocation(proveedor);
+                if (l == null || (l.getLatitude() == 0 && l.getLongitude() == 0)) continue;
+                long edadMs = ahora - l.getElapsedRealtimeNanos() / 1_000_000L;
+                if (edadMs < 0 || edadMs > EDAD_MAX_RESPALDO_MS) continue;
+                float error = (l.hasAccuracy() ? l.getAccuracy() : 1000f)
+                        + DEGRADACION_M_POR_SEG * (edadMs / 1000f);
+                if (error < errorMejor) {
+                    mejor = l;
+                    errorMejor = error;
+                }
+            }
+        } catch (SecurityException ex) {
+            logger.info("mejorUbicacionConocida sin permiso: " + ex.getMessage());
+        } catch (Exception ex) {
+            logger.info("mejorUbicacionConocida: " + ex.getMessage());
+        }
+        return mejor;
+    }
+
+    /** Error estimado de la coordenada en pantalla, creciendo con su antigüedad. */
+    private float precisionEfectivaActual() {
+        if (sinCoordenada() || precisionActualM == Float.MAX_VALUE) return Float.MAX_VALUE;
+        long edadMs = Math.max(0L, SystemClock.elapsedRealtime() - fixActualElapsedMs);
+        return precisionActualM + DEGRADACION_M_POR_SEG * (edadMs / 1000f);
     }
 
     private int LecturaRegistroNuevo(int primero, int N_veces, double l_actual, String Estado, String lectura_act, double c_actual) {
@@ -8752,7 +8889,8 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
                     VariablesGlobales.tipodebusqueda = parseStringToInteger(data.getStringExtra("opcion"));
 
                     if (!VariablesGlobales.datodebusqueda.equals("")) // realizar Busqueda
-                        buscarCuentaMedidor(VariablesGlobales.datodebusqueda.trim(), 0);
+                        // true: es el operario cambiando de cliente a proposito.
+                        buscarCuentaMedidor(VariablesGlobales.datodebusqueda.trim(), 0, true);
                 } catch (Exception ex) {
                     logger.info("onActivityResult() BUSQUEDA_REQUEST_CODE " + ex.toString());
                 }
@@ -9071,6 +9209,8 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         tiempoYDistanciaPromedio();
 
         abrirArchivosDeFacturacion();
+        cerrandoRuta = true; // los registros no leídos no deben recibir la posición actual de respaldo
+        try { // finally: la bandera se libera aunque el ciclo falle
         while (++VariablesGlobales.registroactual <= infoRegistroSalida.getTotal_TablaRegistroSalida()) {
 
 
@@ -9098,6 +9238,9 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
                 variables.totalregistrosleidos++;
                 guardarEnvioGPRSNuevo(1, 0);
             }
+        }
+        } finally {
+            cerrandoRuta = false;
         }
         VariablesGlobales.registroactual = temporal;
         leerInformacionUsuario(1);
@@ -9293,7 +9436,12 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
             txtLongitud.setText(String.valueOf(loc.getLatitude()));
             txtLatitud.setText(String.valueOf(loc.getLongitude()));
             velocidadGPS = String.valueOf(loc.getSpeed());
-            numeroDeSatelitesGPS = "" + loc.getExtras().getInt("satellites");//Ax: sin probar!
+            precisionActualM = loc.hasAccuracy() ? loc.getAccuracy() : Float.MAX_VALUE;
+            fixActualElapsedMs = loc.getElapsedRealtimeNanos() / 1_000_000L;
+            fixDeRespaldo = !LocationManager.GPS_PROVIDER.equals(loc.getProvider());
+            // getExtras() puede ser null: el NPE dentro del listener cerraba la app.
+            Bundle extrasGps = loc.getExtras();
+            numeroDeSatelitesGPS = "" + (extrasGps != null ? extrasGps.getInt("satellites") : 0);
             altitudReportadaGPS = String.valueOf(loc.getAltitude());
 
             Date date = new Date(loc.getTime());
@@ -9654,7 +9802,37 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
 
         @Override
         public void onLocationChanged(Location loc) {
+            ultimoFixGpsMs = SystemClock.elapsedRealtime();
             muestraPosicionActual(loc);
+        }
+
+        @Override
+        public void onProviderDisabled(String provider) {
+        }
+
+        @Override
+        public void onProviderEnabled(String provider) {
+        }
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+        }
+    }
+
+    /** Ubicación por red: solo se usa si el GPS lleva más de 30 s sin posición. */
+    private class UsarRed implements LocationListener {
+
+        @Override
+        public void onLocationChanged(Location loc) {
+            if (SystemClock.elapsedRealtime() - ultimoFixGpsMs <= 30_000L) return;
+            // Pantalla vacía: cualquier posición es mejor que 0. Si ya hay una, la de
+            // red solo la reemplaza si es buena (<= 100 m) y mejor que la actual
+            // ya degradada por su antigüedad (el técnico pudo haberse movido).
+            if (sinCoordenada()
+                    || (loc.hasAccuracy() && loc.getAccuracy() <= PRECISION_MAX_RED_M
+                        && loc.getAccuracy() < precisionEfectivaActual())) {
+                muestraPosicionActual(loc);
+            }
         }
 
         @Override
@@ -9722,9 +9900,9 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
                         if (infoRegistroSalida.gettablaRegistroSalida_SUSPENDIDO().equals("0D")) {
                             Mensaje += " CLIENTE CON CONTROL DE verifica en que Estado esta el Predio y reportarlo en el informe,,,/n!!ALERTA DE VERIFICACION ESPECIAL";
 
-                        } else {
-                            Mensaje += " CLIENTE CON ANOMALIA ESPECIAL LA TABLA NO SE HA INCORPORADO ,,,!!ALERTA DE VERIFICACION ESPECIAL";
-                        }
+                        }// else {
+//                            Mensaje += " CLIENTE CON ANOMALIA ESPECIAL LA TABLA NO SE HA INCORPORADO ,,,!!ALERTA DE VERIFICACION ESPECIAL";
+//                        }
                     }
 
                 }
@@ -10635,6 +10813,18 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         try {
             //handler.removeCallbacks(handlerTask);
             desregistrarSyncBroadcastReceiver();
+        } catch (Exception ex) {
+        }
+        try {
+            if (gpsManager != null && gpsListener != null) {
+                gpsManager.removeUpdates(gpsListener);
+            }
+        } catch (Exception ex) {
+        }
+        try {
+            if (gpsManager != null && redListener != null) {
+                gpsManager.removeUpdates(redListener);
+            }
         } catch (Exception ex) {
         }
         nuevoImpresor.close(); // Ax: cierra el executor del modelo de impresión nuevo
