@@ -21,6 +21,8 @@ public class PosicionCalidad {
     public static final String FUENTE_CIERRE_RUTA = "CIERRE_RUTA";
     /** Guardado de otro registro (no el de pantalla) con la posición actual. */
     public static final String FUENTE_REGISTRO_PREVIO = "REGISTRO_PREVIO";
+    /** Navegación por pasos desde el último fix GPS bueno (fase 2). */
+    public static final String FUENTE_PDR = "PDR";
 
     private Float precisionH;
     private Float precisionV;

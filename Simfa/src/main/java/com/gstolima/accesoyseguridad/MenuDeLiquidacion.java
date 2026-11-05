@@ -385,6 +385,11 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
     private Integer satelitesLocActual;               // satélites del fix que muestra la pantalla
     private boolean guardandoOtroRegistro = false;    // guardarEnvioGPRSNuevo con ID != 0
     private GnssStatus.Callback gnssCallback;
+    private PdrMotor pdr;                             // fase 2: navegación por pasos
+    private final PdrMotor.Oyente oyentePdr = this::onPasoPdr;
+    private long ultimoPdrEnPantallaMs = 0L;
+    private static final long PDR_PANTALLA_CADA_MS = 2_000L; // no redibujar a ritmo de pasos
+    private static final float HISTERESIS = 0.8f;     // cambiar de fuente solo si es 20 % mejor
     private static final int BUFFER_GPS_MAX = 24;            // ~2 min a 1 fix / 5 s
     private static final long VENTANA_PROMEDIO_MS = 60_000L;
     private static final float PRECISION_MAX_PROMEDIO_M = 30f;
@@ -534,6 +539,17 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
     //------- Fin Teclado Nuevo ----
 
     boolean imprimirTrasFoto = false;
+
+    // ---- Regla MACROMEDIDOR (CLASEDESERVICIO MM / MO) ----
+    // Registro del macromedidor que ya se leyo y todavia no tiene su foto confirmada.
+    // Mientras sea > 0 el operario no puede moverse a otro cliente (freno en avanzar/retroceder/
+    // busqueda). NO se limpia en limpiarEstadoDelCliente(): es justamente lo que impide salir.
+    // Se libera solo cuando onFotoProcesada() confirma la foto de ese registro.
+    int registroMacroSinFoto = 0;
+    String cuentaMacroSinFoto = "";
+    // Registro que ya tiene foto confirmada (p. ej. tomada con el boton antes de leer). Es estado
+    // del cliente en pantalla: se limpia en limpiarEstadoDelCliente() al cambiar de cliente.
+    int registroFotoConfirmada = 0;
 
 
     @Override
@@ -915,6 +931,21 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
             locationmanager.registerGnssStatusCallback(gnssCallback, new Handler(Looper.getMainLooper()));
         } catch (Exception ex) {
             logger.info("GnssStatus no disponible: " + ex.getMessage());
+        }
+        // Fase 2: navegación por pasos, último recurso sin GPS ni red. Sus sensores
+        // corren en un hilo propio; aquí solo llega un aviso por paso.
+        try {
+            pdr = PdrMotor.obtener(this);
+            if (pdr.iniciar(oyentePdr)) {
+                // Si se volvió a abrir la pantalla sin GPS, el ancla previa sigue
+                // vigente: se muestra sin esperar al primer paso.
+                txtElectura.postDelayed(this::onPasoPdr, 3_000L);
+            } else {
+                pdr = null;
+            }
+        } catch (Exception ex) {
+            pdr = null;
+            logger.info("PDR no disponible: " + ex.getMessage());
         }
 
         if (!locationmanager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
@@ -4990,6 +5021,11 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
 
         abrirArchivosDeFacturacion();
 
+        if (atenderFotoMacroPendiente()) {
+            cerrarArchivosFacturacion();
+            return;
+        }
+
         alterno = VariablesGlobales.registroactual;
         VariablesGlobales.registroactual = variables.ultimoregistro;
         leerInformacionUsuario(1);
@@ -5457,6 +5493,10 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
                     cc_lecturaact = "";
                     YaTomoFotoCliente = 1;
                     if (ControlEspecialZonaRoja.trim().equals("000")) {
+                        // Foto de ANOMALIA: siempre obligatoria (cancelar reabre la camara).
+                        // Antes no se fijaba y heredaba FotoObligatoriaXLectura del cliente
+                        // anterior: a veces obligaba y a veces dejaba salir.
+                        FotoObligatoriaXLectura = 1;
                         ejecutarProcesoDeFoto(infoRegistroSalida.gettablaRegistroSalida_CUENTA().trim(), infoRegistroSalida.gettablaRegistroSalida_TIPOMEDIDA(), tipoFotoDigital, 1, "E", 1);
                     }
                 } else if (permiteLectura.equals("1")) {
@@ -5810,6 +5850,7 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         YaTomoFotoCliente = 0;
         s_foto = "0";
         tomaFotoBoton = false;
+        registroFotoConfirmada = 0;
         YaMostroMensaje = 0;
         BorroLecturaOCausa = false;
         permiteLectura = "0";
@@ -5853,6 +5894,12 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
             // Solo aqui: si la busqueda no encuentra nada, abajo se regresa al cliente anterior
             // y limpiarle el estado seria borrarle datos a un cliente del que nunca se salio.
             if (limpiarEstado) {
+                // Busqueda manual = cambio de cliente: tampoco se permite con un macromedidor
+                // leido sin foto. El freno deja el registro pendiente cargado y en pantalla.
+                if (atenderFotoMacroPendiente()) {
+                    cerrarArchivosFacturacion();
+                    return (0);
+                }
                 limpiarEstadoDelCliente();
             }
             if (VariablesGlobales.tipodebusqueda == 1) {//Ax: antes VariablesGlobales.tipodebusqueda != 2
@@ -5947,6 +5994,10 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         variables.direcciondelectura = variables.haciaatras;      // direccional: no va en el comun
         limpiarEstadoDelCliente();
 
+        if (atenderFotoMacroPendiente()) {
+            return (1);
+        }
+
         // Mismo freno que en avanzarRegistro(): el operario puede quedar parado primero en la
         // activa y querer irse hacia atras a la reactiva -o salirse de la cuenta- con una
         // medida sin cerrar.
@@ -5978,6 +6029,12 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         variables.direcciondelectura = variables.haciaadelante;   // direccional: no va en el comun
         int x = infoRegistroSalida.getTotal_TablaRegistroSalida();
         limpiarEstadoDelCliente();
+
+        // Macromedidor leido sin foto: no se sale del cliente (va antes del freno de medidas
+        // para que una cuenta MM con activa+reactiva exija la foto de cada medida).
+        if (atenderFotoMacroPendiente()) {
+            return (1);
+        }
 
         // Cuenta con varias medidas: antes de pasar a la cuenta siguiente hay que cerrar las
         // que falten de ESTA. Tambien cubre el caso de que la medida pendiente este ANTES en el
@@ -6233,7 +6290,21 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         try {
             Utils.escribirLogEnRaiz("Cuenta " +infoRegistroSalida.gettablaRegistroSalida_CUENTA() +" INDICADOR "+indlectura + ", PRIMERO "+ primero + " LECTURA " + lecturaact+ ", CAUSA " +  causaact+" Fecha "+getPhoneDate().toString());
             if (!ubicacionHabilitada()) {
-                validarGPS();
+                // Sin Ubicación, Android no entrega GPS, red ni última posición, y la
+                // coordenada en pantalla puede tener horas. Solo se acepta la
+                // navegación por pasos (≤ 5 min desde el último GPS bueno); sin ella
+                // la lectura quedaría sin coordenada real: no se guarda.
+                Location porPasos = pdr != null ? pdr.estimacion() : null;
+                if (porPasos == null) {
+                    logger.info("Lectura bloqueada: Ubicación apagada y sin estimación por pasos");
+                    validarGPS();
+                    return 0;
+                }
+                if (!PosicionCalidad.FUENTE_PDR.equals(fuenteActual)) {
+                    muestraPosicionActual(porPasos);
+                    fuenteActual = PosicionCalidad.FUENTE_PDR;
+                    satelitesLocActual = null;
+                }
             }
      /*       if (causaact.equals("0"))
             {
@@ -6363,6 +6434,17 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
                                     YaTomoFotoCliente = 1;
                                     if (ControlEspecialZonaRoja.trim().equals("000")) {
                                         obligaFotografia = "0";
+                                        // Foto de la desviacion (alta, negativa, igual...): es
+                                        // OPCIONAL, el operario puede salir de la camara.
+                                        // FotoObligatoriaXLectura no se limpia al cambiar de
+                                        // cliente y las reglas del final de procesarLectura la
+                                        // dejan en 1 aunque no tomen foto, asi que llegaba aqui
+                                        // con el valor del cliente anterior y la camara no dejaba
+                                        // salir. Se fija explicitamente.
+                                        // Si sale sin foto, el cancel pone YaTomoFotoCliente = 0
+                                        // y las reglas normales (y la de macromedidor) siguen
+                                        // exigiendo su foto al confirmar la lectura.
+                                        FotoObligatoriaXLectura = 0;
                                         ejecutarProcesoDeFoto(infoRegistroSalida.gettablaRegistroSalida_CUENTA().trim(), infoRegistroSalida.gettablaRegistroSalida_TIPOMEDIDA(), tipoFotoDigital, 1, "E", 1);
                                     }
 
@@ -6571,6 +6653,10 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
                     }
                 }// fin del proceso para el consumo cero
 
+            // Va despues de todas las reglas de foto de arriba: si alguna ya abrio la camara para
+            // este registro no se abre otra; si ninguna aplico, aqui se exige.
+            exigirFotoMacromedidor();
+
             variableTomarDatosLectura = true;
             tiempoYDistanciaPromedio();
 
@@ -6743,7 +6829,9 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
                 }
                 ventanaFirma = false;
                 telefono = "";
-                if (!scanEntregas) {
+                // Macromedidor sin foto confirmada: se queda en el cliente. El avance lo retoma
+                // onFotoProcesada() cuando la foto queda registrada (avanzarTrasFotoMacro()).
+                if (!scanEntregas && registroMacroSinFoto != VariablesGlobales.registroactual) {
                     if ((variables.direcciondelectura == variables.haciaadelante)) {
                         if (avanzarRegistro() == 0)
                             retrocedeRegistro();
@@ -8003,6 +8091,9 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         }
         if (error == null) {
             FotoObligatoriaXLectura = 0;
+            if (job.registro > 0) {
+                registroFotoConfirmada = job.registro;
+            }
             LogEventos.escribir(this, "[FOTOS] onFotoProcesada: cuenta=" + job.cuenta
                     + " NumeroDeFotos=" + NumeroDeFotos
                     + (NumeroDeFotos > 1 ? " -> encadena otra" : " -> no encadena mas"));
@@ -8013,7 +8104,9 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
                 // se tomaban 2, sin importar cuantas pidiera la anomalia.
                 NumeroDeFotos--;
                 encadenarFotoAdicional(job);
+                return;
             }
+            liberarFotoMacromedidor(job);
             return;
         }
 
@@ -8055,6 +8148,13 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         boolean restaurar = job.registro > 0 && job.registro != registroEnPantalla;
 
         tomandoFotoAdicionalEntrega = true;
+        // En lecturas, la secuencia (NumeroDeFotos > 1) solo la arma una anomalia con NroFotos
+        // en CAUSAS.TXT, y las fotos de anomalia son obligatorias. onFotoProcesada() acaba de
+        // poner FotoObligatoriaXLectura en 0 al confirmar la primera, asi que sin esto la 2a y
+        // 3a se podian cancelar. Entregas conserva su comportamiento.
+        if (!esRutaDeEntregas()) {
+            FotoObligatoriaXLectura = 1;
+        }
         try {
             if (restaurar) {
                 abrirArchivosDeFacturacion();
@@ -8067,6 +8167,7 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
                     + Parametro_CUENTA + " | registro=" + job.registro
                     + " | faltaban=" + NumeroDeFotos, e);
             NumeroDeFotos = 0; // no dejar la secuencia colgada para la proxima cuenta
+            FotoObligatoriaXLectura = 0;   // ni la obligacion de una foto que no se abrio
             mensajeT("No se pudo continuar con las fotos de la cuenta " + Parametro_CUENTA, msgMedio);
         } finally {
             if (restaurar) {
@@ -8209,6 +8310,11 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         b.putInt("NumeroDeFotos", NumeroDeFotos);
         b.putBoolean("tomandoFotoAdicionalEntrega", tomandoFotoAdicionalEntrega);
         b.putBoolean("imprimirTrasFoto", imprimirTrasFoto);
+        // La camara puede matar el proceso en equipos con poca memoria: sin esto, al volver se
+        // perderia el freno del macromedidor y el operario quedaria libre sin foto.
+        b.putInt("registroMacroSinFoto", registroMacroSinFoto);
+        b.putString("cuentaMacroSinFoto", cuentaMacroSinFoto);
+        b.putInt("registroFotoConfirmada", registroFotoConfirmada);
         outState.putBundle(KEY_FOTO_STATE, b);
     }
 
@@ -8234,6 +8340,9 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         NumeroDeFotos = b.getInt("NumeroDeFotos");
         tomandoFotoAdicionalEntrega = b.getBoolean("tomandoFotoAdicionalEntrega");
         imprimirTrasFoto = b.getBoolean("imprimirTrasFoto");
+        registroMacroSinFoto = b.getInt("registroMacroSinFoto", 0);
+        cuentaMacroSinFoto = b.getString("cuentaMacroSinFoto", "");
+        registroFotoConfirmada = b.getInt("registroFotoConfirmada", 0);
     }
 
     private boolean evaluarDistancia() {
@@ -8392,6 +8501,13 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         if (cerrandoRuta) return;
         if (!sinCoordenada()) return;
         Location respaldo = mejorUbicacionConocida();
+        Location porPasos = pdr != null ? pdr.estimacion() : null;
+        if (porPasos != null && (respaldo == null || porPasos.getAccuracy() <= errorEfectivo(respaldo))) {
+            muestraPosicionActual(porPasos);
+            fuenteActual = PosicionCalidad.FUENTE_PDR;
+            satelitesLocActual = null;
+            return;
+        }
         if (respaldo != null) {
             muestraPosicionActual(respaldo);
             fixDeRespaldo = true; // aunque venga del GPS, es una posición guardada, no en vivo
@@ -8437,6 +8553,11 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
     /** Error estimado de la coordenada en pantalla, creciendo con su antigüedad. */
     private float precisionEfectivaActual() {
         if (sinCoordenada() || precisionActualM == Float.MAX_VALUE) return Float.MAX_VALUE;
+        if (PosicionCalidad.FUENTE_PDR.equals(fuenteActual)) {
+            // La estimación por pasos se actualiza sola: su error vigente es el del motor.
+            Location e = pdr != null ? pdr.estimacion() : null;
+            return e != null ? e.getAccuracy() : Float.MAX_VALUE;
+        }
         long edadMs = Math.max(0L, SystemClock.elapsedRealtime() - fixActualElapsedMs);
         return precisionActualM + DEGRADACION_M_POR_SEG * (edadMs / 1000f);
     }
@@ -9362,6 +9483,10 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
 
         int registro_actual = 0;
         int ultimo_registro;
+        if (atenderFotoMacroPendiente()) {      // lector de barras = cambio de cliente
+            scanEntregas = false;               // si no, el proximo procesarLectura2 no avanzaria
+            return 0;
+        }
         ultimo_registro = VariablesGlobales.registroactual;
         Log.e("INFO", "buscaPorMedidor| medidor: " + medidor + " | tipo: " + tipo + " | tipobus: " + VariablesGlobales.tipodebusqueda);
 
@@ -9845,6 +9970,7 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         @Override
         public void onLocationChanged(Location loc) {
             ultimoFixGpsMs = SystemClock.elapsedRealtime();
+            if (pdr != null) pdr.onGps(loc);
             bufferGps.addLast(loc);
             while (bufferGps.size() > BUFFER_GPS_MAX) bufferGps.removeFirst();
             muestraPosicionActual(loc);
@@ -9863,6 +9989,35 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         @Override
         public void onStatusChanged(String provider, int status, Bundle extras) {
         }
+    }
+
+    /** Error estimado de una posición: precisión + 1,5 m por segundo de antigüedad. */
+    private static float errorEfectivo(Location l) {
+        long edadMs = Math.max(0L, SystemClock.elapsedRealtime() - l.getElapsedRealtimeNanos() / 1_000_000L);
+        return (l.hasAccuracy() ? l.getAccuracy() : 1000f) + DEGRADACION_M_POR_SEG * (edadMs / 1000f);
+    }
+
+    /** Cada paso del PDR: si el GPS calla hace más de 30 s, la estimación puede pasar a pantalla. */
+    private void onPasoPdr() {
+        if (pdr == null || cerrandoRuta || isFinishing()) return;
+        long ahora = SystemClock.elapsedRealtime();
+        if (ahora - ultimoFixGpsMs <= 30_000L) return;                  // hay GPS en vivo
+        if (ahora - ultimoPdrEnPantallaMs < PDR_PANTALLA_CADA_MS) return; // máx. 1 vez cada 2 s
+        Location e = pdr.estimacion();
+        if (e != null) mostrarPdr(e);
+    }
+
+    /** @return true si la estimación por pasos pasó a pantalla. */
+    private boolean mostrarPdr(Location e) {
+        boolean pdrEnPantalla = PosicionCalidad.FUENTE_PDR.equals(fuenteActual);
+        if (sinCoordenada() || pdrEnPantalla || e.getAccuracy() < HISTERESIS * precisionEfectivaActual()) {
+            muestraPosicionActual(e);
+            fuenteActual = PosicionCalidad.FUENTE_PDR;
+            satelitesLocActual = null;
+            ultimoPdrEnPantallaMs = SystemClock.elapsedRealtime();
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -9888,7 +10043,14 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
             Location loc = locActual;
             PosicionCalidad c = new PosicionCalidad();
             c.setFuente(fuenteActual);
-            if (loc.hasAccuracy()) c.setPrecisionH(loc.getAccuracy());
+            if (PosicionCalidad.FUENTE_PDR.equals(fuenteActual)) {
+                // El error por pasos crece con el tiempo: se guarda el vigente, no el
+                // de la última vez que se dibujó en pantalla (null si ya venció).
+                Location vigente = pdr != null ? pdr.estimacion() : null;
+                if (vigente != null) c.setPrecisionH(vigente.getAccuracy());
+            } else if (loc.hasAccuracy()) {
+                c.setPrecisionH(loc.getAccuracy());
+            }
             if (loc.hasVerticalAccuracy()) c.setPrecisionV(loc.getVerticalAccuracyMeters());
             if (loc.hasAltitude()) c.setAltitud(loc.getAltitude());
             c.setSatelitesUsados(satelitesLocActual);
@@ -9970,6 +10132,19 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
         @Override
         public void onLocationChanged(Location loc) {
             if (SystemClock.elapsedRealtime() - ultimoFixGpsMs <= 30_000L) return;
+            // Sin GPS: entre la red y los pasos gana la de menor error, con histéresis
+            // para que la pantalla no salte de una a otra en cada fix.
+            Location porPasos = pdr != null ? pdr.estimacion() : null;
+            if (porPasos != null) {
+                boolean pdrEnPantalla = PosicionCalidad.FUENTE_PDR.equals(fuenteActual);
+                boolean redMejor = loc.hasAccuracy() && (pdrEnPantalla
+                        ? loc.getAccuracy() < HISTERESIS * porPasos.getAccuracy()
+                        : loc.getAccuracy() < porPasos.getAccuracy());
+                // Si los pasos tampoco mejoran lo que hay en pantalla, sigue la lógica de red.
+                if (!redMejor && mostrarPdr(porPasos)) {
+                    return;
+                }
+            }
             // Pantalla vacía: cualquier posición es mejor que 0. Si ya hay una, la de
             // red solo la reemplaza si es buena (<= 100 m) y mejor que la actual
             // ya degradada por su antigüedad (el técnico pudo haberse movido).
@@ -10978,6 +11153,10 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
             if (gpsManager != null && gnssCallback != null) {
                 gpsManager.unregisterGnssStatusCallback(gnssCallback);
             }
+        } catch (Exception ex) {
+        }
+        try {
+            if (pdr != null) pdr.detener(oyentePdr);
         } catch (Exception ex) {
         }
         nuevoImpresor.close(); // Ax: cierra el executor del modelo de impresión nuevo
@@ -12109,7 +12288,152 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
      * EscribaArchivoImpresionESC() dentro de procesarLectura2().
      */
     private void imprimirTicketDeLaCuenta() {
+        if (noImprimeMacromedidor()) return;
         imprimirTirilla(decidirTirilla(false));
+    }
+
+    // =====================================================================================
+    // Regla MACROMEDIDOR (CLASEDESERVICIO "MM" / "MO"):
+    //   1. Toda lectura exige foto; sin foto confirmada no se pasa a otro cliente.
+    //   2. No se imprime tirilla (ni impresion ni reimpresion).
+    // Todo se decide sobre el registro en pantalla, asi que al cambiar a un cliente que no es
+    // macromedidor la impresion y las fotos vuelven a su comportamiento normal sin limpiar nada.
+    // El unico estado que sobrevive al cambio de cliente es registroMacroSinFoto, y existe
+    // precisamente para impedir ese cambio hasta que la foto quede registrada.
+    // =====================================================================================
+
+    /** Clase de servicio del registro en pantalla: MM / MO = macromedidor. Sin estado. */
+    private boolean esMacromedidor() {
+        String clase = infoRegistroSalida.gettablaRegistroSalida_CLASEDESERVICIO();
+        if (clase == null) return false;
+        clase = clase.trim().toUpperCase();
+        return clase.equals("MM") || clase.equals("MO");
+    }
+
+    /**
+     * La foto obligatoria solo se puede exigir donde la camara realmente puede abrir: ruta de
+     * lecturas (no entregas), sector de lectura "L", fuera de formato papel (ZonaRoja "000") y
+     * con camara habilitada. Si no, se exigiria una foto imposible y el operario quedaria
+     * bloqueado en el cliente.
+     */
+    private boolean aplicaFotoMacromedidor() {
+        if (VariablesGlobales.tipoDeRuta == null || VariablesGlobales.tipoDeRuta.trim().equals("E")) return false;
+        if (!activaCamara || variables.espc != 0) return false;
+        if (!ControlEspecialZonaRoja.trim().equals("000")) return false;
+        String sector = infoRegistroSalida.gettablaRegistroSalida_DESCSECTOR();
+        if (sector == null || !sector.startsWith("L")) return false;
+        return esMacromedidor();
+    }
+
+    /** Llamado desde procesarLectura() despues de las reglas de foto existentes. */
+    private void exigirFotoMacromedidor() {
+        if (!aplicaFotoMacromedidor()) return;
+
+        int registro = VariablesGlobales.registroactual;
+        String cuenta = infoRegistroSalida.gettablaRegistroSalida_CUENTA().trim();
+
+        if (registroFotoConfirmada == registro) {
+            // Ya la tomo con el boton antes de digitar la lectura.
+            LogEventos.escribir(this, "[MACROMED] cuenta=" + cuenta + " registro=" + registro + " ya tiene foto confirmada");
+            return;
+        }
+
+        registroMacroSinFoto = registro;
+        cuentaMacroSinFoto = cuenta;
+        FotoObligatoriaXLectura = 1;        // cancelar la camara la vuelve a abrir
+
+        if (camaraEnCurso && capRegistroActual == registro) {
+            LogEventos.escribir(this, "[MACROMED] cuenta=" + cuenta + " registro=" + registro + " camara ya abierta por otra regla");
+            return;
+        }
+        LogEventos.escribir(this, "[MACROMED] cuenta=" + cuenta + " registro=" + registro + " se exige foto");
+        ejecutarProcesoDeFoto(cuenta, infoRegistroSalida.gettablaRegistroSalida_TIPOMEDIDA(), tipoFotoDigital, 0, "", 1);
+    }
+
+    /**
+     * Freno de navegacion. Requiere el archivo de facturacion abierto (igual que
+     * avanzarRegistro()/retrocedeRegistro()).
+     *
+     * @return true cuando el movimiento quedo atendido: el operario sigue en el macromedidor
+     *         pendiente y se le reabre la camara. false si no hay nada pendiente.
+     */
+    private boolean atenderFotoMacroPendiente() {
+        if (registroMacroSinFoto <= 0) return false;
+
+        if (VariablesGlobales.registroactual != registroMacroSinFoto) {
+            VariablesGlobales.registroactual = registroMacroSinFoto;
+            leerInformacionUsuario(1);
+        }
+
+        // Salvaguarda: si el registro ya no es esa cuenta (archivo recargado / ruta cambiada) o
+        // la regla dejo de aplicar (formato papel, camara deshabilitada), se libera el freno en
+        // vez de dejar al operario atrapado en un cliente sin salida.
+        String cuenta = infoRegistroSalida.gettablaRegistroSalida_CUENTA().trim();
+        if (!cuenta.equals(cuentaMacroSinFoto) || !aplicaFotoMacromedidor()) {
+            LogEventos.escribir(this, "[MACROMED] freno liberado sin foto: registro=" + registroMacroSinFoto
+                    + " esperaba='" + cuentaMacroSinFoto + "' encontro='" + cuenta + "'");
+            registroMacroSinFoto = 0;
+            cuentaMacroSinFoto = "";
+            return false;
+        }
+
+        visualizarInformacionCliente(1);
+        if (camaraEnCurso) {
+            return true;                    // la foto esta en curso: solo no se mueve
+        }
+        mensajeT("MACROMEDIDOR - CUENTA " + cuenta + "\nDebe tomar la foto antes de continuar.", msgMedio);
+        FotoObligatoriaXLectura = 1;
+        ejecutarProcesoDeFoto(cuenta, infoRegistroSalida.gettablaRegistroSalida_TIPOMEDIDA(), tipoFotoDigital, 0, "", 1);
+        return true;
+    }
+
+    /** Desde onFotoProcesada() cuando termina la secuencia de fotos de un registro. */
+    private void liberarFotoMacromedidor(FotoJob job) {
+        if (registroMacroSinFoto <= 0 || job.registro != registroMacroSinFoto) return;
+
+        LogEventos.escribir(this, "[MACROMED] foto confirmada cuenta=" + job.cuenta + " registro=" + job.registro);
+        registroMacroSinFoto = 0;
+        cuentaMacroSinFoto = "";
+
+        // Si el operario abrio otra camara (boton) o ya no esta en el registro, no se le mueve.
+        if (camaraEnCurso || VariablesGlobales.registroactual != job.registro) return;
+        avanzarTrasFotoMacro();
+    }
+
+    /** Retoma el avance que procesarLectura2() dejo en espera por la foto del macromedidor. */
+    private void avanzarTrasFotoMacro() {
+        // onFotoProcesada llega por el Handler: puede caer con el archivo ya abierto por otro
+        // flujo (p. ej. un dialogo que lo cierra despues). Solo se cierra si se abrio aqui.
+        boolean abiertoAqui = !infoRegistroSalida.estaAbierto_TablaRegistroSalida();
+        if (abiertoAqui) abrirArchivosDeFacturacion();
+        try {
+            txtElectura.setText("");
+            if (variables.direcciondelectura == variables.haciaadelante) {
+                if (avanzarRegistro() == 0) retrocedeRegistro();
+            } else {
+                if (retrocedeRegistro() == 0) avanzarRegistro();
+            }
+            if (VariablesGlobales.totalregistrosleidos == infoRegistroSalida.getTotal_TablaRegistroSalida()) {
+                mensajeT("Proceso de Lecturas concluido", msgLargo);
+                visualizarInformacionCliente(3);
+            } else {
+                visualizarInformacionCliente(0);
+            }
+            variables.impresora = "   ";
+        } catch (Exception e) {
+            LogEventos.registrarError(this, "[MACROMED] avance tras foto registro=" + VariablesGlobales.registroactual, e);
+        } finally {
+            if (abiertoAqui) cerrarArchivosFacturacion();
+        }
+    }
+
+    /** Macromedidor: nunca se imprime tirilla. Para cualquier otro cliente devuelve false. */
+    private boolean noImprimeMacromedidor() {
+        if (!esMacromedidor()) return false;
+        logger.info("[IMPRESION] Cuenta " + infoRegistroSalida.gettablaRegistroSalida_CUENTA().trim()
+                + " es MACROMEDIDOR: no se imprime.");
+        mensajeT("MACROMEDIDOR: no se imprime tirilla.", msgCorto);
+        return true;
     }
 
     /**
@@ -12118,6 +12442,7 @@ public class MenuDeLiquidacion extends AppCompatActivity implements AsyncRespons
      * que esta en pantalla.
      */
     private void reimprimirTicketDeLaCuenta() {
+        if (noImprimeMacromedidor()) return;
         imprimirTirilla(decidirTirilla(true));
     }
 
